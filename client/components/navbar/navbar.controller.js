@@ -5,9 +5,9 @@ angular.module('wordRiverTeamFtlApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    //}, {
-    //  'title': 'studentProfile',
-    //  'link': '/profile'
+    }, {
+      'title': 'studentProfile',
+      'link': '/profile'
     }];
 
     $scope.isCollapsed = true;
