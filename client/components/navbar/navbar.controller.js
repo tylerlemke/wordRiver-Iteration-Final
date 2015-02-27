@@ -2,10 +2,10 @@
 
 angular.module('wordRiverSpaceshipParrotIteration1App')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+    $scope.menu = [
+      {'title': 'Home', 'link': '/'},
+      {'title': 'Overview', 'link': '/overview'}
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
