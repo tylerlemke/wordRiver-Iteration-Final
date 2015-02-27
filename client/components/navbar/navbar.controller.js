@@ -4,7 +4,9 @@ angular.module('wordRiverTeamFtlApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
-      'link': '/'
+      'link': '/',
+      'addingWords': 'Adding words',
+      'linkForAddingWords':'/addingWords'
     }];
 
     $scope.isCollapsed = true;

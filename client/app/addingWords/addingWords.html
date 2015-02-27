@@ -1,0 +1,31 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+  <h1>Add Words!</h1>
+  </div>
+</header>
+
+<div class="col-md-12">
+  <!--these words will be going into the individuals page, possibly the class words, and added to her program (words they can use) -->
+  <form ng-click="submit">
+    <input type="text" value = 'new words' >
+    <input type="submit" value = 'Add' >
+  </form>
+
+  <!--<div class="container">-->
+    <!--<ul class="list-group">-->
+      <!--<li class="list-group-item">-->
+        <!--<form ng-submit="addData()">-->
+          <!--<input ng-model="textField" type="text" size="50" placeholder="add a new item to the list!">-->
+          <!--<input ng-model="textFieldWeight" type="text" size="50" placeholder="add weight">-->
+          <!--<input type="submit" value="submit" class="btn btn-primary">-->
+          <!--&lt;!&ndash;<span class="floatRight">Items in this list: {{itemsInList()}}</span> &ndash;&gt;-->
+          <!--<span class="floatRight">Largest pet: {{returnHeaviest()}}</span>-->
+        <!--</form>-->
+      <!--</li>-->
+      <!--<li class="list-group-item" ng-repeat="test in data">Animal:{{test.text}} , Weight:{{test.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>-->
+      <!--&lt;!&ndash;<li class="list-group-item" ng-repeat="test in data">{{test.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>&ndash;&gt;-->
+    <!--</ul>-->
+  <!--</div>-->
+</div>
