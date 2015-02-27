@@ -2,11 +2,11 @@
 
 angular.module('ummWordRiverTeam1Iteration1App')
   .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+    $scope.tilesArray = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+      $scope.tilesArray = awesomeThings;
+      socket.syncUpdates('thing', $scope.tilesArray);
     });
 
     $scope.addThing = function() {
