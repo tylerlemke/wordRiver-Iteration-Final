@@ -9,6 +9,11 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
 
+    $http.get('/api/students').success(function(awesomeStudents) {
+      $scope.awesomeThings = awesomeStudents;
+      socket.syncUpdates('student', $scope.awesomeStudents);
+    });
+
     $scope.addThing = function() {
       if($scope.newThing === '') {
         return;
