@@ -1,3 +1,4 @@
+
 'use strict';
 
 angular.module('wordRiverSpaceshipParrotIteration1App')
@@ -12,12 +13,16 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     ];
 
     $scope.contextPacks = [
-      {pack: "heroPack"},
+      {pack: "heroPack",
+      tiles: ["Superman", "Batman"]},
       {pack: "zoo"},
       {pack: "biomes"},
       {pack: "cars"},
       {pack: "disney"}
     ];
+
+    $scope.showPack = true;
+    $scope.currentPack = $scope.contextPacks[0];
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -50,4 +55,9 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
       }
     };
+
+    $scope.packInfo = function(pack){
+      $scope.showPack = true;
+      $scope.currentPack = pack;
+    }
   });
