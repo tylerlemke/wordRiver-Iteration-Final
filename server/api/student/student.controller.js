@@ -1,18 +1,14 @@
 /**
- * Using Rails-like standard naming convention for endpoints.
- * GET     /students              ->  index
- * POST    /students              ->  create
- * GET     /students/:id          ->  show
- * PUT     /students/:id          ->  update
- * DELETE  /students/:id          ->  destroy
+ * Created by hagen715 on 2/10/15.
  */
-
 'use strict';
 
 var _ = require('lodash');
 var Student = require('./student.model');
 
-// Get list of students
+// Defining Routes
+// =====================================================
+
 exports.index = function(req, res) {
   Student.find(function (err, students) {
     if(err) { return handleError(res, err); }

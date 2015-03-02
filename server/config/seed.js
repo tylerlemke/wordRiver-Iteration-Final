@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Student = require('../api/student/student.model.js');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -45,5 +46,40 @@ User.find({}).remove(function() {
   }, function() {
       console.log('finished populating users');
     }
+  );
+});
+
+console.log("Test");
+Student.find({}).remove(function() {
+  Student.create(
+    {
+      "firstName": "Liza",
+      "lastName": "Pratt"
+    },
+    {
+      "firstName": "Battle",
+      "lastName": "Whitaker"
+    },
+    {
+      "firstName": "Leanna",
+      "lastName": "Garrison"
+    },
+    {
+      "firstName": "Sherman",
+      "lastName": "Foster"
+    },
+    {
+      "firstName": "Cassie",
+      "lastName": "Ramos"
+    },
+    {
+      "firstName": "Calderon",
+      "lastName": "Daniel"
+    },
+    {
+      "firstName": "Shanna",
+      "lastName": "Boyle"
+    }
+
   );
 });
