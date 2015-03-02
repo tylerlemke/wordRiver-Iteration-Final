@@ -7,7 +7,6 @@ angular.module('wordRiverTeamFtlApp')
       'link': '/',
       'addingWords': 'Adding words',
       'linkForAddingWords':'/addingWords'
-
     }, {
       'title': 'studentProfile',
       'link': '/profile'
