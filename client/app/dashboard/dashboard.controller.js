@@ -6,9 +6,10 @@ angular.module('ummWordRiverTeam1Iteration1App')
 
     $scope.students = [];
     $scope.getStudents = function() {
-      $http.get('/api/student').success(function (students) {
+      $http.get('/api/student').success(function(students) {
         $scope.students = students;
-        socket.syncUpdates('student', $scope.students);
+        console.log($scope.students);
+        //socket.syncUpdates('student', $scope.students);
       });
     }
     $scope.getStudents();
