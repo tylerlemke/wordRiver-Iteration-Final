@@ -4,6 +4,14 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
   .controller('OverviewCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
 
+    $scope.contextPacks = [
+      {pack: "heroPack"},
+      {pack: "zoo"},
+      {pack: "biomes"},
+      {pack: "cars"},
+      {pack: "disney"}
+    ];
+
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
@@ -24,4 +32,10 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });
+
+    $scope.displayContextPacks = function () {
+      for (var i = 0; i < $scope.contextPacks.length; i++ ) {
+
+      }
+    };
   });

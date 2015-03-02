@@ -26,4 +26,13 @@ describe('Controller: OverviewCtrl', function () {
     $httpBackend.flush();
     expect(scope.awesomeThings.length).toBe(4);
   });
+
+  it('should be things in the list i.e. heroPack, zoo, biomes, cars, disney', function () {
+    expect(scope.contextPacks[0]).toBe("heroPack");
+    expect(scope.contextPacks[1]).toBe("zoo");
+    expect(scope.contextPacks[2]).toBe("biomes");
+    expect(scope.contextPacks[3]).toBe("cars");
+    expect(scope.contextPacks[4]).toBe("disney");
+    expect(scope.contextPacks[5]).toBe(undefined);
+  });
 });
