@@ -28,11 +28,15 @@ describe('Controller: OverviewCtrl', function () {
   });
 
   it('should be things in the list i.e. heroPack, zoo, biomes, cars, disney', function () {
-    expect(scope.contextPacks[0]).toBe("heroPack");
-    expect(scope.contextPacks[1]).toBe("zoo");
-    expect(scope.contextPacks[2]).toBe("biomes");
-    expect(scope.contextPacks[3]).toBe("cars");
-    expect(scope.contextPacks[4]).toBe("disney");
+    expect(scope.contextPacks[0].pack).toBe('heroPack');
+    expect(scope.contextPacks[1].pack).toBe('zoo');
+    expect(scope.contextPacks[2].pack).toBe('biomes');
+    expect(scope.contextPacks[3].pack).toBe('cars');
+    expect(scope.contextPacks[4].pack).toBe('disney');
     expect(scope.contextPacks[5]).toBe(undefined);
+  });
+
+  it('should be 5', function () {
+    expect(scope.contextPacks.length).toBe(5);
   });
 });

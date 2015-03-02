@@ -12,6 +12,8 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
       {pack: "disney"}
     ];
 
+    $scope.textField = "";
+
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
@@ -33,9 +35,10 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
       socket.unsyncUpdates('thing');
     });
 
-    $scope.displayContextPacks = function () {
-      for (var i = 0; i < $scope.contextPacks.length; i++ ) {
-
+    $scope.addContextPacks = function () {
+      if($scope.contextPacks.length >= 1) {
+        $scope.contextPacks.push({pack: $scope.textField});
+        $scope.textField = "";
       }
     };
   });
