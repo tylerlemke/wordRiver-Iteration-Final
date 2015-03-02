@@ -6,6 +6,10 @@ angular.module('wordRiverTeamFtlApp')
     $scope.views = [];
     $scope.classList = [];
     $scope.studentList = [];
+    $scope.studentSortArray = [];
+
+    //view[0] = kindergarten page
+    //view[1] = firstGrade page
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -56,16 +60,30 @@ angular.module('wordRiverTeamFtlApp')
     };
 
     $scope.studentSort = function(course){
+      $scope.studentSortArray = [];
       for(var i=0; i<$scope.studentList.length;i++){
-        if(course == $scope.studentList.course){
-
+        if(course == $scope.studentList[i].course){
+          $scope.studentSortArray.push($scope.studentList[i].student);
         }
       }
+      $scope.studentSortArray.sort();
+      return $scope.studentSortArray;
     };
 
     $scope.webPage = function(course){
       course = course.replace(/\s+/g, '');
       window.location="/"+ course;
     };
+
+    $scope.allFalse = function(){
+      for(var i=0; i<$scope.views.length; i++){
+        $scope.views[i] = false;
+      }
+    };
+
+    $scope.showElement = function(num){
+      $scope.allFalse();
+      $scope.views[num] = true;
+    }
 
   });
