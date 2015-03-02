@@ -37,6 +37,17 @@
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
         <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
       </ul>
+      <div class="container">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <form ng-submit="displayContextPacks()">
+              <input ng-model="textField" type="text" size="50" placeholder="add a context pack!">
+              <input type="submit" value="submit" class="btn btn-primary">
+            </form>
+          </li>
+          <li class="list-group-item" ng-repeat="test in contextPacks">{{test.pack}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 
