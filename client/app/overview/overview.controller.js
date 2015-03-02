@@ -3,6 +3,13 @@
 angular.module('wordRiverSpaceshipParrotIteration1App')
   .controller('OverviewCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
+    $scope.awesomeStudents = [
+      //{
+      //  firstName: "Battle",
+      //  lastName: "Rasmussen",
+      //  gender: "male"
+      //}
+    ];
 
     $scope.contextPacks = [
       {pack: "heroPack"},
@@ -17,6 +24,11 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
+    });
+
+    $http.get('/api/students').success(function(awesomeStudents) {
+      $scope.awesomeStudents = awesomeStudents;
+      socket.syncUpdates('student', $scope.awesomeStudents);
     });
 
     $scope.addThing = function() {
