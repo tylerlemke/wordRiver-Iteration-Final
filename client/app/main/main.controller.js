@@ -7,6 +7,7 @@ angular.module('wordRiverTeamFtlApp')
     $scope.studentList = [];
     $scope.studentSortArray = [];
     $scope.filterText = null;
+    $scope.currentStudent = null;
 
     //view[0] = kindergarten page
     //view[1] = firstGrade page
@@ -48,6 +49,9 @@ angular.module('wordRiverTeamFtlApp')
         }
       }
     };
+{
+
+    }
 
     //creates a list of students
     $scope.populateStudentArray = function(){
@@ -66,5 +70,9 @@ angular.module('wordRiverTeamFtlApp')
     $scope.changeFilter = function(str){
       $scope.filterText = str;
     };
+
+    $scope.makeCurrentStudent = function(student){
+      $scope.currentStudent = student;
+    }
 
   });
