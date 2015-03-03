@@ -4,7 +4,7 @@ angular.module('wordRiverTeamFtlApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('contextPackDashboard', {
-        url: '/contextPackDashboard',
+        url: '/dashboard',
         templateUrl: 'app/contextPackDashboard/contextPackDashboard.html',
         controller: 'ContextPackDashboardCtrl'
       });
