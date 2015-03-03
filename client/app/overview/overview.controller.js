@@ -13,7 +13,7 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.contextPacks = [
       {packName: "heroPack",
-      tiles: ["Superman", "Batman"]},
+      tiles: ["Superman", "Batman", "Hulk"]},
       {packName: "zoo",
       tiles: ["Lion", "Tiger", "Bear"]},
       {packName: "biomes",
@@ -25,9 +25,11 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     ];
 
     $scope.textField = "";
+    $scope.tileField = "";
 
     $scope.showPack = false;
     $scope.currentPack = null;
+    $scope.showTileAdder = false;
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -57,10 +59,19 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.addContextPacks = function () {
       if($scope.contextPacks.length >= 1) {
-        $scope.contextPacks.push({pack: $scope.textField});
+        $scope.contextPacks.push({packName: $scope.textField});
         $scope.textField = "";
       }
     };
+
+    $scope.addTile = function(){
+//        $scope.contextPacks[0].tiles.push($scope.tileField);
+//        $scope.tileField = "";
+    };
+
+    $scope.toggleShowAdder = function() {
+        $scope.showTileAdder = !$scope.showTileAdder;
+        };
 
     $scope.packInfo = function(pack){
       $scope.showPack = true;
