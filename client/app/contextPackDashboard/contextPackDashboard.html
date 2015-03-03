@@ -1,0 +1,32 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Context Pack Dashboard</h1>
+  </div>
+</header>
+<br/>
+<div class="btn-group center" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">Create a New Context Pack</button>
+</div>
+<table style="width:50%;margin-left:auto;margin-right:auto" border="1">
+  <thead>
+  <tr>
+    <th>Context Pack Name</th>
+    <th>Number of Words</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="pack in contextPack">
+    <td>{{pack.name}}</td>
+    <td>{{pack.numberOfWords}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<footer class="footer">
+  <div class="container">
+    <p>Team FTL Iteration 1 </p>
+  </div>
+</footer>
