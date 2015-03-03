@@ -49,9 +49,6 @@ angular.module('wordRiverTeamFtlApp')
         }
       }
     };
-{
-
-    }
 
     //creates a list of students
     $scope.populateStudentArray = function(){
@@ -64,7 +61,6 @@ angular.module('wordRiverTeamFtlApp')
         }
       }
     };
-
 
     //changes the class view
     $scope.changeFilter = function(str){
