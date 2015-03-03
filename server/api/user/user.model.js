@@ -15,11 +15,14 @@ var UserSchema = new Schema({
   provider: String,
   salt: String,
   contextPacks: [{
-
+    wordName: String,
+    wordType: String,
+    wordColor: String
   }],
   studentGroups: [
     {
-      studentGroup: [{
+      groupName: String,
+      students: [{
         name: String
       }]
     }
