@@ -13,7 +13,7 @@ angular.module('wordRiverTeamFtlApp')
        // $http.post('api/pets', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
        //   $scope.getPets();
         $http.post('app/addingWords', {words:$scope.wordField}).success(function(){
-            $scope.allWords.push({words:$scope.wordField});
+          $scope.allWords.push({words:$scope.wordField});
         });
         $scope.wordField = "";
       }
