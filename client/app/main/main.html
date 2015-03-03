@@ -22,7 +22,7 @@
   <div class="row">
     <h1>{{class}}</h1>
     <div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'">
-      <button class="btn btn-default" ng-click="">{{person.student}}</button>
+      <button class="btn btn-default" ng-click="makeCurrentStudent(person)">{{person.student}}</button>
     </div>
   </div>
 </div>

@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('wordRiverTeamFtlApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function ($rootScope, $scope, $http, socket) {
     $scope.awesomeThings = [];
     $scope.classList = [];
     $scope.studentList = [];
     $scope.studentSortArray = [];
     $scope.filterText = null;
-    $scope.currentStudent = null;
+    $rootScope.currentStudent = null;
 
     //view[0] = kindergarten page
     //view[1] = firstGrade page
@@ -79,7 +79,7 @@ angular.module('wordRiverTeamFtlApp')
     };
 
     $scope.makeCurrentStudent = function(student){
-      $scope.currentStudent = student;
+      $rootScope.currentStudent = student;
     }
 
   });

@@ -4,18 +4,15 @@
 'use strict';
 
 angular.module('wordRiverTeamFtlApp')
-  .controller('ProfileCtrl', function ($scope, $http, socket) {
+  .controller('ProfileCtrl', function ($rootScope, $scope, $http, socket) {
     $scope.awesomeThings = [];
-    $scope.currentStudent = null;
+    $scope.currentStudent = $rootScope.currentStudent;
+    console.log($scope.currentStudent);
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
-
-    $scope.getCurrentStudent = function(student){
-
-    }
 
     $scope.addThing = function() {
       if($scope.newThing === '') {
