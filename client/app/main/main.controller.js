@@ -73,6 +73,6 @@ angular.module('wordRiverTeamFtlApp')
 
     $scope.makeCurrentStudent = function(student){
       $rootScope.currentStudent = student;
-    }
+    };
 
   });
