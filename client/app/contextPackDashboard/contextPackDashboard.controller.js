@@ -2,10 +2,10 @@
 
 angular.module('wordRiverTeamFtlApp')
   .controller('ContextPackDashboardCtrl', function ($scope, $http, socket) {
-    $scope.contextPacks = [];
+    $scope.contextPack = [];
 
     $http.get('/api/contextPack').success(function(contextPacks) {
-      $scope.contextPacks = contextPacks;
+      $scope.contextPack = contextPacks;
       socket.syncUpdates('contextPack', $scope.contextPacks);
     });
 
