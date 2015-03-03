@@ -1,18 +1,16 @@
 'use strict';
 
-describe('Controller: DashboardCtrl', function () {
+describe('Controller: ContextEditCtrl', function () {
 
   // load the controller's module
   beforeEach(module('ummWordRiverTeam1Iteration1App'));
-  beforeEach(module('socketMock'));
 
-  var DashboardCtrl, scope;
-
+  var ContextEditCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    DashboardCtrl = $controller('DashboardCtrl', {
+    ContextEditCtrl = $controller('ContextEditCtrl', {
       $scope: scope
     });
   }));
