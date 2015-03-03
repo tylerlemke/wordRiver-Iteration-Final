@@ -12,7 +12,7 @@ angular.module('wordRiverTeamFtlApp')
         <!--these words will be going into the individuals page, possibly the class words, and added to her program (words they can use) -->
        // $http.post('api/pets', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
        //   $scope.getPets();
-        $http.post('api/AllWordsDatabases', {words:$scope.wordField}).success(function(){
+        $http.post('app/addingWords', {words:$scope.wordField}).success(function(){
           $scope.allWords.push({words:$scope.wordField});
         });
         $scope.wordField = "";
