@@ -22,6 +22,11 @@
   background: #4393B9;
 }
 
+/*changes the background color to yellow when a student is selected*/
+a.ng-scope.ng-binding:visited {
+  background-color: #ffff00;
+}
+
 .footer {
   text-align: center;
   padding: 30px 0;
