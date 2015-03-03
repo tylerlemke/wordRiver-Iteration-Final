@@ -4,6 +4,7 @@ describe('Controller: ContextPacksCtrl', function () {
 
   // load the controller's module
   beforeEach(module('ummWordRiverTeam1Iteration1App'));
+  beforeEach(module('socketMock'));
 
   var ContextPacksCtrl, scope;
 
@@ -20,11 +21,7 @@ describe('Controller: ContextPacksCtrl', function () {
   });
 
   it('should put an object in an array', function(){
-    scope.tileBucketTemp[0].wordName = 'kitten';
-    scope.tileBucketTemp[0].wordType = 'noun';
+    scope.addTile("Kitten", "noun");
     expect(scope.tileBucketTemp[0].wordType).toBe('noun');
-    //scope.createTile('kitten', 'noun');
-    //expect(scope.tileBucketTemp[0].wordName).toBe('kitten');
-    //expect(scope.tileBucketTemp[0].wordType).toBe('noun');
   });
 });
