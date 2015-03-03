@@ -12,15 +12,15 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     ];
 
     $scope.contextPacks = [
-      {pack: "heroPack",
+      {packName: "heroPack",
       tiles: ["Superman", "Batman"]},
-      {pack: "zoo",
+      {packName: "zoo",
       tiles: ["Lion", "Tiger", "Bear"]},
-      {pack: "biomes",
+      {packName: "biomes",
       tiles: ["tundra", "desert", "forest"]},
-      {pack: "cars",
+      {packName: "cars",
       tiles: ["Aveo", "Ferrari", "Subaru"]},
-      {pack: "disney",
+      {packName: "disney",
       tiles: ["Frozen", "Cinderella", "Tangled"]}
     ];
 
