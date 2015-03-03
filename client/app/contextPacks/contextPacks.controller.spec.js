@@ -21,7 +21,8 @@ describe('Controller: ContextPacksCtrl', function () {
   });
 
   it('should put an object in an array', function(){
-    scope.addTile("Kitten", "noun");
+    scope.addTile("kitten", "noun");
     expect(scope.tileBucketTemp[0].wordType).toBe('noun');
+    expect(scope.tileBucketTemp[0].wordName).toBe('kitten');
   });
 });
