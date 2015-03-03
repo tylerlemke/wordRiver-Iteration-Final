@@ -34,6 +34,7 @@ angular.module('wordRiverTeamFtlApp')
       socket.unsyncUpdates('thing');
     });
 
+    //creates a list of all classes that exist
     $scope.totalClasses = function(){
       for(var i=0; i<$scope.awesomeThings.length;i++){
         var found = false;
@@ -48,6 +49,7 @@ angular.module('wordRiverTeamFtlApp')
       }
     };
 
+    //creates a list of students
     $scope.populateStudentArray = function(){
       for(var i=0; i<$scope.awesomeThings.length; i++){
         for(var j=0; j<$scope.classList.length; j++){
@@ -59,17 +61,8 @@ angular.module('wordRiverTeamFtlApp')
       }
     };
 
-    $scope.studentSort = function(course){
-      $scope.studentSortArray = [];
-      for(var i=0; i<$scope.studentList.length;i++){
-        if(course == $scope.studentList[i].course){
-          $scope.studentSortArray.push($scope.studentList[i].student);
-        }
-      }
-      $scope.studentSortArray.sort();
-      return $scope.studentSortArray;
-    };
 
+    //changes the class view
     $scope.changeFilter = function(str){
       $scope.filterText = str;
     };
