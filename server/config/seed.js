@@ -10,123 +10,75 @@ var Student = require('../api/student/student.model');
 Student.find({}).remove(function() {
   Student.create(
     {
-      "firstName": "Battle",
-      "lastName": "Rasmussen",
-      "gender": "male"
+      "firstName": "Walsh",
+      "lastName": "Cummings",
+      "gender": "male",
+      "id": 6338
     },
     {
-      "firstName": "Marcy",
-      "lastName": "Tyler",
-      "gender": "female"
+      "firstName": "Robert",
+      "lastName": "Burke",
+      "gender": "female",
+      "id": 3123
     },
     {
-      "firstName": "Rios",
-      "lastName": "Ortiz",
-      "gender": "male"
+      "firstName": "Isabella",
+      "lastName": "Reynolds",
+      "gender": "female",
+      "id": 3918
     },
     {
-      "firstName": "Burks",
-      "lastName": "Rojas",
-      "gender": "male"
+      "firstName": "Carver",
+      "lastName": "Raymond",
+      "gender": "male",
+      "id": 4053
     },
     {
-      "firstName": "Delgado",
-      "lastName": "Harrell",
-      "gender": "male"
-    },
-    {
-      "firstName": "Julie",
-      "lastName": "Franklin",
-      "gender": "female"
-    },
-    {
-      "firstName": "Gayle",
-      "lastName": "Bennett",
-      "gender": "female"
-    },
-    {
-      "firstName": "Collins",
-      "lastName": "Barrera",
-      "gender": "male"
-    },
-    {
-      "firstName": "Naomi",
-      "lastName": "Moreno",
-      "gender": "female"
-    },
-    {
-      "firstName": "Sybil",
-      "lastName": "Espinoza",
-      "gender": "female"
-    },
-    {
-      "firstName": "Raymond",
-      "lastName": "Clayton",
-      "gender": "male"
-    },
-    {
-      "firstName": "Callie",
-      "lastName": "Montoya",
-      "gender": "female"
-    },
-    {
-      "firstName": "April",
-      "lastName": "Molina",
-      "gender": "female"
-    },
-    {
-      "firstName": "Britt",
-      "lastName": "Bray",
-      "gender": "male"
-    },
-    {
-      "firstName": "Spence",
+      "firstName": "Vivian",
       "lastName": "Frost",
-      "gender": "male"
+      "gender": "female",
+      "id": 1918
     },
     {
-      "firstName": "Jeanne",
-      "lastName": "Vega",
-      "gender": "female"
+      "firstName": "Hickman",
+      "lastName": "Gibbs",
+      "gender": "male",
+      "id": 1160
     },
     {
-      "firstName": "Nguyen",
-      "lastName": "Walter",
-      "gender": "male"
+      "firstName": "Ruiz",
+      "lastName": "Potter",
+      "gender": "male",
+      "id": 7674
     },
     {
-      "firstName": "Paige",
-      "lastName": "Davidson",
-      "gender": "female"
+      "firstName": "Deana",
+      "lastName": "Hurst",
+      "gender": "female",
+      "id": 6079
     },
     {
-      "firstName": "Casandra",
-      "lastName": "Cain",
-      "gender": "female"
+      "firstName": "Nelda",
+      "lastName": "Harrington",
+      "gender": "female",
+      "id": 5786
     },
     {
-      "firstName": "Rosalind",
-      "lastName": "Bowman",
-      "gender": "female"
+      "firstName": "Christie",
+      "lastName": "Haney",
+      "gender": "female",
+      "id": 6524
     },
     {
-      "firstName": "Leticia",
-      "lastName": "Lara",
-      "gender": "female"
-    },
-    {
-      "firstName": "Natasha",
-      "lastName": "Ford",
-      "gender": "female"
-    },
-    {
-      "firstName": "Angelica",
-      "lastName": "Carson",
-      "gender": "female"
-    },
-    {
-      "firstName": "Lloyd",
+      "firstName": "Geneva",
       "lastName": "Hartman",
-      "gender": "male"
+      "gender": "female",
+      "id": 4036
+    },
+    {
+      "firstName": "Debora",
+      "lastName": "Maddox",
+      "gender": "female",
+      "id": 2815
     });
 });
