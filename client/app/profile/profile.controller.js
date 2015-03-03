@@ -6,11 +6,16 @@
 angular.module('wordRiverTeamFtlApp')
   .controller('ProfileCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
+    $scope.currentStudent = null;
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
+
+    $scope.getCurrentStudent = function(student){
+
+    }
 
     $scope.addThing = function() {
       if($scope.newThing === '') {
