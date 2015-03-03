@@ -14,16 +14,20 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.contextPacks = [
       {pack: "heroPack",
       tiles: ["Superman", "Batman"]},
-      {pack: "zoo"},
-      {pack: "biomes"},
-      {pack: "cars"},
-      {pack: "disney"}
+      {pack: "zoo",
+      tiles: ["Lion", "Tiger", "Bear"]},
+      {pack: "biomes",
+      tiles: ["tundra", "desert", "forest"]},
+      {pack: "cars",
+      tiles: ["Aveo", "Ferrari", "Subaru"]},
+      {pack: "disney",
+      tiles: ["Frozen", "Cinderella", "Tangled"]}
     ];
 
     $scope.textField = "";
 
     $scope.showPack = true;
-    $scope.currentPack = $scope.contextPacks[0];
+    $scope.currentPack = $scope.contextPacks[4];
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
