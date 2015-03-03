@@ -1,4 +1,20 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="col-md-12">
-<div></div>
+
+<div data-ng-app="market">
+
+  <table>
+    <tr data-ng-repeat="pack in packs">
+      <td data-ng-bind="pack.name"></td>
+      <td><a href="#" data-ng-click="showdetails(pack)">Details</a></td>
+     <!-- <td><a href="#" data-ng-click="showCourses(student)">Courses Taken</a></td>-->
+
+    </tr>
+  </table>
+
+  <div data-ng-bind="selected">    </div>
+  <div data-ng-bind="allCourses">    </div>
+
+  <p id="coursesInfo"></p>
+
+
 </div>
