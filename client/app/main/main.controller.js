@@ -3,10 +3,10 @@
 angular.module('wordRiverTeamFtlApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
-    $scope.views = [];
     $scope.classList = [];
     $scope.studentList = [];
     $scope.studentSortArray = [];
+    $scope.filterText = null;
 
     //view[0] = kindergarten page
     //view[1] = firstGrade page
@@ -70,20 +70,8 @@ angular.module('wordRiverTeamFtlApp')
       return $scope.studentSortArray;
     };
 
-    $scope.webPage = function(course){
-      course = course.replace(/\s+/g, '');
-      window.location="/"+ course;
+    $scope.changeFilter = function(str){
+      $scope.filterText = str;
     };
-
-    $scope.allFalse = function(){
-      for(var i=0; i<$scope.views.length; i++){
-        $scope.views[i] = false;
-      }
-    };
-
-    $scope.showElement = function(num){
-      $scope.allFalse();
-      $scope.views[num] = true;
-    }
 
   });
