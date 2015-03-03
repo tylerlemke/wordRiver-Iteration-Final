@@ -11,8 +11,8 @@ angular.module('wordRiverTeamFtlApp')
 
 
     $scope.getWords = function(){
-      $http.get('api/AddingWordsDatabase').success(function(AllWordsDatabase) {
-        $scope.allWords = AddingWordsDatabase;
+      $http.get('/api/AddingWordsDatabases').success(function(AllWordsDatabases) {
+        $scope.allWords = AllWordsDatabases;
       });
     };
 
@@ -20,8 +20,8 @@ angular.module('wordRiverTeamFtlApp')
     $scope.addWords = function(){
       if($scope.wordField.length >= 0) {
         <!--these words will be going into the individuals page, possibly the class words, and added to her program (words they can use) -->
-        $http.post('api/AddingWordsDatabase','app/addingWords', {words:$scope.wordField}).success(function(){
-           //$scope.allWords.push({words:$scope.wordField});
+        $http.post('/api/AddingWordsDatabases', {words:$scope.wordField}).success(function(){
+           $scope.allWords.push({words:$scope.wordField});
           $scope.getWords();
         });
         $scope.wordField = "";
@@ -29,7 +29,7 @@ angular.module('wordRiverTeamFtlApp')
     };
 
     $scope.removeData = function(index){
-      $http.delete('/api/AddingWordsDatabase/' + $scope.allWords[index]._id).success(function(){
+      $http.delete('/api/AddingWordsDatabases/' + $scope.allWords[index]._id).success(function(){
         $scope.getWords();
       });
     };
