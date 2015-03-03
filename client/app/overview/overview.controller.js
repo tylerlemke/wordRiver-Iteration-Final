@@ -26,8 +26,8 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.textField = "";
 
-    $scope.showPack = true;
-    $scope.currentPack = $scope.contextPacks[4];
+    $scope.showPack = false;
+    $scope.currentPack = null;
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
