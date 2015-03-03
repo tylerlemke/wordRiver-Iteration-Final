@@ -7,7 +7,7 @@
 var mongoose = require('mongoose');
 // Defining Model
 // =====================================================
-var allWords = mongoose.model('allwords', {
+var allwords = mongoose.model('allwords', {
   words:String
 });
 // Defining Routes
@@ -23,11 +23,11 @@ exports.index = function(req, res) {
   });
 };
 exports.create = function(req, res) {
-  allwords.create(req.body, function (err, gpa) {
+  allwords.create(req.body, function (err, theWords) {
     if (err) {
       res.send(err);
     } else {
-      Gpa.find(function (err, AllWordsDatabase) {
+      allwords.find(function (err, AllWordsDatabase) {
         if (err) {
           res.send(err);
         }
@@ -37,10 +37,10 @@ exports.create = function(req, res) {
   });
 };
 exports.destroy = function(req, res) {
-  allwords.findById(req.params.gpa_id, function(err, gpa){
+  allwords.findById(req.params.theWords_id, function(err, theWords){
     if(err) { res.send(err); return "error: " + err; }
-    if(!gpa) { return res.sendStatus(404); }
-    gpa.remove(function(err){
+    if(!theWords) { return res.sendStatus(404); }
+    theWords.remove(function(err){
       if(err) { return "error: " + err}
       return res.sendStatus(204);
     });
