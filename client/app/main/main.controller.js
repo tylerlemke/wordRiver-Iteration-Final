@@ -11,7 +11,7 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeThings = awesomeStudents;
-      socket.syncUpdates('student', $scope.awesomeStudents);
+      socket.syncUpdates('student', $scope.studentList);
     });
 
     $scope.addThing = function() {

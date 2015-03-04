@@ -81,4 +81,23 @@ Student.find({}).remove(function() {
       "gender": "female",
       "id": 2815
     });
+
+});
+
+var Pack = require('../api/pack/pack.model');
+Pack.find({}).remove(function() {
+  Pack.create(
+    {"packName": "heroPack",
+      "tiles": ["Superman", "Batman", "Hulk"]},
+    {"packName": "zoo",
+      "tiles": ["Lion", "Tiger", "Bear"]},
+    {"packName": "biomes",
+      "tiles": ["tundra", "desert", "forest"]},
+    {"packName": "cars",
+      "tiles": ["Aveo", "Ferrari", "Subaru"]},
+    {"packName": "disney",
+      "tiles": ["Frozen", "Cinderella", "Tangled"]},
+    {packName: "sports",
+      tiles: ["basketball", "football", "tennis", "volleyball"]}
+  );
 });

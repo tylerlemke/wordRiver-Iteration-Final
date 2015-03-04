@@ -2,27 +2,9 @@
 
 angular.module('wordRiverSpaceshipParrotIteration1App')
   .controller('OverviewCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
-    $scope.awesomeStudents = [
-      //{
-      //  firstName: "Battle",
-      //  lastName: "Rasmussen",
-      //  gender: "male"
-      //}
-    ];
+    $scope.studentList = [];
 
-    $scope.contextPacks = [
-      {packName: "heroPack",
-      tiles: ["Superman", "Batman", "Hulk"]},
-      {packName: "zoo",
-      tiles: ["Lion", "Tiger", "Bear"]},
-      {packName: "biomes",
-      tiles: ["tundra", "desert", "forest"]},
-      {packName: "cars",
-      tiles: ["Aveo", "Ferrari", "Subaru"]},
-      {packName: "disney",
-      tiles: ["Frozen", "Cinderella", "Tangled"]}
-    ];
+    $scope.contextPacks = [];
 
     $scope.textField = "";
     $scope.tileField = "";
@@ -31,29 +13,21 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.currentPack = null;
     $scope.showTileAdder = false;
 
-    $scope.getContextPacks = function () {
-      $http.get('/api/packs').success(function (contextPacks) {
-        $scope.contextPacks = contextPacks;
-      });
-    };
-
-    $scope.getContextPacks();
-
-    $http.get('/api/students').success(function(awesomeStudents) {
-      $scope.awesomeStudents = awesomeStudents;
-      socket.syncUpdates('student', $scope.awesomeStudents);
+    $http.get('/api/packs').success(function (contextPack) {
+      $scope.contextPacks = contextPack;
+      socket.syncUpdates('pack', $scope.contextPacks);
     });
 
-    $scope.addPack = function() {
-      if($scope.newPack === '') {
-        return;
-      }
-      $http.post('/api/packs', { packName: $scope.newPack });
-      $scope.newPack = '';
-    };
+    $http.get('/api/students').success(function(studentList) {
+      $scope.studentList = studentList;
+      socket.syncUpdates('student', $scope.studentList);
+    });
 
-    $scope.deletePack = function(pack) {
-      $http.delete('/api/packs/' + pack._id);
+    //Get this working
+    $scope.deletePack = function(index) {
+      $http.delete('/api/packs/' + $scope.contextPacks[index].id).success(function () {
+        //$scope.getContextPacks();
+      });
     };
 
     $scope.$on('$destroy', function () {
@@ -62,23 +36,26 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.addContextPacks = function () {
       if ($scope.textField.length >= 1) {
-        $http.post('/api/packs', {packName: $scope.textField}).success(function () {
-          $scope.getContextPacks();
-        });
-      };
+        $http.post('/api/packs', {packName: $scope.textField, tiles: []});
+      }
     };
 
     $scope.addTile = function(){
-//        $scope.contextPacks[0].tiles.push($scope.tileField);
-//        $scope.tileField = "";
+      if ($scope.tileField.length >= 1) {
+        //$http.post('/api/packs', {tiles: []}).success(function () {
+        //  //$scope.getContextPacks();
+        //});
+        $scope.currentPack.tiles.push($scope.tileField);
+        $scope.tileField = "";
+      }
     };
 
     $scope.toggleShowAdder = function() {
-        $scope.showTileAdder = !$scope.showTileAdder;
-        };
+      $scope.showTileAdder = !$scope.showTileAdder;
+    };
 
     $scope.packInfo = function(pack){
       $scope.showPack = true;
       $scope.currentPack = pack;
-    }
+    };
   });

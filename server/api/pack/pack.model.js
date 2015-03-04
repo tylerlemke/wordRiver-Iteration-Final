@@ -5,8 +5,7 @@ var mongoose = require('mongoose'),
 
 var PackSchema = new Schema({
   packName: String,
-  info: String,
-  active: Boolean
+  tiles: Array
 });
 
 module.exports = mongoose.model('Pack', PackSchema);
