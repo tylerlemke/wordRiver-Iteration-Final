@@ -25,7 +25,7 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     //Get this working
     $scope.deletePack = function(index) {
-      $http.delete('/api/packs/' + $scope.contextPacks[index].id).success(function () {
+      $http.delete('/api/packs/' + $scope.contextPacks[index]._id).success(function () {
         //$scope.getContextPacks();
       });
     };
@@ -42,9 +42,9 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.addTile = function(){
       if ($scope.tileField.length >= 1) {
-        //$http.post('/api/packs', {tiles: []}).success(function () {
-        //  //$scope.getContextPacks();
-        //});
+        $http.post('/api/packs', {tiles: [$scope.tileField]}).success(function () {
+          //$scope.getContextPacks();
+        });
         $scope.currentPack.tiles.push($scope.tileField);
         $scope.tileField = "";
       }
