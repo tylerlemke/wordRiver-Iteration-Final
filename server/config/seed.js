@@ -39,7 +39,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "deserunt",
+      "password": "deserunt",
       "provider": "local",
       "contextPacks": [
         {
@@ -65,15 +65,23 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "nisi",
+      "password": "nisi",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "veniam",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
-      ],
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+
+      }],
       "studentGroups": [
         {
           "groupName": "aliquip",
@@ -91,7 +99,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "incididunt",
+      "password": "incididunt",
       "provider": "local",
       "contextPacks": [
         {
@@ -117,7 +125,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "aliquip",
+      "password": "aliquip",
       "provider": "local",
       "contextPacks": [
         {
@@ -143,7 +151,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "pariatur",
+      "password": "pariatur",
       "provider": "local",
       "contextPacks": [
         {
@@ -169,7 +177,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "irure",
+      "password": "irure",
       "provider": "local",
       "contextPacks": [
         {
@@ -195,7 +203,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "ad",
+      "password": "ad",
       "provider": "local",
       "contextPacks": [
         {
@@ -263,7 +271,7 @@ Student.find({}).remove(function() {
  role: {
  type: 'user'
  },
- hashedPassword: '{{lorem(1, "words")}}',
+ password: '{{lorem(1, "words")}}',
  provider: 'local',
  contextPacks: [{
  wordName: '{{lorem(1, "words")}}',
