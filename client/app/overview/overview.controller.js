@@ -13,10 +13,14 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.currentPack = null;
     $scope.showTileAdder = false;
 
-    $http.get('/api/packs').success(function (contextPack) {
-      $scope.contextPacks = contextPack;
-      socket.syncUpdates('pack', $scope.contextPacks);
-    });
+    $scope.getPacks = function() {
+      $http.get('/api/packs').success(function (contextPack) {
+        $scope.contextPacks = contextPack;
+        socket.syncUpdates('pack', $scope.contextPacks);
+      });
+    }
+
+    $scope.getPacks();
 
     $http.get('/api/students').success(function(studentList) {
       $scope.studentList = studentList;
@@ -47,12 +51,15 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.addTile = function(){
       if ($scope.tileField.length >= 1) {
         $scope.currentPack.tiles.push($scope.tileField);
-//        console.log($scope.currentPack._id);
-//        console.log($scope.contextPacks[1]._id);
-        $http.put('/api/packs/' + $scope.currentPack._id, {packName: "Zoo", tiles: ["Skunk"]}).success(function () {
+        $http.patch('/api/packs/' + $scope.currentPack._id,
+          {
+            tiles: $scope.currentPack.tiles
+          }
+        ).success(function () {
             console.log("Glorious Victory!");
         });
         $scope.tileField = "";
+        $scope.getPacks();
       }
     };
 
