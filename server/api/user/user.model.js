@@ -16,9 +16,18 @@ var UserSchema = new Schema({
   salt: String,
   contextPacks: [{
     contextName: String,
-    contents:[{wordName: String,
-    wordType: String,
-    wordColor: String}]
+    contents:[{
+      wordName: String,
+      wordType: String,
+      wordColor: String
+    }]
+  }],
+  tileBucket: [{
+    contents:[{
+      wordName: String,
+      wordType: String,
+      wordColor: String
+    }]
   }],
   studentGroups: [
     {
