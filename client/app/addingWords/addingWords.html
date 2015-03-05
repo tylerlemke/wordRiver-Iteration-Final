@@ -14,7 +14,7 @@
           <input type="submit" value="Add" class="btn btn-primary">
         </form>
       </li>
-      <li class="list-group-item" ng-repeat="test in allWords">{{test.words}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
+      <li class="list-group-item" ng-repeat="test in allWords"> <label><input type="checkbox" name="checkbox" value="value"></label>   {{test.words}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
       <!--making clickable multiple check box option: http://stackoverflow.com/questions/6293588/how-to-create-an-html-checkbox-with-a-clickable-label-->
 
       <!--this may help us solve the refresh problem http://stackoverflow.com/questions/3041497/ie-form-input-data-disappear-after-browser-refresh-->
