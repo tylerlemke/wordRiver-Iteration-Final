@@ -49,4 +49,12 @@ angular.module('wordRiverTeamFtlApp')
       }
     };
 
+    $scope.addWord = function(){
+      if($scope.addWordField.length <= 0){
+        alert("You need to enter a word.");
+      }else{
+        $scope.words.push($scope.addWordField);
+        $scope.addWordField = "";
+      }
+    }
 });

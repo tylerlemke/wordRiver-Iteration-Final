@@ -37,6 +37,8 @@
     <p>{{$scope.nameField}}</p>
     <input ng-model="addWordField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Add a Word!">
     <button class="btn btn-primary" ng-click="addWord()">Add Word</button>
+    <input type="submit" value="Submit Words" class="btn btn-primary float-right">
+    <br/>
     <br/>
     <table style="width:50%;margin-left:auto;margin-right:auto" border="1">
       <thead>
@@ -46,11 +48,10 @@
       </thead>
       <tbody>
       <tr ng-repeat="word in words">
-        <td>{{word.word}}</td>
+        <td>{{word}}</td>
       </tr>
       </tbody>
     </table>
-    <input type="submit" value="Submit" class="btn btn-primary float-right">
   </form>
 </div>
 
