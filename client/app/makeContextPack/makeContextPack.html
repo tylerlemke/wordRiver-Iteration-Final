@@ -33,25 +33,27 @@
 </div>
 
 <div class="container" ng-hide="setUp">
+  <input ng-model="addWordField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Add a Word!">
+  <button class="btn btn-primary" ng-click="addWord()">Add Word</button>
+  <br/>
+  <br/>
+  <table style="width:50%;margin-left:auto;margin-right:auto" border="1">
+    <thead>
+    <tr>
+      <th>Words In Context Pack</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="word in words">
+      <td>{{word}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" ng-hide="setUp">
   <form ng-submit="addContextPack()" ng-hide="setUp">
-    <p>{{$scope.nameField}}</p>
-    <input ng-model="addWordField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Add a Word!">
-    <button class="btn btn-primary" ng-click="addWord()">Add Word</button>
     <input type="submit" value="Submit Words" class="btn btn-primary float-right">
-    <br/>
-    <br/>
-    <table style="width:50%;margin-left:auto;margin-right:auto" border="1">
-      <thead>
-      <tr>
-        <th>Words In Context Pack</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat="word in words">
-        <td>{{word}}</td>
-      </tr>
-      </tbody>
-    </table>
   </form>
 </div>
 
