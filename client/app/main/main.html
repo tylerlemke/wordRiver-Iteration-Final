@@ -4,16 +4,14 @@
   <div class="container">
     <h1>Word River</h1>
     <p class="lead">Assisting in students in creative learning.</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <img class="resize" src="assets/images/WordRiverLogo.png" alt="we have a logo!">
   </div>
 </header>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12" ng-repeat="class in classList">
-
       <button type="button" class="btn btn-default" ng-click="changeFilter(class)">{{class}}</button>
-
     </div>
   </div>
 </div>
@@ -22,14 +20,8 @@
   <div class="row">
     <h1>{{class}}</h1>
     <div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'">
-      <button class="btn btn-default" ng-click="">{{person.student}}</button>
+      <a class="btn btn-default" ng-click="makeCurrentStudent(person)" href="/profile"> {{person.student}}</a>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div ng-repeat="students in class"> </div>
   </div>
 </div>
 

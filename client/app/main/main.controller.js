@@ -1,19 +1,18 @@
 'use strict';
 
 angular.module('wordRiverTeamFtlApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($rootScope, $scope, $http, socket) {
+    $scope.students = [];
     $scope.classList = [];
     $scope.studentList = [];
     $scope.studentSortArray = [];
     $scope.filterText = null;
+    $rootScope.currentStudent = null;
 
-    //view[0] = kindergarten page
-    //view[1] = firstGrade page
 
     $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+      $scope.students = awesomeThings;
+      socket.syncUpdates('thing', $scope.students);
       $scope.totalClasses();
       $scope.populateStudentArray();
     });
@@ -34,44 +33,40 @@ angular.module('wordRiverTeamFtlApp')
       socket.unsyncUpdates('thing');
     });
 
+    //creates a list of all classes that exist
     $scope.totalClasses = function(){
-      for(var i=0; i<$scope.awesomeThings.length;i++){
+      for(var i=0; i<$scope.students.length;i++){
         var found = false;
         for(var j=0; j<=$scope.classList.length; j++){
-          if($scope.classList[j]==$scope.awesomeThings[i].class){
+          if($scope.classList[j]==$scope.students[i].class){
             found = true;
           }
         }
         if (!found){
-          $scope.classList.push($scope.awesomeThings[i].class);
+          $scope.classList.push($scope.students[i].class);
         }
       }
     };
 
+    //creates a list of students
     $scope.populateStudentArray = function(){
-      for(var i=0; i<$scope.awesomeThings.length; i++){
+      for(var i=0; i<$scope.students.length; i++){
         for(var j=0; j<$scope.classList.length; j++){
-          if($scope.awesomeThings[i].class == $scope.classList[j]){
-            var name = $scope.awesomeThings[i].firstName + " " + $scope.awesomeThings[i].lastName;
+          if($scope.students[i].class == $scope.classList[j]){
+            var name = $scope.students[i].firstName + " " + $scope.students[i].lastName;
             $scope.studentList.push({student: name, course: $scope.classList[j]});
           }
         }
       }
     };
 
-    $scope.studentSort = function(course){
-      $scope.studentSortArray = [];
-      for(var i=0; i<$scope.studentList.length;i++){
-        if(course == $scope.studentList[i].course){
-          $scope.studentSortArray.push($scope.studentList[i].student);
-        }
-      }
-      $scope.studentSortArray.sort();
-      return $scope.studentSortArray;
-    };
-
+    //changes the class view
     $scope.changeFilter = function(str){
       $scope.filterText = str;
+    };
+
+    $scope.makeCurrentStudent = function(student){
+      $rootScope.currentStudent = student;
     };
 
   });
