@@ -9,9 +9,9 @@ angular.module('wordRiverTeamFtlApp')
     $scope.setUp = true;
     $scope.addWordField = '';
 
-    $http.get('/api/contextPack').success(function(contextPacks) {
+    $http.get('/api/contextPacks').success(function(contextPacks) {
       $scope.contextPack = contextPacks;
-      socket.syncUpdates('contextPack', $scope.contextPacks);
+      //socket.syncUpdates('contextPack', $scope.contextPacks);
     });
 
     $scope.addContextPack = function() {
@@ -23,12 +23,12 @@ angular.module('wordRiverTeamFtlApp')
         alert("You need to select a recommended grade level.");
         return;
       }
-      $http.post('/api/contextPack', {name: $scope.nameField, gradeLevel: $scope.gradeLevel, words: $scope.words});
+      $http.post('/api/contextPacks', {name: $scope.nameField, gradeLevel: $scope.gradeLevel, words: $scope.words});
       $scope.newPack = '';
     };
 
     $scope.deleteThing = function(thing) {
-      $http.delete('/api/contextPack/' + thing._id);
+      $http.delete('/api/contextPacks/' + thing._id);
     };
 
     $scope.$on('$destroy', function () {

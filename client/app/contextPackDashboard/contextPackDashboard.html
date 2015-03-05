@@ -30,8 +30,8 @@
   <tbody>
   <tr ng-repeat="pack in contextPack">
     <td>{{pack.name}}</td>
-    <td>{{pack.numberOfWords}}</td>
-    <td>{{pack.gradeLevel}}</td>
+    <td>{{pack.words.length}}</td>
+    <td>{{pack.gradeLevel}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></td>
   </tr>
   </tbody>
 </table>
