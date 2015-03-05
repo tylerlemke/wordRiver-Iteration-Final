@@ -2,21 +2,74 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-  <h1>Add Words!</h1>
+    <h1>Add Words!</h1>
   </div>
 </header>
 
 <div class="container">
-    <ul class="list-group">
-      <li class="list-group-item">
-        <form ng-submit="hasDuplicateValues()">
-          <input ng-model="wordField" type="text" size="50" placeholder="add a new item to the list!">
-          <input type="submit" value="Add" class="btn btn-primary">
-        </form>
-      </li>
-      <li class="list-group-item" ng-repeat="test in allWords"> <label><input type="checkbox" name="checkbox" value="value"></label>   {{test.words}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
-      <!--making clickable multiple check box option: http://stackoverflow.com/questions/6293588/how-to-create-an-html-checkbox-with-a-clickable-label-->
+  <a class="btn btn-default" href="/main"> Back to Home</a>
+  <hr>
+  <!--these words will be going into the individuals page, possibly the class words, and added to her program (words they can use) -->
+  <!--<div class="container">-->
+  <ul class="list-group">
+    <li class="list-group-item">
+      <form ng-submit="hasDuplicateValues()">
+        <input ng-model="wordField" type="text" size="50" placeholder="add a new item to the list!">
+        <input type="submit" value="Add" class="btn btn-primary">
+        <!--<span class="floatRight">Items in this list: {{itemsInList()}}</span> -->
+      </form>
+    </li>
+    <li class="list-group-item" ng-repeat="test in allWords"><label><input type="checkbox" name="checkbox" value="value"></label>  {{test.words}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
+    <!--<li class="list-group-item" ng-repeat="test in data">{{test.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>-->
+  </ul>
+  <!--</div>-->
 
-      <!--this may help us solve the refresh problem http://stackoverflow.com/questions/3041497/ie-form-input-data-disappear-after-browser-refresh-->
-    </ul>
+
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <table border="1px">
+      <tr>
+        <th>Grade</th>
+        <th>Name</th>
+      </tr>
+      <tr>
+        <td> <div class="col-lg-12" ng-repeat="class in classList"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li></div></td>
+        <td>      <div class="container" ng-repeat="class in classList | filter: filterText" ng-show="true"><div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'"><label><input type="checkbox" name="checkbox" value="value"></label><a class="btn btn-default" ng-click="makeCurrentStudent(person)" href="/profile"> {{person.student}}</a></div></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-lg-12" ng-repeat="class in classList">-->
+<!--<form>-->
+<!--<label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="container" ng-repeat="class in classList | filter: filterText" ng-show="true">-->
+<!--<div class="row">-->
+<!--<h1>{{class}}</h1>-->
+<!--<table>-->
+<!--<div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'"><label><input type="checkbox" name="checkbox" value="value"></label>-->
+<!--<a class="btn btn-default" ng-click="makeCurrentStudent(person)" href="/profile"> {{person.student}}</a>-->
+<!--</div>-->
+<!--</table>-->
+<!--</div>-->
+<!--</div>-->
