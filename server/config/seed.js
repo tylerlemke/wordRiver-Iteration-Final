@@ -87,17 +87,17 @@ Student.find({}).remove(function() {
 var Pack = require('../api/pack/pack.model');
 Pack.find({}).remove(function() {
   Pack.create(
-    {"packName": "heroPack",
+    {"packName": "Hero Pack",
       "tiles": ["Superman", "Batman", "Hulk"]},
-    {"packName": "zoo",
+    {"packName": "Zoo",
       "tiles": ["Lion", "Tiger", "Bear"]},
-    {"packName": "biomes",
+    {"packName": "Biomes",
       "tiles": ["tundra", "desert", "forest"]},
-    {"packName": "cars",
+    {"packName": "Cars",
       "tiles": ["Aveo", "Ferrari", "Subaru"]},
-    {"packName": "disney",
+    {"packName": "Disney",
       "tiles": ["Frozen", "Cinderella", "Tangled"]},
-    {packName: "sports",
+    {packName: "Sports",
       tiles: ["basketball", "football", "tennis", "volleyball"]}
   );
 });

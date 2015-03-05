@@ -38,7 +38,7 @@
                 </li>
                 <li class="list-group-item" ng-repeat="pack in contextPacks">
                     <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
-                  <span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="deletePack($index)"></span></li>
+                  <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
             </ul>
         </div>
 

@@ -56,7 +56,7 @@ exports.destroy = function(req, res) {
   Pack.findById(req.params.id, function (err, pack) {
     if(err) { return handleError(res, err); }
     if(!pack) { return res.send(404); }
-    thing.remove(function(err) {
+    pack.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
     });
