@@ -43,10 +43,12 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.addTile = function(){
       if ($scope.tileField.length >= 1) {
-        $http.post('/api/packs', {tiles: [$scope.tileField]}).success(function () {
-          //$scope.getContextPacks();
-        });
         $scope.currentPack.tiles.push($scope.tileField);
+//        console.log($scope.currentPack._id);
+//        console.log($scope.contextPacks[1]._id);
+        $http.put('/api/packs/' + $scope.currentPack._id, {packName: "Zoo", tiles: ["Skunk"]}).success(function () {
+            console.log("Glorious Victory!");
+        });
         $scope.tileField = "";
       }
     };
