@@ -1,18 +1,19 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
-<div data-ng-app="market">
+<h1> "Test"</h1>
+<div>
 
   <table>
     <tr data-ng-repeat="pack in packs">
-      <td data-ng-bind="pack.name"></td>
+      <td data-ng-bind="pack.contextName"></td>
       <td><a href="#" data-ng-click="showdetails(pack)">Details</a></td>
+      <!--<td><a href="#" data-ng-click="modify(pack)">Details</a></td>-->
      <!-- <td><a href="#" data-ng-click="showCourses(student)">Courses Taken</a></td>-->
 
     </tr>
   </table>
 
   <div data-ng-bind="selected">    </div>
-  <div data-ng-bind="allCourses">    </div>
+  <!--<div data-ng-bind="allCourses">    </div>-->
 
   <p id="coursesInfo"></p>
 
