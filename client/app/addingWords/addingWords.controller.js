@@ -40,6 +40,7 @@ angular.module('wordRiverTeamFtlApp')
       for (var i = 0; i < array.length; i++) {
         var arrayValue = array[i].words;
         if (input === arrayValue){
+          alert("This word already exists.");
           return true;
         }
       }
