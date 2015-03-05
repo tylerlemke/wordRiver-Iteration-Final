@@ -5,9 +5,9 @@ angular.module('wordRiverTeamFtlApp')
     $scope.contextPack = [];
     $scope.nameField = "";
     $scope.gradeLevel = "";
-    $scope.numberOfWords = 0;
     $scope.words = [];
     $scope.setUp = true;
+    $scope.addWordField = '';
 
     $http.get('/api/contextPack').success(function(contextPacks) {
       $scope.contextPack = contextPacks;
@@ -42,13 +42,11 @@ angular.module('wordRiverTeamFtlApp')
     $scope.changeView = function(){
       if($scope.nameField.length < 3 || $scope.nameField.length > 30) {
         alert("Your pack's name needs to be greater than 2 characters, and less than 30.");
-        return;
       }else if($scope.gradeLevel === ''){
         alert("You need to select a recommended grade level.");
-        return;
       } else{
         $scope.setUp = false;
-
       }
-    }
+    };
+
 });

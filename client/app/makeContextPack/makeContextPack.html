@@ -27,27 +27,30 @@
       </ul>
     </div>
     <br/>
-    <p>How many words do you want to add?</p>
-    <input ng-model="numberOfWords" type="number" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="How many words?">
     <br/>
-    <br/>
-    <input type="submit" value="submit" class="btn btn-primary float-right">
+    <input type="submit" value="Submit" class="btn btn-primary float-right">
   </form>
 </div>
 
-<div class="container" ng-show="true">
+<div class="container" ng-hide="setUp">
   <form ng-submit="addContextPack()" ng-hide="setUp">
-    <p>Context Pack Name</p>
-    <input ng-model="nameField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Name Your Context Pack">
+    <p>{{$scope.nameField}}</p>
+    <input ng-model="addWordField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Add a Word!">
+    <button class="btn btn-primary" ng-click="addWord()">Add Word</button>
     <br/>
-    <br/>
-    <p>Select a Grade Level</p>
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-        {{gradeLevel}}
-        <span class="caret"></span>
-      </button>
-    <input type="submit" value="submit" class="btn btn-primary float-right">
+    <table style="width:50%;margin-left:auto;margin-right:auto" border="1">
+      <thead>
+      <tr>
+        <th>Words In Context Pack</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="word in words">
+        <td>{{word.word}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <input type="submit" value="Submit" class="btn btn-primary float-right">
   </form>
 </div>
 
