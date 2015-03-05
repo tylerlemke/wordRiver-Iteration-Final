@@ -32,19 +32,188 @@ Thing.find({}).remove(function() {
 });
 
 User.find({}).remove(function() {
-  User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
-      console.log('finished populating users');
+  User.create(
+    {
+      "name": "Maryann Emerson",
+      "email": "maryannemerson@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "deserunt",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "nisi",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "in",
+          "students": [
+            {
+              "name": "Trina"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lavonne Cochran",
+      "email": "lavonnecochran@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "nisi",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "veniam",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "aliquip",
+          "students": [
+            {
+              "name": "Cooke"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evelyn Mayer",
+      "email": "evelynmayer@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "incididunt",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "ea",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "cillum",
+          "students": [
+            {
+              "name": "Harrington"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bond Guerrero",
+      "email": "bondguerrero@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "aliquip",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "esse",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "nostrud",
+          "students": [
+            {
+              "name": "Vasquez"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ratliff Pitts",
+      "email": "ratliffpitts@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "pariatur",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "cillum",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "occaecat",
+          "students": [
+            {
+              "name": "Good"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cathy Burris",
+      "email": "cathyburris@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "irure",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "consectetur",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "id",
+          "students": [
+            {
+              "name": "Kennedy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mejia Mullen",
+      "email": "mejiamullen@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "hashedPassword": "ad",
+      "provider": "local",
+      "contextPacks": [
+        {
+          "wordName": "labore",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+      "studentGroups": [
+        {
+          "groupName": "Lorem",
+          "students": [
+            {
+              "name": "Mayer"
+            }
+          ]
+        }
+      ]
     }
   );
 });
@@ -83,3 +252,33 @@ Student.find({}).remove(function() {
 
   );
 });
+
+/*
+
+ [
+ '{{repeat(5, 7)}}',
+ {
+ name: '{{firstName()}} {{surname()}}',
+ email: '{{email()}}',
+ role: {
+ type: 'user'
+ },
+ hashedPassword: '{{lorem(1, "words")}}',
+ provider: 'local',
+ contextPacks: [{
+ wordName: '{{lorem(1, "words")}}',
+ wordType: 'noun',
+ wordColor: 'blue'
+ }],
+ studentGroups: [
+ {
+ groupName: '{{lorem(1, "words")}}',
+ students: [{
+ name: '{{firstName()}}'
+ }]
+ }
+ ]
+
+ }
+ ]*/
+
