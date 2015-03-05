@@ -46,7 +46,7 @@
             <div ng-show="showPack">
                 <h1 class="page-header">Words in {{currentPack.packName}}:</h1>
                 <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="tile in currentPack.tiles">
-                    <li>{{tile}}<button type="button" class="close" ng-click="deleteTile(tile)">&times;</button></li>
+                    <li>{{tile}}<button type="button" class="close" ng-click="deleteTile($index)">&times;</button></li>
                 </ul>
                 <div ng-hide="showTileAdder">
                 <a href="#" ng-click="toggleShowAdder()">Add a card...</a>
