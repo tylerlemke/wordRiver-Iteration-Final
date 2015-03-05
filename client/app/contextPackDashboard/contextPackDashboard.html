@@ -25,13 +25,15 @@
     <th>Context Pack Name</th>
     <th>Number of Words</th>
     <th>Suggested Grade Level</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
   <tr ng-repeat="pack in contextPack">
     <td>{{pack.name}}</td>
     <td>{{pack.words.length}}</td>
-    <td>{{pack.gradeLevel}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></td>
+    <td>{{pack.gradeLevel}}</td>
+    <td><span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="deleteThing(pack)"></span></td>
   </tr>
   </tbody>
 </table>
