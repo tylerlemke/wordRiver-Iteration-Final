@@ -23,11 +23,9 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
       socket.syncUpdates('student', $scope.studentList);
     });
 
-    //Get this working
+
     $scope.deletePack = function(index) {
-      $http.delete('/api/packs/' + $scope.contextPacks[index]._id).success(function () {
-        //$scope.getContextPacks();
-      });
+      $http.delete('/api/packs/' + $scope.contextPacks[index]._id)
     };
 
     $scope.$on('$destroy', function () {
