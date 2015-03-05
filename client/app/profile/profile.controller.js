@@ -5,7 +5,6 @@
 
 angular.module('wordRiverTeamFtlApp')
   .controller('ProfileCtrl', function ($rootScope, $scope, $http, socket) {
-    $scope.students = [];
     $scope.currentStudent = $rootScope.currentStudent;
     console.log($scope.currentStudent);
 
