@@ -4,6 +4,8 @@ describe('Controller: MakeContextPackCtrl', function () {
 
   // load the controller's module
   beforeEach(module('wordRiverTeamFtlApp'));
+  beforeEach(module('socketMock'));
+
 
   var MakeContextPackCtrl, scope;
 

@@ -9,7 +9,7 @@
 <br/>
 
 <div class="container" ng-show="true">
-  <form ng-submit="setUp()">
+  <form ng-submit="changeView()" ng-show="setUp">
     <p>Context Pack Name</p>
     <input ng-model="nameField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Name Your Context Pack">
     <br/>
@@ -21,9 +21,9 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="changeGradeLevel(Kindergarten)">Kindergarten</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="changeGradeLevel(FirstGrade)">First Grade</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="changeGradeLevel(SecondGrade)">Second Grade</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="changeGradeLevel('Kindergarten')">Kindergarten</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="changeGradeLevel('FirstGrade')">First Grade</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="changeGradeLevel('SecondGrade')">Second Grade</a></li>
       </ul>
     </div>
     <br/>
