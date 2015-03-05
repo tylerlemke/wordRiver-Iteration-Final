@@ -15,7 +15,7 @@ angular.module('ummWordRiverTeam1Iteration1App')
 
     $scope.isEmpty = function(input){
       return input == "";
-    }
+    };
 
     $scope.addTile = function(wordName, wordType){
       if (!$scope.isEmpty(wordName) && !$scope.isEmpty(wordType)) {
