@@ -11,7 +11,7 @@ angular.module('wordRiverTeamFtlApp')
 
     $http.get('/api/contextPacks').success(function(contextPacks) {
       $scope.contextPack = contextPacks;
-      //socket.syncUpdates('contextPack', $scope.contextPacks);
+      socket.syncUpdates('contextPack', $scope.contextPacks);
     });
 
     $scope.addContextPack = function() {
@@ -25,10 +25,12 @@ angular.module('wordRiverTeamFtlApp')
       }
       $http.post('/api/contextPacks', {name: $scope.nameField, gradeLevel: $scope.gradeLevel, words: $scope.words});
       $scope.newPack = '';
+      window.location="/dashboard";
     };
 
     $scope.deleteThing = function(thing) {
-      $http.delete('/api/contextPacks/' + thing._id);
+      $http.delete('/api/contextPacks/' + thing._id).success(function() {
+      })
     };
 
     $scope.$on('$destroy', function () {
