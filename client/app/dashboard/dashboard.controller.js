@@ -13,4 +13,14 @@ angular.module('ummWordRiverTeam1Iteration1App')
       });
     }
     $scope.getStudents();
+
+    $scope.showdetails = function(group) {
+      document.getElementById("studentList").innerHTML = "";
+      var words = "";
+      for (var i = 0; i < group.students.length; i++) {
+        words = words + group.students[i].name + "<br>";
+
+      }
+      document.getElementById("studentList").innerHTML = "<u>" + group.groupName  + "</u><br/>" + words;
+    }
   });
