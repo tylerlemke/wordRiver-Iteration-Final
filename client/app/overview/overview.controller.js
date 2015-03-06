@@ -48,21 +48,24 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
       $scope.textField="";
     };
 
-    $scope.addTile = function(){
+    $scope.addTile = function() {
       if ($scope.tileField.length >= 1) {
-        console.log($scope.currentPack.tiles);
         $scope.currentPack.tiles.push($scope.tileField);
-        console.log($scope.currentPack.tiles);
-        console.log($scope.currentPack);
-        $http.patch('/api/packs/' + $scope.currentPack._id, $scope.currentPack
-          //{
-          //  tiles: $scope.currentPack.tiles
-          //}
-        ).success(function () {
-            console.log("Glorious Victory!");
-        });
+        $http.post('/api/packs', {packName: $scope.currentPack.packName, tiles: $scope.currentPack.tiles});
+        $http.delete('/api/packs/' + $scope.currentPack._id);
         $scope.tileField = "";
-        $scope.getPacks();
+
+        ////console.log($scope.currentPack.tiles);
+        //$scope.currentPack.tiles.push($scope.tileField);
+        //console.log("Pack after pushing new item");
+        //console.log($scope.currentPack);
+        //$http.patch('/api/packs/' + $scope.currentPack._id, //$scope.currentPack
+        //  {packName: $scope.currentPack.packName, tiles: $scope.currentPack.tiles}
+        //).success(function () {
+        //    console.log("Glorious Victory!");
+        //});
+        //$scope.tileField = "";
+        ////$scope.getPacks();
       }
     };
 
