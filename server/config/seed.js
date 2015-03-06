@@ -86,20 +86,59 @@ User.find({}).remove(function() {
       },
       "password": "nisi",
       "provider": "local",
-      "contextPacks": [{
-        "contextName": "Verbs",
-        "contents":[
-          {"wordName": "run",
-          "wordType": "verb",
-          "wordColor": "blue"},
-          {"wordName": "jump",
-            "wordType": "verb",
-            "wordColor": "blue"},
-          {"wordName": "walk",
-            "wordType": "verb",
-            "wordColor": "blue"}
-        ]
-      }],
+      contextPacks: [{
+        contextName: "Verbs/Actions",
+        contents:[
+          {wordName: "run",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "jump",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "walk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "talk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "swim",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "talk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "climb",
+            wordType: "verb",
+            wordColor: "green"}
+        ]},
+        {
+          contextName: "Animals",
+          contents:[
+            {wordName: "Cat",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Dog",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Zebra",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Llama",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Horse",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Bird",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Lizard",
+              wordType: "noun",
+              wordColor: "green"}
+          ]
+
+        }
+      ],
       "tileBucket": [
           {"wordName": "run",
             "wordType": "verb",
