@@ -31,10 +31,9 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.deletePack = function(index) {
       $http.delete('/api/packs/' + $scope.contextPacks[index]._id)
     };
-    //trying to be able to delete tiles within a pack, but only works on the first tile (must delete first in list, then next first tile, etc) Only seems to work on first context pack
-    $scope.deleteTile = function(index) {
-      var currentTile = $scope.contextPacks[index].tiles;
-      return currentTile.splice(index, 1);
+    
+    $scope.deleteTile = function(pack,index) {
+      return pack.splice(index, 1);
     };
 
     $scope.$on('$destroy', function () {
