@@ -92,6 +92,19 @@ angular.module('wordRiverTeamFtlApp')
            console.log("false");
        }
     };
+
+    // There wasn't enough time to link it to an actual id
+    //$scope.wordsBeingSent = function(){
+    //  for(var i=0; i< $scope.checkedStudents.length;i++) {
+    //    if($scope.checkedStudents[i] == FindStudentById()){
+    //      $http.post('/app/profile_id', {words: $scope.wordField}).success(function () {
+    //
+    //      })
+    //    }
+    //  };
+    //
+    //
+    //};
 //=========================================================================
     $scope.students = [];
     $scope.classList = [];

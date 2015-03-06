@@ -18,16 +18,17 @@
   padding: 30px 15px;
   color: #F5F5F5;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.24);
   background: #4393B9;
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-collapse: collapse;
   width: 50%;
   height: 30px;
   align: right;
+  border-radius: 25px;
 }
 
 form{
