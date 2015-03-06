@@ -14,10 +14,7 @@
     </div>
 
     <div class="form-group has-error">
-      <p class="help-block" ng-show="form.wordName.$error.required && form.wordType.$error.required && submitted">
-        Please enter a word and word type.
-      </p>
-
+      {{message}}
       <p class="help-block">{{ errors.other }}</p>
     </div>
 
@@ -28,4 +25,4 @@
     </div>
   </form>
 </div>
-<p ng-repeat = "tile in packs">{{tile.wordName}}</p>
+<p ng-repeat="tile in pack.contents">{{tile.wordName}}</p>
