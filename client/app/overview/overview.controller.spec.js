@@ -45,4 +45,24 @@ describe('Controller: OverviewCtrl', function () {
   //it('should be 5', function () {
   //  expect(scope.contextPacks.length).toBe(5);
   //});
+
+  describe('testing deleteTile() functionality', function() {
+    var testPacks = [{"packName": "Hero Pack",
+      "tiles": ["Superman", "Batman", "Hulk"]},
+      {"packName": "Zoo",
+        "tiles": ["Lion", "Tiger", "Bear"]},
+      {"packName": "Biomes",
+        "tiles": ["tundra", "desert", "forest"]}];
+    it('should return ["Hulk"]', function () {
+      expect(scope.deleteTile(testPacks[0].tiles, 2)).toEqual(["Hulk"]);
+    });
+
+    it('should return ["tundra"]', function () {
+      expect(scope.deleteTile(testPacks[2].tiles, 0)).toEqual(["tundra"]);
+    });
+
+    it('should return ["Tiger"]', function () {
+      expect(scope.deleteTile(testPacks[1].tiles, 1)).toEqual(["Tiger"]);
+    });
+  });
 });

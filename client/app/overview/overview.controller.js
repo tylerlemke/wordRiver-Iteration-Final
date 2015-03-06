@@ -31,7 +31,7 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
     $scope.deletePack = function(index) {
       $http.delete('/api/packs/' + $scope.contextPacks[index]._id)
     };
-    
+
     $scope.deleteTile = function(pack,index) {
       return pack.splice(index, 1);
     };
