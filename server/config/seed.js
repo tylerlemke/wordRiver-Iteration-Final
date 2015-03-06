@@ -56,15 +56,15 @@ User.find({}).remove(function() {
         ]
       }],
       "tileBucket": [
-        {"wordName": "run",
-          "wordType": "verb",
-          "wordColor": "blue"},
+        {"wordName": "house",
+          "wordType": "noun",
+          "wordColor": "green"},
         {"wordName": "jump",
-          "wordType": "verb",
-          "wordColor": "blue"},
+          "wordType": "noun",
+          "wordColor": "green"},
         {"wordName": "walk",
-          "wordType": "verb",
-          "wordColor": "blue"}
+          "wordType": "noun",
+          "wordColor": "green"}
       ],
 
       "studentGroups": [
@@ -131,12 +131,30 @@ User.find({}).remove(function() {
       },
       "password": "incididunt",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "ea",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
       ],
       "studentGroups": [
         {
@@ -157,12 +175,30 @@ User.find({}).remove(function() {
       },
       "password": "aliquip",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "esse",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
       ],
       "studentGroups": [
         {
@@ -183,18 +219,42 @@ User.find({}).remove(function() {
       },
       "password": "pariatur",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "cillum",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
       ],
       "studentGroups": [
         {
           "groupName": "occaecat",
           "students": [
-            {
+            {"contextPacks": [
+        {
+          "wordName": "labore",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
               "name": "Good"
             }
           ]
@@ -209,12 +269,30 @@ User.find({}).remove(function() {
       },
       "password": "irure",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "consectetur",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
       ],
       "studentGroups": [
         {
@@ -235,12 +313,30 @@ User.find({}).remove(function() {
       },
       "password": "ad",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "labore",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
       ],
       "studentGroups": [
         {
