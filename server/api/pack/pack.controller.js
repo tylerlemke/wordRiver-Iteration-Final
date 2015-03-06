@@ -66,22 +66,29 @@ exports.update = function(req, res) {
 // Updates an existing thing in the DB.
 exports.updateTiles = function(req, res) {
   console.log("Starting updateTiles");
+  console.log(req.body);
   if(req.body._id) { delete req.body._id; console.log("Deleted thing");}
+  console.log(req.body);
+  console.log(req.params);
   Pack.findById(req.params.id, function (err, pack) {
+    console.log("in findById");
     if (err) { return handleError(res, err); }
     if(!pack) { return res.send(404); }
     var updated = _.merge(pack, req.body);
+    console.log(updated);
 ////////////////////////////
-    if(
-      _.has(req.body, 'tiles')){
-      updated.tiles = req.body.tiles;
-    } else if (!(_.has(req.body, 'tiles'))){
-      updated.tiles = pack.tiles;
-      console.log(pack.tiles);
-    }
+//    if(
+//      _.has(req.body, 'tiles')){
+//      updated.tiles = req.body.tiles;
+//    } else if (!(_.has(req.body, 'tiles'))){
+//      updated.tiles = pack.tiles;
+//      console.log(pack.tiles);
+//    }
 //////////////////////////
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
+      console.log("Res Json");
+      console.log(res.json(200, pack));
       return res.json(200, pack);
     });
     console.log("here i am");

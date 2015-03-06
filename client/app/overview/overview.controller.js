@@ -50,11 +50,14 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.addTile = function(){
       if ($scope.tileField.length >= 1) {
+        console.log($scope.currentPack.tiles);
         $scope.currentPack.tiles.push($scope.tileField);
-        $http.patch('/api/packs/' + $scope.currentPack._id,
-          {
-            tiles: $scope.currentPack.tiles
-          }
+        console.log($scope.currentPack.tiles);
+        console.log($scope.currentPack);
+        $http.patch('/api/packs/' + $scope.currentPack._id, $scope.currentPack
+          //{
+          //  tiles: $scope.currentPack.tiles
+          //}
         ).success(function () {
             console.log("Glorious Victory!");
         });
