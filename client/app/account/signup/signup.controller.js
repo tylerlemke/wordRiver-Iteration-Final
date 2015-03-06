@@ -12,7 +12,60 @@ angular.module('ummWordRiverTeam1Iteration1App')
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          contextPacks: [{
+            contextName: "Verbs/Actions",
+            contents:[
+              {wordName: "run",
+                wordType: "verb",
+                wordColor: "green"},
+              {wordName: "jump",
+                wordType: "verb",
+                wordColor: "green"},
+              {wordName: "walk",
+                wordType: "verb",
+                wordColor: "green"},
+              {wordName: "talk",
+                wordType: "verb",
+                wordColor: "green"},
+              {wordName: "swim",
+                wordType: "verb",
+                wordColor: "green"},
+              {wordName: "talk",
+                wordType: "verb",
+                wordColor: "green"},
+              {wordName: "climb",
+                wordType: "verb",
+                wordColor: "green"}
+            ]},
+            {
+              contextName: "Animals",
+              contents:[
+                {wordName: "Cat",
+                  wordType: "noun",
+                  wordColor: "green"},
+                {wordName: "Dog",
+                  wordType: "noun",
+                  wordColor: "blue"},
+                {wordName: "Zebra",
+                  wordType: "noun",
+                  wordColor: "blue"},
+                {wordName: "Lama",
+                  wordType: "noun",
+                  wordColor: "green"},
+                {wordName: "Horse",
+                  wordType: "noun",
+                  wordColor: "green"},
+                {wordName: "Bird",
+                  wordType: "noun",
+                  wordColor: "green"},
+                {wordName: "Lizard",
+                  wordType: "noun",
+                  wordColor: "green"}
+              ]
+
+            }
+          ]
         })
         .then( function() {
           // Account created, redirect to home
