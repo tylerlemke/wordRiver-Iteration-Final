@@ -117,7 +117,143 @@ User.find({}).remove(function() {
           "groupName": "aliquip",
           "students": [
             {
-              "name": "Cooke"
+              "name": "Banks"
+            },
+            {
+              "name": "Wiley"
+            },
+            {
+              "name": "Juliana"
+            },
+            {
+              "name": "Allen"
+            },
+            {
+              "name": "Mayo"
+            },
+            {
+              "name": "Keller"
+            }
+          ]
+        },
+        {
+          "groupName": "anim",
+          "students": [
+            {
+              "name": "Cochran"
+            },
+            {
+              "name": "Vasquez"
+            },
+            {
+              "name": "Rose"
+            },
+            {
+              "name": "Lynne"
+            },
+            {
+              "name": "Castillo"
+            },
+            {
+              "name": "Lora"
+            }
+          ]
+        },
+        {
+          "groupName": "do",
+          "students": [
+            {
+              "name": "Angelica"
+            },
+            {
+              "name": "Slater"
+            },
+            {
+              "name": "Mays"
+            },
+            {
+              "name": "Jean"
+            },
+            {
+              "name": "Mcknight"
+            },
+            {
+              "name": "Mckee"
+            }
+          ]
+        },
+        {
+          "groupName": "officia",
+          "students": [
+            {
+              "name": "Stafford"
+            },
+            {
+              "name": "Bishop"
+            },
+            {
+              "name": "Liliana"
+            },
+            {
+              "name": "Lloyd"
+            },
+            {
+              "name": "Beasley"
+            },
+            {
+              "name": "Peggy"
+            }
+          ]
+        },
+        {
+          "groupName": "exercitation",
+          "students": [
+            {
+              "name": "Erickson"
+            },
+            {
+              "name": "Tracie"
+            },
+            {
+              "name": "Leila"
+            },
+            {
+              "name": "Lacy"
+            },
+            {
+              "name": "Jolene"
+            },
+            {
+              "name": "Chen"
+            },
+            {
+              "name": "Hammond"
+            }
+          ]
+        },
+        {
+          "groupName": "ut",
+          "students": [
+            {
+              "name": "Saunders"
+            },
+            {
+              "name": "Geraldine"
+            },
+            {
+              "name": "Bender"
+            },
+            {
+              "name": "Cantrell"
+            },
+            {
+              "name": "Miles"
+            },
+            {
+              "name": "Gilliam"
+            },
+            {
+              "name": "Mcfadden"
             }
           ]
         }
