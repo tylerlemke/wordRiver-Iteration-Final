@@ -23,7 +23,7 @@
 }
 
 /*changes the background color to yellow when a student is selected*/
-a.ng-scope.ng-binding:visited {
+a.ng-scopeng-binding:visited{
   background-color: #ffff00;
 }
 
