@@ -47,14 +47,14 @@ Student.find({}).remove(function() {
       "id": 1160
     },
     {
-      "firstName": "Ruiz",
+      "firstName": "Harry",
       "lastName": "Potter",
       "gender": "male",
       "id": 7674
     },
     {
       "firstName": "Deana",
-      "lastName": "Hurst",
+      "lastName": "Winchester",
       "gender": "female",
       "id": 6079
     },
@@ -89,16 +89,16 @@ var Pack = require('../api/pack/pack.model');
 Pack.find({}).remove(function() {
   Pack.create(
     {"packName": "Hero Pack",
-      "tiles": ["Superman", "Batman", "Hulk"]},
+      "tiles": ["Superman", "Batman", "Hulk", "Doomsday Device", "villain", "sidekick", "gadgets", "Green Lantern", "Black Widow", "brave", "Gotham City", "Green Arrow"]},
     {"packName": "Zoo",
-      "tiles": ["Lion", "Tiger", "Bear"]},
+      "tiles": ["Lion", "Tiger", "Bear", "Seals", "Giraffe", "Elephant", "Shark", "Alligator", "zoo keeper", "aquarium", "birdhouse", "greenhouse"]},
     {"packName": "Biomes",
-      "tiles": ["tundra", "desert", "forest"]},
+      "tiles": ["tundra", "desert", "forest", "rainforest", "jungle", "coral reef"]},
     {"packName": "Cars",
-      "tiles": ["Aveo", "Ferrari", "Subaru"]},
+      "tiles": ["Aveo", "Ferrari", "Subaru", "van", "Saturn", "Chevrolet"]},
     {"packName": "Disney",
-      "tiles": ["Frozen", "Cinderella", "Tangled"]},
+      "tiles": ["Frozen", "Cinderella", "Tangled", "princess", "prince", "kingdom", "witch", "ball", "magical creatures", "magic"]},
     {packName: "Sports",
-      tiles: ["basketball", "football", "tennis", "volleyball"]}
+      tiles: ["basketball", "football", "tennis", "volleyball", "soccer", "curling"]}
   );
 });
