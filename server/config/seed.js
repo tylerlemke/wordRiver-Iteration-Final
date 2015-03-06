@@ -86,20 +86,59 @@ User.find({}).remove(function() {
       },
       "password": "nisi",
       "provider": "local",
-      "contextPacks": [{
-        "contextName": "Verbs",
-        "contents":[
-          {"wordName": "run",
-          "wordType": "verb",
-          "wordColor": "blue"},
-          {"wordName": "jump",
-            "wordType": "verb",
-            "wordColor": "blue"},
-          {"wordName": "walk",
-            "wordType": "verb",
-            "wordColor": "blue"}
-        ]
-      }],
+      contextPacks: [{
+        contextName: "Verbs/Actions",
+        contents:[
+          {wordName: "run",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "jump",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "walk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "talk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "swim",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "talk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "climb",
+            wordType: "verb",
+            wordColor: "green"}
+        ]},
+        {
+          contextName: "Animals",
+          contents:[
+            {wordName: "Cat",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Dog",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Zebra",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Llama",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Horse",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Bird",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Lizard",
+              wordType: "noun",
+              wordColor: "green"}
+          ]
+
+        }
+      ],
       "tileBucket": [
           {"wordName": "run",
             "wordType": "verb",
@@ -117,7 +156,143 @@ User.find({}).remove(function() {
           "groupName": "aliquip",
           "students": [
             {
-              "name": "Cooke"
+              "name": "Banks"
+            },
+            {
+              "name": "Wiley"
+            },
+            {
+              "name": "Juliana"
+            },
+            {
+              "name": "Allen"
+            },
+            {
+              "name": "Mayo"
+            },
+            {
+              "name": "Keller"
+            }
+          ]
+        },
+        {
+          "groupName": "anim",
+          "students": [
+            {
+              "name": "Cochran"
+            },
+            {
+              "name": "Vasquez"
+            },
+            {
+              "name": "Rose"
+            },
+            {
+              "name": "Lynne"
+            },
+            {
+              "name": "Castillo"
+            },
+            {
+              "name": "Lora"
+            }
+          ]
+        },
+        {
+          "groupName": "do",
+          "students": [
+            {
+              "name": "Angelica"
+            },
+            {
+              "name": "Slater"
+            },
+            {
+              "name": "Mays"
+            },
+            {
+              "name": "Jean"
+            },
+            {
+              "name": "Mcknight"
+            },
+            {
+              "name": "Mckee"
+            }
+          ]
+        },
+        {
+          "groupName": "officia",
+          "students": [
+            {
+              "name": "Stafford"
+            },
+            {
+              "name": "Bishop"
+            },
+            {
+              "name": "Liliana"
+            },
+            {
+              "name": "Lloyd"
+            },
+            {
+              "name": "Beasley"
+            },
+            {
+              "name": "Peggy"
+            }
+          ]
+        },
+        {
+          "groupName": "exercitation",
+          "students": [
+            {
+              "name": "Erickson"
+            },
+            {
+              "name": "Tracie"
+            },
+            {
+              "name": "Leila"
+            },
+            {
+              "name": "Lacy"
+            },
+            {
+              "name": "Jolene"
+            },
+            {
+              "name": "Chen"
+            },
+            {
+              "name": "Hammond"
+            }
+          ]
+        },
+        {
+          "groupName": "ut",
+          "students": [
+            {
+              "name": "Saunders"
+            },
+            {
+              "name": "Geraldine"
+            },
+            {
+              "name": "Bender"
+            },
+            {
+              "name": "Cantrell"
+            },
+            {
+              "name": "Miles"
+            },
+            {
+              "name": "Gilliam"
+            },
+            {
+              "name": "Mcfadden"
             }
           ]
         }
