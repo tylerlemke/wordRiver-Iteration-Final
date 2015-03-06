@@ -14,6 +14,7 @@ angular.module('wordRiverTeamFtlApp')
       socket.syncUpdates('contextPack', $scope.contextPacks);
     });
 
+    //Used to submit all information to the context pack
     $scope.addContextPack = function() {
       //Checks for correct input
       if($scope.nameField.length < 3 || $scope.nameField.length > 30) {
@@ -40,6 +41,7 @@ angular.module('wordRiverTeamFtlApp')
       $scope.gradeLevel = str;
     };
 
+    //Used when preliminary settings are submitted
     $scope.changeView = function(){
       if($scope.nameField.length < 3 || $scope.nameField.length > 30) {
         alert("Your pack's name needs to be greater than 2 characters, and less than 30.");
@@ -50,6 +52,7 @@ angular.module('wordRiverTeamFtlApp')
       }
     };
 
+    //Used to add a word to the context pack
     $scope.addWord = function(){
       if($scope.addWordField.length <= 0){
         alert("You need to enter a word.");

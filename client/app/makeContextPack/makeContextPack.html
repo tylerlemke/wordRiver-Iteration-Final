@@ -7,7 +7,7 @@
 </header>
 
 <br/>
-
+<!--Main set up options. Will hide when submitted. -->
 <div class="container" ng-show="true">
   <a class="btn btn-default" href="/main"> Back to Home</a>
   <hr>
@@ -34,6 +34,7 @@
   </form>
 </div>
 
+<!--Add words field and shows all words already added -->
 <div class="container" ng-hide="setUp">
   <input ng-model="addWordField" type="text" style="width:25%; margin-left:auto; margin-right:auto;" placeholder="Add a Word!">
   <button class="btn btn-primary" ng-click="addWord()">Add Word</button>
