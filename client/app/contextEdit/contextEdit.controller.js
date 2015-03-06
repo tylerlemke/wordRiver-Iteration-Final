@@ -1,17 +1,30 @@
 'use strict';
 
 angular.module('ummWordRiverTeam1Iteration1App')
-  .controller('ContextEditCtrl', function ($scope) {
+  .controller('ContextEditCtrl', function ($scope, $http, socket, $location) {
     $scope.message = '';
     $scope.tileBucketTemp = [];
 
-    $scope.packs = [
-      {name:"Greetings Pack",
-        words: ["Hi", "Hello"]
-      },
-      {name:"Animal",
-        words: ["Cat", "Dog"]}
-    ];
+    $scope.packs = [];
+
+    $scope.getPack = function() {
+      $http.get('/api/users/me').success(function(user) {
+        console.log(user);
+        $scope.pack = user.contextPacks[$scope.getIndex()];
+        console.log($scope.packs);
+      });
+    };
+    $scope.getPack();
+
+    /**
+     * Gets the index of the id passed in the get array
+     * @returns int the id of the context pack
+     */
+    $scope.getIndex = function(){
+      var id = $location.url();
+      id = id.split("=");
+      return id[id.length-1];
+    }
 
     $scope.isEmpty = function(input){
       return input == "";

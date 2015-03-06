@@ -8,6 +8,12 @@ describe('Controller: ContextEditCtrl', function () {
 
   var ContextPacksCtrl, scope;
 
+  //beforeEach(module('myApp', function($provide) {
+  //  $provide.factory('$location', {
+  //    path: undefined
+  //  });
+  //}));
+
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
@@ -67,9 +73,15 @@ describe('Controller: ContextEditCtrl', function () {
 
   it('should return true', function(){
     expect(scope.isEmpty("")).toBe(true);
-  })
+  });
   it('should return false', function(){
     expect(scope.isEmpty("kittens")).toBe(false);
-  })
+  });
+
+  //getIndex Tests Can't use location in testing
+  //it('should return 1', function(){
+  //  $location.url("/someurl?id=1");
+  //  expect(scope.getIndex()).toBe(1);
+  //});
 
 });
