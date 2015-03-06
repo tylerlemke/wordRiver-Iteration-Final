@@ -29,8 +29,7 @@ angular.module('wordRiverTeamFtlApp')
     };
 
     $scope.deleteThing = function(thing) {
-      $http.delete('/api/contextPacks/' + thing._id).success(function() {
-      })
+      $http.delete('/api/contextPacks/' + thing._id);
     };
 
     $scope.$on('$destroy', function () {
