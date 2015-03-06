@@ -1,0 +1,12 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="col-md-12">
+This is the tileBucket view.
+</div>
+
+<table>
+  <tr data-ng-repeat="tile in tileBucket">
+    <td data-ng-bind="tile.wordName"></td>
+    <td data-ng-bind="tile.wordType"></td>
+  </tr>
+</table>

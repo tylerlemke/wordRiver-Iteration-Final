@@ -48,6 +48,7 @@ User.find({}).remove(function() {
           "wordColor": "blue"
         }
       ],
+
       "studentGroups": [
         {
           "groupName": "in",
@@ -80,8 +81,21 @@ User.find({}).remove(function() {
             "wordType": "verb",
             "wordColor": "blue"}
         ]
-
       }],
+      "tileBucket": [{
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+
       "studentGroups": [
         {
           "groupName": "aliquip",
