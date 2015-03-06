@@ -65,7 +65,52 @@ angular.module('ummWordRiverTeam1Iteration1App')
               ]
 
             }
+          ],
+          "tileBucket": [
+            {wordName: "run",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "jump",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "walk",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "talk",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "swim",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "talk",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "climb",
+              wordType: "verb",
+              wordColor: "green"},
+            {wordName: "Cat",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Dog",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Zebra",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Llama",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Horse",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Bird",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Lizard",
+              wordType: "noun",
+              wordColor: "green"}
           ]
+
         })
         .then( function() {
           // Account created, redirect to home
