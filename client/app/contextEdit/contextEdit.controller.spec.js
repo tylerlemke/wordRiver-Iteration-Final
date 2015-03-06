@@ -51,7 +51,7 @@ describe('Controller: ContextEditCtrl', function () {
     expect(scope.addColorToTile('pronoun')).toBe('pink');
     expect(scope.addColorToTile('adverb')).toBe('orange');
     expect(scope.addColorToTile('preposition')).toBe('tan');
-    expect(scope.addColorToTile('interjection')).toBe('gray');
+    expect(scope.addColorToTile('article')).toBe('gray');
     expect(scope.addColorToTile('blah')).toBe('white');
     expect(scope.addColorToTile('')).toBe('white');
   });
@@ -72,7 +72,7 @@ describe('Controller: ContextEditCtrl', function () {
     scope.addTile();
     scope.wordType="conjunction";
     scope.addTile();
-    scope.wordType="interjection";
+    scope.wordType="article";
     scope.addTile();
     expect(scope.tileBucketTemp[0].wordColor).toBe('green');
     expect(scope.tileBucketTemp[1].wordColor).toBe('blue');

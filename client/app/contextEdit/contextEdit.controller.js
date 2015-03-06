@@ -6,13 +6,16 @@ angular.module('ummWordRiverTeam1Iteration1App')
     $scope.tileBucketTemp = [];
     $scope.wordName = "";
     $scope.wordType=  "";
+    $scope.id="";
+    $scope.index ="";
 
     $scope.packs = [];
 
     $scope.getPack = function() {
       $http.get('/api/users/me').success(function(user) {
-        //console.log(user);
-        $scope.pack = user.contextPacks[$scope.getIndex()];
+        $scope.index=$scope.getIndex();
+        $scope.id = user._id;
+        $scope.pack = user.contextPacks[$scope.index];
         //console.log($scope.packs);
         $scope.tileBucketTemp = user.tileBucket;
       });
@@ -35,6 +38,16 @@ angular.module('ummWordRiverTeam1Iteration1App')
 
     $scope.addTile = function(){
       if (!$scope.isEmpty($scope.wordName) && !$scope.isEmpty($scope.wordType)) {
+
+        $scope.message="";
+        $scope.pack.contents[$scope.pack.contents.length] = {
+          "wordName": $scope.wordName,
+          "wordType": $scope.wordType,
+          "wordColor": $scope.addColorToTile($scope.wordType)
+        };
+          for(var i = 0; i < $scope.pack.contents.length; i++){
+          console.log($scope.pack.contents[i].wordName);
+        }
         if(!$scope.inBucket($scope.wordName, $scope.wordType)) {
           $scope.tileBucketTemp[$scope.tileBucketTemp.length] = {
             "wordName": $scope.wordName,
@@ -42,6 +55,8 @@ angular.module('ummWordRiverTeam1Iteration1App')
             "wordColor": $scope.addColorToTile($scope.wordType)
           };
         }
+        $scope.wordName ="";
+        $scope.wordType="";
       }else {
         $scope.message = "Please enter a word and word type."
       }
@@ -58,7 +73,15 @@ angular.module('ummWordRiverTeam1Iteration1App')
         }
       }
       return false;
-    }
+    };
+
+
+    //$scope.updatePack = function(){
+    //    $http.post('/api/user/'+user._id+'/updatePack', {pack: $scope.pack, id: $scope.id });
+    //};
+    //$scope.updateBucket = function(){
+    //  $http.post('/api/user/'+$scope.id'/updateBucket', { bucket: $scope.tileBucketTemp, id: $scope.id });
+    //};
 
     $scope.addColorToTile = function(wordType){
 
@@ -83,7 +106,7 @@ angular.module('ummWordRiverTeam1Iteration1App')
       else if(wordType == 'conjunction'){
         return 'purple';
       }
-      else if(wordType == 'interjection'){
+      else if(wordType == 'article'){
         return 'gray';
       }
       else{
