@@ -50,7 +50,7 @@ angular.module('ummWordRiverTeam1Iteration1App')
                 {wordName: "Zebra",
                   wordType: "noun",
                   wordColor: "blue"},
-                {wordName: "Lama",
+                {wordName: "Llama",
                   wordType: "noun",
                   wordColor: "green"},
                 {wordName: "Horse",
