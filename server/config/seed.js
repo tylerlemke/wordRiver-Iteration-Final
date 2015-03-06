@@ -41,12 +41,30 @@ User.find({}).remove(function() {
       },
       "password": "deserunt",
       "provider": "local",
-      "contextPacks": [
-        {
-          "wordName": "nisi",
-          "wordType": "noun",
-          "wordColor": "blue"
-        }
+      "contextPacks": [{
+        "contextName": "nouns",
+        "contents":[
+          {"wordName": "house",
+            "wordType": "noun",
+            "wordColor": "green"},
+          {"wordName": "jump",
+            "wordType": "noun",
+            "wordColor": "green"},
+          {"wordName": "walk",
+            "wordType": "noun",
+            "wordColor": "green"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
       ],
 
       "studentGroups": [
@@ -82,8 +100,7 @@ User.find({}).remove(function() {
             "wordColor": "blue"}
         ]
       }],
-      "tileBucket": [{
-        "contents":[
+      "tileBucket": [
           {"wordName": "run",
             "wordType": "verb",
             "wordColor": "blue"},
@@ -93,8 +110,7 @@ User.find({}).remove(function() {
           {"wordName": "walk",
             "wordType": "verb",
             "wordColor": "blue"}
-        ]
-      }],
+      ],
 
       "studentGroups": [
         {

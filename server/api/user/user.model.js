@@ -23,11 +23,9 @@ var UserSchema = new Schema({
     }]
   }],
   tileBucket: [{
-    contents:[{
       wordName: String,
       wordType: String,
       wordColor: String
-    }]
   }],
   studentGroups: [
     {
