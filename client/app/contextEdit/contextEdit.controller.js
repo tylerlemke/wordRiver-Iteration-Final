@@ -5,7 +5,7 @@ angular.module('ummWordRiverTeam1Iteration1App')
     $scope.message = '';
     $scope.tileBucketTemp = [];
     $scope.wordName = "";
-    $scope.wordType="";
+    $scope.wordType=  "";
 
     $scope.packs = [];
 
@@ -49,14 +49,14 @@ angular.module('ummWordRiverTeam1Iteration1App')
 
     /**
      * Checks if the word is in the tileBucket
+     * Can't use angular.foreach, it changes types or something and breaks test
      */
     $scope.inBucket = function(){
-      angular.forEach($scope.tileBucketTemp, function(value, key) {
-        console.log($scope.wordName.toLowerCase()+" "+ value.wordName.toLowerCase()+" "+$scope.wordType.toLowerCase()+" "+$scope.value.wordType.toLowerCase());
-        if (value.wordName.toLowerCase() == $scope.wordName.toLowerCase() && value.wordType.toLowerCase() == $scope.wordType.toLowerCase()){
+      for(var i = 0; i < $scope.tileBucketTemp.length; i++){
+        if ($scope.tileBucketTemp[i].wordName.toLowerCase() == $scope.wordName.toLowerCase() && $scope.tileBucketTemp[i].wordType.toLowerCase() == $scope.wordType.toLowerCase()){
           return true;
         }
-      });
+      }
       return false;
     }
 

@@ -127,6 +127,8 @@ describe('Controller: ContextEditCtrl', function () {
       {"wordName": "walk",
         "wordType": "verb",
         "wordColor": "blue"}];
+
+    console.log(scope.wordType==scope.tileBucketTemp[0].wordType);
     expect(scope.inBucket()).toBe(true);
   });
 
