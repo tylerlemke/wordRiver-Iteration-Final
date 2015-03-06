@@ -32,9 +32,9 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
       $http.delete('/api/packs/' + $scope.contextPacks[index]._id)
     };
 
-    $scope.deleteTile = function(pack,index) {
-      return pack.splice(index, 1);
-    };
+    //$scope.deleteTile = function(pack,index) {
+    //  return pack.splice(index, 1);
+    //};
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('pack');
@@ -66,6 +66,12 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
         //$scope.tileField = "";
         ////$scope.getPacks();
       }
+    };
+
+    $scope.deleteTile = function(pack, index) {
+      pack.tiles.splice(index, 1)
+      $http.post('/api/packs', {packName: pack.packName, tiles: pack.tiles});
+      $http.delete('/api/packs/' + pack._id);
     };
 
     $scope.toggleShowAdder = function() {

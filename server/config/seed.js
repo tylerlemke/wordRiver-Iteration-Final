@@ -7,6 +7,7 @@
 
 var Student = require('../api/student/student.model');
 
+
 Student.find({}).remove(function() {
   Student.create(
     {
