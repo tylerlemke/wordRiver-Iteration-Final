@@ -27,7 +27,11 @@ table, th, td {
   border-collapse: collapse;
   width: 50%;
   height: 30px;
+  align: right;
+}
 
+form{
+  align: left;
 }
 
 .footer {
