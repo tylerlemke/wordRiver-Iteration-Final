@@ -8,6 +8,12 @@ describe('Controller: ContextEditCtrl', function () {
 
   var ContextPacksCtrl, scope;
 
+  //beforeEach(module('myApp', function($provide) {
+  //  $provide.factory('$location', {
+  //    path: undefined
+  //  });
+  //}));
+
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
@@ -21,17 +27,23 @@ describe('Controller: ContextEditCtrl', function () {
   });
 
   it('should put an object in an array', function(){
-    scope.addTile("kitten", "noun");
+    scope.wordName="kitten";
+    scope.wordType="noun";
+    scope.addTile();
     expect(scope.tileBucketTemp[0].wordType).toBe('noun');
     expect(scope.tileBucketTemp[0].wordName).toBe('kitten');
   });
 
   it('should return an error message', function(){
-    scope.addTile("", "verb");
+    scope.wordName="";
+    scope.wordType="noun";
+    scope.addTile();
     expect(scope.message).toBe('Please enter a word and word type.');
   });
 
   it('should return a color', function(){
+    scope.wordType="verb";
+    scope.wordName="run";
     expect(scope.addColorToTile('adjective')).toBe('yellow');
     expect(scope.addColorToTile('conjunction')).toBe('purple');
     expect(scope.addColorToTile('noun')).toBe('green');
@@ -45,14 +57,23 @@ describe('Controller: ContextEditCtrl', function () {
   });
 
   it('should put a color in a tile object', function(){
-    scope.addTile("kitten", "noun");
-    scope.addTile("kitten", "verb");
-    scope.addTile("kitten", "pronoun");
-    scope.addTile("kitten", "adjective");
-    scope.addTile("kitten", "adverb");
-    scope.addTile("kitten", "preposition");
-    scope.addTile("kitten", "conjunction");
-    scope.addTile("kitten", "interjection");
+    scope.wordName="kitten";
+    scope.wordType="noun";
+    scope.addTile();
+    scope.wordType="verb";
+    scope.addTile();
+    scope.wordType="pronoun";
+    scope.addTile();
+    scope.wordType="adjective";
+    scope.addTile();
+    scope.wordType="adverb";
+    scope.addTile();
+    scope.wordType="preposition";
+    scope.addTile();
+    scope.wordType="conjunction";
+    scope.addTile();
+    scope.wordType="interjection";
+    scope.addTile();
     expect(scope.tileBucketTemp[0].wordColor).toBe('green');
     expect(scope.tileBucketTemp[1].wordColor).toBe('blue');
     expect(scope.tileBucketTemp[2].wordColor).toBe('pink');
@@ -67,9 +88,46 @@ describe('Controller: ContextEditCtrl', function () {
 
   it('should return true', function(){
     expect(scope.isEmpty("")).toBe(true);
-  })
+  });
   it('should return false', function(){
     expect(scope.isEmpty("kittens")).toBe(false);
-  })
+  });
+
+  //getIndex Tests Can't use location in testing
+  //it('should return 1', function(){
+  //  $location.url("/someurl?id=1");
+  //  expect(scope.getIndex()).toBe(1);
+  //});
+
+  //inBucket tests
+  it('should return false', function(){
+    scope.wordType="cat";
+    scope.wordName="noun";
+    scope.tileBucketTemp = [{"wordName": "run",
+      "wordType": "verb",
+      "wordColor": "blue"},
+      {"wordName": "jump",
+        "wordType": "verb",
+        "wordColor": "blue"},
+      {"wordName": "walk",
+        "wordType": "verb",
+        "wordColor": "blue"}];
+    expect(scope.inBucket()).toBe(false);
+  });
+
+  it('should return true', function(){
+    scope.wordType="verb";
+    scope.wordName="run";
+    scope.tileBucketTemp = [{"wordName": "run",
+      "wordType": "verb",
+      "wordColor": "blue"},
+      {"wordName": "jump",
+        "wordType": "verb",
+        "wordColor": "blue"},
+      {"wordName": "walk",
+        "wordType": "verb",
+        "wordColor": "blue"}];
+    expect(scope.inBucket()).toBe(true);
+  });
 
 });
