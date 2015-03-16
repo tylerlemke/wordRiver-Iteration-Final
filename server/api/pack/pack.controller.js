@@ -38,80 +38,59 @@ exports.create = function(req, res) {
 };
 
 // Updates an existing thing in the DB.
-exports.update = function(req, res) {
-  if(req.body._id) { delete req.body._id; }
-  Pack.findById(req.params.id, function (err, pack) {
-    if (err) { return handleError(res, err); }
-    if(!pack) { return res.send(404); }
-    var updated = _.merge(pack, req.body);
-    updated.save(function (err) {
-      if (err) { return handleError(res, err); }
-      return res.json(200, pack);
-    });
-  });
-};
-
-//
-//// Updates an existing thing in the DB.
 //exports.update = function(req, res) {
-//  console.log("Got this far");
-//  if(req.body._id) { delete req.body._id; console.log("Deleted thing");}
+//  if(req.body._id) { delete req.body._id; }
 //  Pack.findById(req.params.id, function (err, pack) {
 //    if (err) { return handleError(res, err); }
 //    if(!pack) { return res.send(404); }
 //    var updated = _.merge(pack, req.body);
-//////////////////////////////
-//    //if(
-//    //  _.has(req.body, 'comments')){
-//    //  updated.comments = req.body.comments;
-//    //} else if (!(_.has(req.body, 'comments'))){
-//    //  updated.comments = submission.comments;
-//    //  console.log(submission.comments);
-//    //}
-////////////////////////////
 //    updated.save(function (err) {
 //      if (err) { return handleError(res, err); }
 //      return res.json(200, pack);
 //    });
-//    console.log("here i am");
 //  });
-//  console.log("Made it through");
 //};
-//
-//// Updates an existing thing in the DB.
-//exports.updateTiles = function(req, res) {
-//  console.log("Starting updateTiles");
-//  console.log(req.body);
-//  if(req.body._id) { delete req.body._id; console.log("Deleted thing");}
-//  //console.log(req.body);
-//  console.log(req.params);
-//  Pack.findById(req.params.id, function (err, pack) {
-//    console.log("in findById");
-//    if (err) {  console.log("error1"); return handleError(res, err); }
-//    if(!pack) { console.log("error1"); return res.send(404); }
-//    var updated = _.merge(pack, req.body);
-//    console.log("here's updated");
-//    console.log(updated);
-////////////////////////////
-////    if(
-////      _.has(req.body, 'tiles')){
-////      console.log("Had tiles");
-////      updated.tiles = req.body.tiles;
-////    } else if (!(_.has(req.body, 'tiles'))){
-////      updated.tiles = pack.tiles;
-////      console.log(pack.tiles);
-////    }
-//////////////////////////
-//    updated.save(function (err) {
-//      if (err) { console.log("error"); return handleError(res, err); }
-//      console.log("Res Json");
-//      //console.log(res.json(200, pack));
-//      return res.json(200, pack);
-//    });
-//    console.log("here i am");
-//  });
-//  console.log("Made it through");
-//};
+
+// Used to remove duplicates from arrays when merging. Will not be happy with huge arrays...
+function arrayUnique(array){
+  var a = array.concat();
+  for(var i=0; i<a.length; ++i){
+    for(var j=i+1; j<a.length; ++j){
+      if(a[i] === a[j]){
+        a.splice(j--, 1);
+      }
+    }
+  }
+  return a;
+}
+
+exports.update = function(req, res) {
+  // deletes _id in req body to not screw things up...
+  if(req.body._id){ delete req.body._id }
+
+  // Uses _id provided in request (url) to find pack in database
+  Pack.findById(req.params.id, function(err, pack) {
+    // Handle Errors
+    if(err){ return handleError(res, err) }
+    if(!pack){ return res.send(404) }
+
+    // Merging request body and pack from DB. Special callback for arrays!
+    var updated = _.merge(pack, req.body, function(a, b) {
+      if(_.isArray(a)) {
+        return arrayUnique(a.concat(b));
+      } else {
+        // returning undefined lets _.merge use its default merging methods, rather than this callback.
+        return undefined;
+      }
+    });
+
+    // Saves to database
+    updated.save(function(err){
+      if(err){ return handleError(res, err); }
+      return res.json(200, pack);
+    });
+  });
+};
 
 // Deletes a thing from the DB.
 exports.destroy = function(req, res) {
