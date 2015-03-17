@@ -29,6 +29,8 @@ describe('Controller: ContextEditCtrl', function () {
   it('should put an object in an array', function(){
     scope.wordName="kitten";
     scope.wordType="noun";
+    scope.pack = {contents: []};
+    scope.tileBucketTemp = [];
     scope.addTile();
     expect(scope.tileBucketTemp[0].wordType).toBe('noun');
     expect(scope.tileBucketTemp[0].wordName).toBe('kitten');
@@ -59,29 +61,39 @@ describe('Controller: ContextEditCtrl', function () {
   it('should put a color in a tile object', function(){
     scope.wordName="kitten";
     scope.wordType="noun";
+    scope.pack = {contents: []};
+    scope.tileBucketTemp = [];
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="verb";
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="pronoun";
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="adjective";
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="adverb";
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="preposition";
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="conjunction";
     scope.addTile();
+    scope.wordName="kitten";
     scope.wordType="article";
     scope.addTile();
-    expect(scope.tileBucketTemp[0].wordColor).toBe('green');
-    expect(scope.tileBucketTemp[1].wordColor).toBe('blue');
-    expect(scope.tileBucketTemp[2].wordColor).toBe('pink');
-    expect(scope.tileBucketTemp[3].wordColor).toBe('yellow');
-    expect(scope.tileBucketTemp[4].wordColor).toBe('orange');
-    expect(scope.tileBucketTemp[5].wordColor).toBe('tan');
-    expect(scope.tileBucketTemp[6].wordColor).toBe('purple');
-    expect(scope.tileBucketTemp[7].wordColor).toBe('gray');
+    //console.log(scope.pack.contents);
+    expect(scope.pack.contents[0].wordColor).toBe('green');
+    expect(scope.pack.contents[1].wordColor).toBe('blue');
+    expect(scope.pack.contents[2].wordColor).toBe('pink');
+    expect(scope.pack.contents[3].wordColor).toBe('yellow');
+    expect(scope.pack.contents[4].wordColor).toBe('orange');
+    expect(scope.pack.contents[5].wordColor).toBe('tan');
+    expect(scope.pack.contents[6].wordColor).toBe('purple');
+    expect(scope.pack.contents[7].wordColor).toBe('gray');
   });
 
 // isEmpty tests

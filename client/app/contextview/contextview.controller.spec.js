@@ -4,6 +4,7 @@ describe('Controller: ContextviewCtrl', function () {
 
   // load the controller's module
   beforeEach(module('ummWordRiverTeam1Iteration1App'));
+  beforeEach(module('socketMock'));
 
   var ContextviewCtrl, scope;
 

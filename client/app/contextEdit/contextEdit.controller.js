@@ -45,9 +45,6 @@ angular.module('ummWordRiverTeam1Iteration1App')
           "wordType": $scope.wordType,
           "wordColor": $scope.addColorToTile($scope.wordType)
         };
-          for(var i = 0; i < $scope.pack.contents.length; i++){
-          console.log($scope.pack.contents[i].wordName);
-        }
         if(!$scope.inBucket($scope.wordName, $scope.wordType)) {
           $scope.tileBucketTemp[$scope.tileBucketTemp.length] = {
             "wordName": $scope.wordName,
