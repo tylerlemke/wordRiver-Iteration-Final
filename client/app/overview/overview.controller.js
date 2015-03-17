@@ -67,8 +67,14 @@ angular.module('wordRiverSpaceshipParrotIteration1App')
 
     $scope.deleteTile = function(pack, index) {
       pack.tiles.splice(index, 1)
-      $http.post('/api/packs', {packName: pack.packName, tiles: pack.tiles});
-      $http.delete('/api/packs/' + pack._id);
+      $http.patch('/api/packs/' + pack._id,
+        {tiles: pack.tiles}
+      ).success(function() {
+          console.log("Patch completed!");
+          console.log($scope.contextPacks);
+        });
+      //$http.post('/api/packs', {packName: pack.packName, tiles: pack.tiles});
+      //$http.delete('/api/packs/' + pack._id);
     };
 
     $scope.toggleShowAdder = function() {

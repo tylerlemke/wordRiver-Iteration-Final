@@ -77,7 +77,8 @@ exports.update = function(req, res) {
     // Merging request body and pack from DB. Special callback for arrays!
     var updated = _.merge(pack, req.body, function(a, b) {
       if(_.isArray(a)) {
-        return arrayUnique(a.concat(b));
+        //return arrayUnique(a.concat(b));
+        return b;
       } else {
         // returning undefined lets _.merge use its default merging methods, rather than this callback.
         return undefined;
