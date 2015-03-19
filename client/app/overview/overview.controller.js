@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverSpaceshipParrotIteration1App')
+angular.module('wordRiverMergeApp')
   .controller('OverviewCtrl', function ($scope, $http, socket) {
     $scope.studentList = [];
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverSpaceshipParrotIteration1App')
+angular.module('wordRiverMergeApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('overview', {

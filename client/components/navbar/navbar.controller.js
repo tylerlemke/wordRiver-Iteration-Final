@@ -5,15 +5,12 @@ angular.module('wordRiverMergeApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    },  {
-      'title': 'Context Pack Dashboard',
-      'link': '/dashboard'
-    },{
-      'title': 'Adding words',
-      'link':'/addingWords'
     },{
       'title': 'Overview',
       'link': '/overview'
+    },{
+      'title': 'Adding words',
+      'link':'/addingWords'
     }];
 
     $scope.isCollapsed = true;
