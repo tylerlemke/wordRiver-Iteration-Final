@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ummWordRiverTeam1Iteration1App')
+angular.module('WordRiverApp')
   .controller('DashboardCtrl', function ($scope, $http, socket) {
     $scope.message = 'Hello';
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .controller('AddingWordsCtrl', function ($rootScope, $scope, $http, socket) {
     $scope.currentWords = [];
     $scope.allWords = [];

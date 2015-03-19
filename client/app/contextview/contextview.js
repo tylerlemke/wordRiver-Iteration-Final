@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ummWordRiverTeam1Iteration1App')
+angular.module('WordRiverApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('contextview', {

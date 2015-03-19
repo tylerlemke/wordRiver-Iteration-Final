@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .controller('OverviewCtrl', function ($scope, $http, socket) {
     $scope.studentList = [];
 

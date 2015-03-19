@@ -3,7 +3,7 @@
 /**
  * Removes server error when user updates input
  */
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .directive('mongooseError', function () {
     return {
       restrict: 'A',

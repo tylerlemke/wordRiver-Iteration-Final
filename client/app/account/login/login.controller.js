@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .controller('LoginCtrl', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};

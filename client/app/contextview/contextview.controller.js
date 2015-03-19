@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ummWordRiverTeam1Iteration1App')
+angular.module('WordRiverApp')
   .controller('ContextviewCtrl', function ($scope, $http, socket) {
    console.log("started running controller");
 

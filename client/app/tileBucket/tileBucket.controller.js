@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ummWordRiverTeam1Iteration1App')
+angular.module('WordRiverApp')
   .controller('TileBucketCtrl', function ($scope, $http, socket) {
     $scope.message = 'Hello';
     $scope.tileBucket = [];

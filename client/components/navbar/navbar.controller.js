@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',

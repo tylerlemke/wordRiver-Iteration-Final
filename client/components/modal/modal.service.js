@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal

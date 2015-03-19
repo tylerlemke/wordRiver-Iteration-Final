@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ummWordRiverTeam1Iteration1App')
+angular.module('WordRiverApp')
   .controller('ContextEditCtrl', function ($scope, $http, socket, $location) {
     $scope.message = '';
     $scope.tileBucketTemp = [];

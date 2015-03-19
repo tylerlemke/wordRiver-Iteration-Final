@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .factory('User', function ($resource) {
     return $resource('/api/users/:id/:controller', {
       id: '@_id'
