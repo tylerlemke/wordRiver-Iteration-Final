@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('wordRiverTeamFtlApp'));
+  beforeEach(module('wordRiverMergeApp'));
   beforeEach(module('socketMock'));
 
   var MainCtrl,

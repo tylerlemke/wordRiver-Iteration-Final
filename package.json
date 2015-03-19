@@ -1,5 +1,5 @@
 {
-  "name": "word-river-team-ftl",
+  "name": "word-river-merge",
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {

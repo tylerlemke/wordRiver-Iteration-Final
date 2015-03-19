@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverTeamFtlApp')
+angular.module('wordRiverMergeApp')
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal

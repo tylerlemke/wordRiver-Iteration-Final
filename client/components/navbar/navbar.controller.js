@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('wordRiverTeamFtlApp')
+angular.module('wordRiverMergeApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    },  {
-      'title': 'Context Pack Dashboard',
-      'link': '/dashboard'
+    },{
+      'title': 'Overview',
+      'link': '/overview'
     },{
       'title': 'Adding words',
       'link':'/addingWords'
