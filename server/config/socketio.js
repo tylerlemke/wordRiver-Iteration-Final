@@ -21,6 +21,7 @@ function onConnect(socket) {
   require('../api/AddingWordsDatabase/AddingWordsDatabase.socket').register(socket);
   require('../api/contextPack/contextPack.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
+  require('../api/pack/pack.socket').register(socket);
 }
 
 module.exports = function (socketio) {

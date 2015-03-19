@@ -1,0 +1,74 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<!--<header class="hero-unit" id="banner">-->
+<!--<div class="container">-->
+<!--<h1>Word River!</h1>-->
+<!--<p class="lead">Changing mainstream learning</p>-->
+<!--<img src="assets/images/waterSplash.png" alt="I'm Yeoman">-->
+<!--</div>-->
+<!--</header>-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4">
+            <h1 class="page-header">Students:</h1>
+            <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in studentList">
+                <li><a href="#" tooltip="{{student.lastName}}">{{student.firstName}}&nbsp{{student.lastName}}</a></li>
+            </ul>
+        </div>
+
+        <!--<form class="thing-form">-->
+        <!--<label>Syncs in realtime across clients</label>-->
+        <!--<p class="input-group">-->
+        <!--<input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">-->
+        <!--<span class="input-group-btn">-->
+        <!--<button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>-->
+        <!--</span>-->
+        <!--</p>-->
+        <!--</form>-->
+
+        <div class="col-xs-4">
+            <h1 class="page-header">Context Packs:</h1>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <form ng-submit="addContextPacks()">
+                        <input ng-model="textField" type="text" size="15" placeholder="add a context pack!">
+                        <input type="submit" value="submit" class="btn btn-primary">
+                    </form>
+                </li>
+                <li class="list-group-item" ng-repeat="pack in contextPacks">
+                  <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
+                  <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
+            </ul>
+        </div>
+
+        <div class="col-xs-4">
+            <div ng-show="showPack">
+                <h1 class="page-header">Tiles in {{currentPack.packName}}:</h1>
+                <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="tile in currentPack.tiles track by $index">
+                    <li>{{tile}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
+                </ul>
+                <div ng-hide="showTileAdder">
+                <a href="#" ng-click="toggleShowAdder()">Add a card...</a>
+                </div>
+                <div ng-show="showTileAdder">
+                    <form ng-submit="addTile()" >
+                        <input ng-model="tileField" type="text" size="20" placeholder="add a tile!">
+                        <input type="submit" value="Add" class="btn btn-primary" ng-click="toggleShowAdder()">
+                    </form>
+
+                 </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>Angular Fullstack v2.0.13 |
+      <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+      <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+  </div>
+</footer>

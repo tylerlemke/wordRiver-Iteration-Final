@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverTeamFtlApp')
+angular.module('wordRiverMergeApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
@@ -11,6 +11,9 @@ angular.module('wordRiverTeamFtlApp')
     },{
       'title': 'Adding words',
       'link':'/addingWords'
+    },{
+      'title': 'Overview',
+      'link': '/overview'
     }];
 
     $scope.isCollapsed = true;

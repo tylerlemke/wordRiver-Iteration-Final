@@ -13,6 +13,9 @@ module.exports = function(app) {
   app.use('/api/contextPacks', require('./api/contextPack'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
+  app.use('/api/packs', require('./api/pack'));
+  app.use('/api/users', require('./api/user'));
+  app.use('/api/students', require ('./api/student'));
 
   app.use('/auth', require('./auth'));
 

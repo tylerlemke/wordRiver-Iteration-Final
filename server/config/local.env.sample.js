@@ -7,7 +7,7 @@
 
 module.exports = {
   DOMAIN:           'http://localhost:9000',
-  SESSION_SECRET:   'wordriverteamftl-secret',
+  SESSION_SECRET:   'wordrivermerge-secret',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''

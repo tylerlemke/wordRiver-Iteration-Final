@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverTeamFtlApp', [
+angular.module('wordRiverMergeApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
