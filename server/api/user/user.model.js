@@ -13,7 +13,29 @@ var UserSchema = new Schema({
   },
   hashedPassword: String,
   provider: String,
-  salt: String
+  salt: String,
+  contextPacks: [{
+    contextName: String,
+    contents:[{
+      wordName: String,
+      wordType: String,
+      wordColor: String
+    }]
+  }],
+  tileBucket: [{
+      wordName: String,
+      wordType: String,
+      wordColor: String
+  }],
+  studentGroups: [
+    {
+      groupName: String,
+      students: [{
+        name: String
+      }]
+    }
+  ]
+
 });
 
 /**

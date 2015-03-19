@@ -2,97 +2,592 @@
  * Populate DB with sample data on server start
  * to disable, edit config/environment/index.js, and set `seedDB: false`
  */
+
 'use strict';
-var Student = require('../api/student/student.model');
+
+var Thing = require('../api/thing/thing.model');
+var User = require('../api/user/user.model');
+var Student = require('../api/student/student.model.js');
+
+Thing.find({}).remove(function() {
+  Thing.create({
+    name : 'Development Tools',
+    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
+  }, {
+    name : 'Server and Client integration',
+    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
+  }, {
+    name : 'Smart Build System',
+    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
+  },  {
+    name : 'Modular Structure',
+    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
+  },  {
+    name : 'Optimized Build',
+    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
+  },{
+    name : 'Deployment Ready',
+    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+  });
+});
+
+User.find({}).remove(function() {
+  User.create(
+    {
+      "name": "Maryann Emerson",
+      "email": "maryannemerson@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "deserunt",
+      "provider": "local",
+      "contextPacks": [{
+        "contextName": "nouns",
+        "contents":[
+          {"wordName": "house",
+            "wordType": "noun",
+            "wordColor": "green"},
+          {"wordName": "jump",
+            "wordType": "noun",
+            "wordColor": "green"},
+          {"wordName": "walk",
+            "wordType": "noun",
+            "wordColor": "green"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "house",
+          "wordType": "noun",
+          "wordColor": "green"},
+        {"wordName": "jump",
+          "wordType": "noun",
+          "wordColor": "green"},
+        {"wordName": "walk",
+          "wordType": "noun",
+          "wordColor": "green"}
+      ],
+
+      "studentGroups": [
+        {
+          "groupName": "in",
+          "students": [
+            {
+              "name": "Trina"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lavonne Cochran",
+      "email": "lavonnecochran@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "nisi",
+      "provider": "local",
+      contextPacks: [{
+        contextName: "Verbs/Actions",
+        contents:[
+          {wordName: "run",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "jump",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "walk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "talk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "swim",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "talk",
+            wordType: "verb",
+            wordColor: "green"},
+          {wordName: "climb",
+            wordType: "verb",
+            wordColor: "green"}
+        ]},
+        {
+          contextName: "Animals",
+          contents:[
+            {wordName: "Cat",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Dog",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Zebra",
+              wordType: "noun",
+              wordColor: "blue"},
+            {wordName: "Llama",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Horse",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Bird",
+              wordType: "noun",
+              wordColor: "green"},
+            {wordName: "Lizard",
+              wordType: "noun",
+              wordColor: "green"}
+          ]
+
+        }
+      ],
+      "tileBucket": [
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+      ],
+
+      "studentGroups": [
+        {
+          "groupName": "aliquip",
+          "students": [
+            {
+              "name": "Banks"
+            },
+            {
+              "name": "Wiley"
+            },
+            {
+              "name": "Juliana"
+            },
+            {
+              "name": "Allen"
+            },
+            {
+              "name": "Mayo"
+            },
+            {
+              "name": "Keller"
+            }
+          ]
+        },
+        {
+          "groupName": "anim",
+          "students": [
+            {
+              "name": "Cochran"
+            },
+            {
+              "name": "Vasquez"
+            },
+            {
+              "name": "Rose"
+            },
+            {
+              "name": "Lynne"
+            },
+            {
+              "name": "Castillo"
+            },
+            {
+              "name": "Lora"
+            }
+          ]
+        },
+        {
+          "groupName": "do",
+          "students": [
+            {
+              "name": "Angelica"
+            },
+            {
+              "name": "Slater"
+            },
+            {
+              "name": "Mays"
+            },
+            {
+              "name": "Jean"
+            },
+            {
+              "name": "Mcknight"
+            },
+            {
+              "name": "Mckee"
+            }
+          ]
+        },
+        {
+          "groupName": "officia",
+          "students": [
+            {
+              "name": "Stafford"
+            },
+            {
+              "name": "Bishop"
+            },
+            {
+              "name": "Liliana"
+            },
+            {
+              "name": "Lloyd"
+            },
+            {
+              "name": "Beasley"
+            },
+            {
+              "name": "Peggy"
+            }
+          ]
+        },
+        {
+          "groupName": "exercitation",
+          "students": [
+            {
+              "name": "Erickson"
+            },
+            {
+              "name": "Tracie"
+            },
+            {
+              "name": "Leila"
+            },
+            {
+              "name": "Lacy"
+            },
+            {
+              "name": "Jolene"
+            },
+            {
+              "name": "Chen"
+            },
+            {
+              "name": "Hammond"
+            }
+          ]
+        },
+        {
+          "groupName": "ut",
+          "students": [
+            {
+              "name": "Saunders"
+            },
+            {
+              "name": "Geraldine"
+            },
+            {
+              "name": "Bender"
+            },
+            {
+              "name": "Cantrell"
+            },
+            {
+              "name": "Miles"
+            },
+            {
+              "name": "Gilliam"
+            },
+            {
+              "name": "Mcfadden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evelyn Mayer",
+      "email": "evelynmayer@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "incididunt",
+      "provider": "local",
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
+      ],
+      "studentGroups": [
+        {
+          "groupName": "cillum",
+          "students": [
+            {
+              "name": "Harrington"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bond Guerrero",
+      "email": "bondguerrero@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "aliquip",
+      "provider": "local",
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
+      ],
+      "studentGroups": [
+        {
+          "groupName": "nostrud",
+          "students": [
+            {
+              "name": "Vasquez"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ratliff Pitts",
+      "email": "ratliffpitts@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "pariatur",
+      "provider": "local",
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
+      ],
+      "studentGroups": [
+        {
+          "groupName": "occaecat",
+          "students": [
+            {"contextPacks": [
+        {
+          "wordName": "labore",
+          "wordType": "noun",
+          "wordColor": "blue"
+        }
+      ],
+              "name": "Good"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cathy Burris",
+      "email": "cathyburris@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "irure",
+      "provider": "local",
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
+      ],
+      "studentGroups": [
+        {
+          "groupName": "id",
+          "students": [
+            {
+              "name": "Kennedy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mejia Mullen",
+      "email": "mejiamullen@puria.com",
+      "role": {
+        "type": "user"
+      },
+      "password": "ad",
+      "provider": "local",
+      "contextPacks": [{
+        "contextName": "Verbs",
+        "contents":[
+          {"wordName": "run",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "jump",
+            "wordType": "verb",
+            "wordColor": "blue"},
+          {"wordName": "walk",
+            "wordType": "verb",
+            "wordColor": "blue"}
+        ]
+      }],
+      "tileBucket": [
+        {"wordName": "run",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "jump",
+          "wordType": "verb",
+          "wordColor": "blue"},
+        {"wordName": "walk",
+          "wordType": "verb",
+          "wordColor": "blue"}
+      ],
+      "studentGroups": [
+        {
+          "groupName": "Lorem",
+          "students": [
+            {
+              "name": "Mayer"
+            }
+          ]
+        }
+      ]
+    }
+  );
+});
+
+console.log("Test");
 Student.find({}).remove(function() {
   Student.create(
     {
-      "firstName": "Walsh",
-      "lastName": "Cummings",
-      "gender": "male",
-      "id": 6338
+      "firstName": "Liza",
+      "lastName": "Pratt"
     },
     {
-      "firstName": "Robert",
-      "lastName": "Burke",
-      "gender": "female",
-      "id": 3123
+      "firstName": "Battle",
+      "lastName": "Whitaker"
     },
     {
-      "firstName": "Isabella",
-      "lastName": "Reynolds",
-      "gender": "female",
-      "id": 3918
+      "firstName": "Leanna",
+      "lastName": "Garrison"
     },
     {
-      "firstName": "Carver",
-      "lastName": "Raymond",
-      "gender": "male",
-      "id": 4053
+      "firstName": "Sherman",
+      "lastName": "Foster"
     },
     {
-      "firstName": "Vivian",
-      "lastName": "Frost",
-      "gender": "female",
-      "id": 1918
+      "firstName": "Cassie",
+      "lastName": "Ramos"
     },
     {
-      "firstName": "Hickman",
-      "lastName": "Gibbs",
-      "gender": "male",
-      "id": 1160
+      "firstName": "Calderon",
+      "lastName": "Daniel"
     },
     {
-      "firstName": "Harry",
-      "lastName": "Potter",
-      "gender": "male",
-      "id": 7674
-    },
-    {
-      "firstName": "Deana",
-      "lastName": "Winchester",
-      "gender": "female",
-      "id": 6079
-    },
-    {
-      "firstName": "Nelda",
-      "lastName": "Harrington",
-      "gender": "female",
-      "id": 5786
-    },
-    {
-      "firstName": "Christie",
-      "lastName": "Haney",
-      "gender": "female",
-      "id": 6524
-    },
-    {
-      "firstName": "Geneva",
-      "lastName": "Hartman",
-      "gender": "female",
-      "id": 4036
-    },
-    {
-      "firstName": "Debora",
-      "lastName": "Maddox",
-      "gender": "female",
-      "id": 2815
-    });
-});
-var Pack = require('../api/pack/pack.model');
-Pack.find({}).remove(function() {
-  Pack.create(
-    {"packName": "Hero Pack",
-      "tiles": ["Superman", "Batman", "Hulk", "Doomsday Device", "villain", "sidekick", "gadgets", "Green Lantern", "Black Widow", "brave", "Gotham City", "Green Arrow"]},
-    {"packName": "Zoo",
-      "tiles": ["Lion", "Tiger", "Bear", "Seals", "Giraffe", "Elephant", "Shark", "Alligator", "zoo keeper", "aquarium", "birdhouse", "greenhouse"]},
-    {"packName": "Biomes",
-      "tiles": ["tundra", "desert", "forest", "rainforest", "jungle", "coral reef"]},
-    {"packName": "Cars",
-      "tiles": ["Aveo", "Ferrari", "Subaru", "van", "Saturn", "Chevrolet"]},
-    {"packName": "Disney",
-      "tiles": ["Frozen", "Cinderella", "Tangled", "princess", "prince", "kingdom", "witch", "ball", "magical creatures", "magic"]},
-    {packName: "Sports",
-      tiles: ["basketball", "football", "tennis", "volleyball", "soccer", "curling"]}
+      "firstName": "Shanna",
+      "lastName": "Boyle"
+    }
+
   );
 });
+
+/*
+
+ [
+ '{{repeat(5, 7)}}',
+ {
+ name: '{{firstName()}} {{surname()}}',
+ email: '{{email()}}',
+ role: {
+ type: 'user'
+ },
+ password: '{{lorem(1, "words")}}',
+ provider: 'local',
+ contextPacks: [{
+ wordName: '{{lorem(1, "words")}}',
+ wordType: 'noun',
+ wordColor: 'blue'
+ }],
+ studentGroups: [
+ {
+ groupName: '{{lorem(1, "words")}}',
+ students: [{
+ name: '{{firstName()}}'
+ }]
+ }
+ ]
+
+ }
+ ]*/
+

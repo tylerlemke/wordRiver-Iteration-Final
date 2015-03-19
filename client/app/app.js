@@ -51,4 +51,8 @@ angular.module('wordRiverMergeApp', [
         }
       });
     });
+<<<<<<< HEAD
   });
+=======
+  });
+>>>>>>> 6b7367b21c56ba677c69713bf4c2796baf837d0d

@@ -20,7 +20,8 @@ exports.index = function(req, res) {
   });
 };
 
-// Get a single thing
+
+// Get a single student
 exports.show = function(req, res) {
   Student.findById(req.params.id, function (err, student) {
     if(err) { return handleError(res, err); }
@@ -29,7 +30,8 @@ exports.show = function(req, res) {
   });
 };
 
-// Creates a new thing in the DB.
+
+// Creates a new student in the DB.
 exports.create = function(req, res) {
   Student.create(req.body, function(err, student) {
     if(err) { return handleError(res, err); }
@@ -56,7 +58,7 @@ exports.destroy = function(req, res) {
   Student.findById(req.params.id, function (err, student) {
     if(err) { return handleError(res, err); }
     if(!student) { return res.send(404); }
-    thing.remove(function(err) {
+    student.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
     });

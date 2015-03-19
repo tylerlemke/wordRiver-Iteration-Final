@@ -1,0 +1,18 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="list-unit" id="banner">
+  <h1>Tile Bucket</h1>
+  <div class="col-md-12">
+    Here is your comprehensive list of all tiles you have created.
+  </div>
+<table class="the-table">
+  <tr>
+    <th>Words</th>
+    <th>Word Types</th>
+  </tr>
+  <tr data-ng-repeat="tile in tileBucket">
+    <td data-ng-bind="tile.wordName"></td>
+    <td data-ng-bind="tile.wordType"></td>
+  </tr>
+</table>
+</header>
+

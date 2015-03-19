@@ -1,0 +1,29 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div>
+
+  <table id="customers">
+    <tr>
+      <th>Context Pack Name</th>
+      <th>Display Context Pack</th>
+      <th>Edit Context Pack</th>
+    </tr>
+    <tr data-ng-repeat="pack in packs">
+      <td data-ng-bind="pack.contextName"></td>
+      <td><a href="#" data-ng-click="showdetails(pack)">Display</a></td>
+      <td><a href="/contextEdit?id={{$index}}">Edit</a></td>
+      <!--<td><a href="#" data-ng-click="modify(pack)">Details</a></td>-->
+     <!-- <td><a href="#" data-ng-click="showCourses(student)">Courses Taken</a></td>-->
+
+    </tr>
+  </table>
+
+  <div data-ng-bind="selected">    </div>
+  <!--<div data-ng-bind="allCourses">    </div>-->
+<h2>
+  <p id="coursesInfo">
+
+  </p>
+</h2>
+
+</div>
