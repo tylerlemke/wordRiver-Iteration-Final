@@ -40,7 +40,7 @@ angular.module('WordRiverApp')
       socket.unsyncUpdates('pack');
     });
 
-    $scope.addContextPacks = function () {
+    $scope.addTag = function () {
       if ($scope.textField.length >= 1) {
         $http.post('/api/packs', {packName: $scope.textField, tiles: []});
       }
