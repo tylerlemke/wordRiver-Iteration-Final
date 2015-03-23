@@ -7,16 +7,9 @@
 <!--<img src="assets/images/waterSplash.png" alt="I'm Yeoman">-->
 <!--</div>-->
 <!--</header>-->
-
+<h1 style="font-size:50px; margin-left:38%">Word Manager</h1>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-4">
-            <h1 class="page-header">Students:</h1>
-            <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in studentList">
-                <li><a href="#" tooltip="{{student.lastName}}">{{student.firstName}}&nbsp{{student.lastName}}</a></li>
-            </ul>
-        </div>
-
         <!--<form class="thing-form">-->
         <!--<label>Syncs in realtime across clients</label>-->
         <!--<p class="input-group">-->
@@ -28,7 +21,7 @@
         <!--</form>-->
 
         <div class="col-xs-4">
-            <h1 class="page-header">Context Packs:</h1>
+            <h1 class="page-header">Tags:</h1>
             <ul class="list-group">
                 <li class="list-group-item">
                     <form ng-submit="addContextPacks()">
@@ -42,9 +35,9 @@
             </ul>
         </div>
 
-        <div class="col-xs-4">
+        <div class="col-xs-6">
             <div ng-show="showPack">
-                <h1 class="page-header">Tiles in {{currentPack.packName}}:</h1>
+                <h1 class="page-header">Tiles tagged with {{currentPack.packName}}:</h1>
                 <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="tile in currentPack.tiles track by $index">
                     <li>{{tile}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
                 </ul>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('WordRiverApp')
-  .controller('OverviewCtrl', function ($scope, $http, socket) {
+  .controller('WordManagerCtrl', function ($scope, $http, socket) {
     $scope.studentList = [];
 
     $scope.contextPacks = [];
