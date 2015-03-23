@@ -5,12 +5,6 @@ angular.module('WordRiverApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    },{
-      'title': 'Overview',
-      'link': '/overview'
-    },{
-      'title': 'Adding words',
-      'link':'/addingWords'
     }];
 
     $scope.isCollapsed = true;

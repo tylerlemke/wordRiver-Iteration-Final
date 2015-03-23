@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Controller: AddingWordsCtrl', function () {
+describe('Controller: SendWordsCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('wordRiverTeamFtlApp'));
+  beforeEach(module('WordRiverApp'));
   beforeEach(module('socketMock'));
 
 
-  var AddingWordsCtrl, scope;
+  var SendWordsCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AddingWordsCtrl = $controller('AddingWordsCtrl', {
+    SendWordsCtrl = $controller('SendWordsCtrl', {
       $scope: scope
     });
   }));
