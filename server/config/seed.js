@@ -7,6 +7,7 @@
 
 var User = require('../api/user/user.model');
 var Student = require('../api/student/student.model.js');
+var Tile = require('../api/tile/tile.model')
 
 User.find({}).remove(function() {
   User.create({
@@ -162,5 +163,131 @@ Student.find({}).remove(function() {
     ]
     }
   )
+});
+
+Tile.find({}).remove(function() {
+  Tile.create({
+
+    "_id": "5511ae8c805b0d983f66e2cd",
+    "name": "nostrud",
+    "contextTags": [
+    {
+      "tagName": "Chad",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8cec56277a4af216a5",
+    "name": "duis",
+    "contextTags": [
+    {
+      "tagName": "Belarus",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8c1fb25384d865e514",
+    "name": "et",
+    "contextTags": [
+    {
+      "tagName": "Israel",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8cf6f121e4c3108cd6",
+    "name": "elit",
+    "contextTags": [
+    {
+      "tagName": "Nigeria",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8cb5ac0ff225f5fde2",
+    "name": "non",
+    "contextTags": [
+    {
+      "tagName": "Nigeria",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8c72c6bb3a7f9cd910",
+    "name": "reprehenderit",
+    "contextTags": [
+    {
+      "tagName": "American Samoa",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8c081ccbd0d072d7b4",
+    "name": "anim",
+    "contextTags": [
+    {
+      "tagName": "American Samoa",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8cfb1b2d41b9f92888",
+    "name": "esse",
+    "contextTags": [
+    {
+      "tagName": "Nigeria",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8c127053ad5bf17926",
+    "name": "proident",
+    "contextTags": [
+    {
+      "tagName": "Israel",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8ce28633ca8ad95f7f",
+    "name": "commodo",
+    "contextTags": [
+    {
+      "tagName": "American Samoa",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+  },
+  {
+    "_id": "5511ae8c8b6533965921e512",
+    "name": "sint",
+    "contextTags": [
+    {
+      "tagName": "Saint Kitts and Nevis",
+      "creatorID": "5511a83da168f8b5f3144f02"
+    }
+  ],
+    "active": false
+
+  })
 });
 
