@@ -1,3 +1,54 @@
-<div class="col-md-12">
-This is the studentManager view.
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Student Manager!</h1>
+  </div>
+</header>
+
+<div class="col-xs-3" style="margin-left:175px">
+  <h1 class="page-header">Groups:</h1>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <form ng-submit="addTag()">
+        <input ng-model="textField" type="text" size="15" placeholder="Add a group!">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </form>
+    </li>
+    <li class="list-group-item" ng-repeat="pack in contextPacks">
+      <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
+      <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
+  </ul>
+</div>
+<div class="col-xs-3">
+  <div ng-show="true">
+    <h1 class="page-header">Students in {{currentPack.packName}}:</h1>
+    <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="tile in currentPack.tiles track by $index">
+      <li>{{tile}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
+    </ul>
+    <div ng-hide="showTileAdder">
+      <a href="#" ng-click="toggleShowAdder()">Add a word...</a>
+    </div>
+    <div ng-show="showTileAdder">
+      <form ng-submit="addTile()" >
+        <input ng-model="tileField" type="text" size="20" placeholder="add a tile!">
+        <input type="submit" value="Add" class="btn btn-primary" ng-click="toggleShowAdder()">
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-xs-3">
+  <h1 class="page-header">All Students:</h1>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <form ng-submit="addTag()">
+        <input ng-model="textField" type="text" size="15" placeholder="Search for a student">
+        <input type="submit" value="Search" class="btn btn-primary">
+      </form>
+    </li>
+    <!--TODO Attach to database to display all the words-->
+    <li class="list-group-item" ng-repeat="pack in contextPacks">
+      <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
+      <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
+  </ul>
 </div>

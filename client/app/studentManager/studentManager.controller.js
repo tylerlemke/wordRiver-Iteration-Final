@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wordRiverMergeApp')
+angular.module('WordRiverApp')
   .controller('StudentManagerCtrl', function ($scope) {
     $scope.message = 'Hello';
   });
