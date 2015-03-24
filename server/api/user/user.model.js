@@ -14,13 +14,13 @@ var UserSchema = new Schema({
   hashedPassword: String,
   provider: String,
   salt: String,
-  contextPacks: [],
-  groupList: [],
-  tileBucket: [],
-  studentList: [{
-    studentID: ObjectId,
-    groupList: [],
-    contextTags: []
+  contextPacks: [], //List of tags that can be applied to tiles
+  groupList: [], //List of Strings, each of which is a tag for a student group
+  tileBucket: [], //List of tile IDs the user has access to
+  studentList: [{  //Student JSON
+    studentID: ObjectId, //Students ID
+    groupList: [], //Groups that a student is in, represented by an array of Strings
+    contextTags: [] //Array of tags that a student has access to
   }]
 });
 
