@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: SendWordsCtrl', function () {
+describe('Controller: AssignWordsCtrl', function () {
 
   // load the controller's module
   beforeEach(module('WordRiverApp'));

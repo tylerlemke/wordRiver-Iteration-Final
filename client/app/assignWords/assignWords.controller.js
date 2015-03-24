@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('WordRiverApp')
-  .controller('SendWordsCtrl', function ($rootScope, $scope, $http, socket) {
+  .controller('AssignWordsCtrl', function ($rootScope, $scope, $http, socket) {
     $scope.currentWords = [];
     $scope.allWords = [];
 

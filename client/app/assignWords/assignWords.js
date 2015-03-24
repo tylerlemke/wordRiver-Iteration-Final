@@ -4,8 +4,8 @@ angular.module('WordRiverApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('addingWords', {
-        url: '/sendWords',
-        templateUrl: 'app/sendWords/sendWords.html',
-        controller: 'SendWordsCtrl'
+        url: '/assignWords',
+        templateUrl: 'app/assignWords/assignWords.html',
+        controller: 'AssignWordsCtrl'
       });
   });
