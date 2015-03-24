@@ -2,16 +2,9 @@
 
 angular.module('WordRiverApp')
   .controller('WordManagerCtrl', function ($scope, $http, socket) {
-    $scope.studentList = [];
-
-    $scope.contextPacks = [];
-
-    $scope.textField = "";
-    $scope.tileField = "";
-
-    $scope.showPack = false;
-    $scope.currentPack = null;
-    $scope.showTileAdder = false;
+    $scope.categoryField = "";
+    $scope.addField = "";
+    $scope.searchField = "";
 
     $scope.getPacks = function() {
       $http.get('/api/packs').success(function (contextPack) {
@@ -27,27 +20,22 @@ angular.module('WordRiverApp')
       socket.syncUpdates('student', $scope.studentList);
     });
 
-
     $scope.deletePack = function(index) {
       $http.delete('/api/packs/' + $scope.contextPacks[index]._id)
     };
-
-    //$scope.deleteTile = function(pack,index) {
-    //  return pack.splice(index, 1);
-    //};
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('pack');
     });
 
-    $scope.addTag = function () {
-      if ($scope.textField.length >= 1) {
-        $http.post('/api/packs', {packName: $scope.textField, tiles: []});
+    $scope.addCategory = function () {
+      if ($scope.categoryField.length >= 1) {
+        $http.post('/api/packs', {packName: $scope.categoryField, tiles: []});
       }
-      $scope.textField="";
+      $scope.categoryField="";
     };
 
-    $scope.addTile = function() {
+    $scope.addWord = function() {
       if ($scope.tileField.length >= 1) {
         $scope.currentPack.tiles.push($scope.tileField);
 
@@ -65,7 +53,7 @@ angular.module('WordRiverApp')
       }
     };
 
-    $scope.deleteTile = function(pack, index) {
+    $scope.deleteWord = function(pack, index) {
       pack.tiles.splice(index, 1);
       $http.patch('/api/packs/' + pack._id,
         {tiles: pack.tiles}
@@ -75,14 +63,5 @@ angular.module('WordRiverApp')
         });
       //$http.post('/api/packs', {packName: pack.packName, tiles: pack.tiles});
       //$http.delete('/api/packs/' + pack._id);
-    };
-
-    $scope.toggleShowAdder = function() {
-      $scope.showTileAdder = !$scope.showTileAdder;
-    };
-
-    $scope.packInfo = function(pack){
-      $scope.showPack = true;
-      $scope.currentPack = pack;
     };
   });
