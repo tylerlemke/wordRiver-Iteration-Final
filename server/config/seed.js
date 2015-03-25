@@ -6,7 +6,7 @@
 'use strict';
 
 var User = require('../api/user/user.model');
-var Student = require('../api/student/student.model.js');
+var Student = require('../api/student/student.model');
 var Tile = require('../api/tile/tile.model')
 
 User.find({}).remove(function() {
@@ -37,9 +37,17 @@ User.find({}).remove(function() {
       "tileBucket": [],
       "studentList": [
         {
-          "studentID": "ObjectId",
-          "groupList": [],
-          "contextTags": []
+          "studentID": "5511ab56117e23f0412fd08f",
+          "groupList": ["Kentucky", "Ohio"],
+          "contextTags": ["Saint Kitts and Nevis", "Belarus", "Israel", "American Samoa"]
+        }, {
+          "studentID": "5511ab564ac02dbaf337270d",
+          "groupList": ["Kentucky", "Ohio"],
+          "contextTags": ["American Samoa", "Israel", "Saint Kitts and Nevis"]
+        }, {
+          "studentID": "5511ab5617fda1233df3f6dd",
+          "groupList": ["Kentucky"],
+          "contextTags": ["American Samoa", "Belarus", "Nigeria", "French Polynesia"]
         }
       ]
     },
@@ -69,13 +77,7 @@ User.find({}).remove(function() {
         "Delaware"
       ],
       "tileBucket": [],
-      "studentList": [
-        {
-          "studentID": "ObjectId",
-          "groupList": [],
-          "contextTags": []
-        }
-      ]
+      "studentList": []
     }
   );
 });

@@ -18,7 +18,7 @@ var UserSchema = new Schema({
   groupList: [], //List of Strings, each of which is a tag for a student group
   tileBucket: [], //List of tile IDs the user has access to
   studentList: [{  //Student JSON
-    studentID: ObjectId, //Students ID
+    studentID: String, //Students ID
     groupList: [], //Groups that a student is in, represented by an array of Strings
     contextTags: [] //Array of tags that a student has access to
   }]
