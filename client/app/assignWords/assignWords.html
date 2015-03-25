@@ -20,45 +20,25 @@
   <div class="col-xs-4" >
     <h1 class="page-header">Groups:</h1>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="pack in contextPacks">
-        <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
+      <li class="list-group-item" ng-repeat="pack in contextPacks"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li>
         <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
     </ul>
   </div>
   <div class="col-xs-4" >
     <h1 class="page-header">Students:</h1>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="pack in contextPacks">
-        <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
+      <li class="list-group-item" ng-repeat="pack in contextPacks>| filter: filterText | orderBy:'student'"><label><input type="checkbox" value="studentChecked"  ng-click="allCheckedStudents(person)"><a class="btn btn-default" ng-click="makeCurrentStudent(person)"> {{person.student}}</a></label></li>
         <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
     </ul>
   </div>
 
   <input type="submit" value="Assign Words" class="btn btn-primary">
   </form>
-<!--<div class="container">-->
-  <!--<div class="row">
-    <h1 class="page-header">Classes:</h1>
-    <table>
-      <tr>
-        <th>Grade</th>
-        <th>Name</th>
-      </tr>
-      <tr>
-        <td> <div class="col-lg-12" ng-repeat="class in classList"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li></div></td>
+<!--<td> <div class="col-lg-12" ng-repeat="class in classList"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li></div></td>
         <td> <div class="col-lg-12" ng-repeat="class in classList | filter: filterText" ng-show="true"><div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'" ng-show="true"><label><input type="checkbox" value="studentChecked"  ng-click="allCheckedStudents(person)"><a class="btn btn-default" ng-click="makeCurrentStudent(person)" href="/profile"> {{person.student}}</a></label></div></div>
         </td>
-      </tr>
-    </table>
-  </div>
-  <form ng-submit="wordsBeingSent()">
-  <input type="submit" value="Add word(s) to student(s)">
-
--->
-<!--</div>-->
+     -->
 </div>
-
-<!-- make check boxes push information, be able to maybe check and uncheck all (we can do this last), put tables by each other, make names seen right away, not just groups, and move garbage cans over-->
 
 
 
