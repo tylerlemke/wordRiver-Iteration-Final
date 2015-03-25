@@ -21,18 +21,18 @@
   </ul>
 </div>
 <div class="col-xs-3">
-  <div ng-show="true">
+  <div>
     <!--adapt for students-->
-    <h1 class="page-header">Students in {{currentPack.packName}}:</h1>
+    <h1 class="page-header">Students in {{currentGroup.packName}}:</h1>
     <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="tile in currentPack.tiles track by $index">
       <li>{{tile}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
     </ul>
     <div ng-hide="showTileAdder">
       <a href="#" ng-click="toggleShowAdder()">Add a student!</a>
     </div>
-    <div ng-show="showTileAdder">
+    <div>
       <form ng-submit="addStudent()" >
-        <input ng-model="tileField" type="text" size="20" placeholder="add a student!">
+        <input ng-model="studentField" type="text" size="20" placeholder="add a student!">
         <input type="submit" value="Add" class="btn btn-primary" ng-click="toggleShowAdder()">
       </form>
     </div>
