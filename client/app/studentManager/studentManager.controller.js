@@ -3,27 +3,42 @@
 angular.module('WordRiverApp')
   .controller('StudentManagerCtrl', function ($scope, $location, $http, Auth) {
     //add group, delete group,
-    $scope.students = [];
-    $scope.user = [];
+    $scope.studentList = []; //List of user references to students
+    $scope.students = []; //List of actual student objects
     $scope.groups = [];
-    $scope.currentUser = Auth.getCurrentUser;
+    $scope.currentUser = Auth.getCurrentUser();
     $scope.groupField = "";
     $scope.studentField = "";
 
+///////////////////////////////////
+    $scope.getStudentList = function(){
+      //$http.get('/api/student').success(function(student) {
+      //  $scope.students = student;
+      //});
+     $scope.studentList = $scope.currentUser.studentList;
+    };
+
+    $scope.getStudentList();
+//////////////////////////////////
+
+    $scope.getGroups = function(){
+      //$http.get('/api/user').success(function(user) {
+      //  $scope.user = user;
+      //  $scope.groups = $scope.currentUser.groups;
+      //})
+      $scope.groups = $scope.currentUser.groupList;
+    };
+    $scope.getGroups();
+////////////////////////////////////
     $scope.getStudents = function(){
-      $http.get('/api/student').success(function(student) {
-        $scope.students = student;
-      });
+      for(var i = 0; i < $scope.studentList.length; i++) {
+        $http.get("/api/students/" + $scope.studentList[i].studentID).success(function(student) {
+          $scope.students.push(student);
+        })
+      };
     };
-
     $scope.getStudents();
-
-    $scope.getUserInfo = function(){
-      $http.get('/api/user').success(function(user) {
-        $scope.user = user;
-        $scope.groups = $scope.currentUser.groups;
-      })
-    };
+////////////////////////////////////
 
     $scope.addGroup = function(){
       if($scope.groupField.length >= 1) {
