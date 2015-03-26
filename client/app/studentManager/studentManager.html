@@ -6,6 +6,7 @@
   </div>
 </header>
 
+
 <div class="col-xs-3" style="margin-left:175px">
   <h1 class="page-header">Groups:</h1>
   <ul class="list-group">
@@ -21,12 +22,14 @@
       <button type="button" class="close" title="Delete Groups" data-toggle="tooltip" ng-click="deleteGroup($index)">&times;</button>
   </ul>
 </div>
+
+
 <div class="col-xs-3">
   <div>
     <!--adapt for students-->
     <h1 class="page-header">Students in {{currentGroup.packName}}:</h1>
-    <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="tile in currentPack.tiles track by $index">
-      <li>{{tile}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
+    <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in students track by $index">
+      <li>{{student.lastName}}. {{student.firstName}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
     </ul>
     <div ng-hide="showTileAdder">
       <a href="#" ng-click="toggleShowAdder()">Add a student!</a>
@@ -39,6 +42,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="col-xs-3">
   <h1 class="page-header">All Students:</h1>
   <ul class="list-group">
@@ -49,8 +54,8 @@
       </form>
     </li>
     <!--TODO Attach to database to display all the words-->
-    <li class="list-group-item" ng-repeat="pack in contextPacks">
-      <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
+    <li class="list-group-item" ng-repeat="student in students">
+      <a href="" ng-click="packInfo(pack)">{{student.lastName}}, {{student.firstName}}</a>
       <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
   </ul>
 </div>
