@@ -22,7 +22,8 @@
                         <input type="submit" value="Submit" class="btn btn-primary">
                     </form>
                 </li>
-                <li class="list-group-item" ng-repeat="pack in contextPacks">
+                <li class="list-group-item" ng-repeat="category in categoryArray">
+                  <a> {{category}}</a>
                   <button type="button" class="close" title="Delete Categories" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
             </ul>
         </div>

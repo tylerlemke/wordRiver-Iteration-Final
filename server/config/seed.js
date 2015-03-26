@@ -17,7 +17,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "culpa",
+      "password": "culpa",
       "contextPacks": [
         "American Samoa",
         "Israel",
@@ -59,7 +59,7 @@ User.find({}).remove(function() {
       "role": {
         "type": "user"
       },
-      "hashedPassword": "commodo",
+      "password": "commodo",
       "contextPacks": [
         "Malawi",
         "Norway",

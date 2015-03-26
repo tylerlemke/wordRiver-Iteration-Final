@@ -97,6 +97,34 @@ exports.updatePack = function(req, res, next) {
   });
 };
 
+exports.updateCategories = function(req, res, next) {
+  var userId = req.user._id;
+
+  //var updates = req.body.user;
+
+  User.findById(userId, function (err, user) {
+   // user.contextPacks = request.user.contextPacks;
+    if(user.authenticate(oldPass)) {
+      var updated = _.merge(pack, req.body, function(a, b) {
+        if(_.isArray(a)) {
+          //return arrayUnique(a.concat(b));
+          return b;
+        } else {
+          // returning undefined lets _.merge use its default merging methods, rather than this callback.
+          return undefined;
+        }
+      });
+      //user = updates;
+      user.save(function(err) {
+        if (err) return validationError(res, err);
+        res.send(200);
+      });
+    } else {
+      res.send(403);
+    }
+  });
+};
+
 exports.updateBucket = function(req, res, next) {
   var userId = req.user._id;
   var oldPass = String(req.body.oldPassword);
