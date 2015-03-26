@@ -5,6 +5,7 @@ var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 
+
 var validationError = function(res, err) {
   return res.json(422, err);
 };
@@ -101,11 +102,13 @@ exports.updateCategories = function(req, res, next) {
   var userId = req.user._id;
 
   //var updates = req.body.user;
-
+  if(req.body._id){delete req.body._id}
   User.findById(userId, function (err, user) {
    // user.contextPacks = request.user.contextPacks;
-    if(user.authenticate(oldPass)) {
-      var updated = _.merge(pack, req.body, function(a, b) {
+    if(err){ return handleError(res, err) }
+    if(!user){ return res.send(404) }
+
+    var updated = _.merge(user, req.body, function(a, b) {
         if(_.isArray(a)) {
           //return arrayUnique(a.concat(b));
           return b;
@@ -115,13 +118,10 @@ exports.updateCategories = function(req, res, next) {
         }
       });
       //user = updates;
-      user.save(function(err) {
-        if (err) return validationError(res, err);
-        res.send(200);
-      });
-    } else {
-      res.send(403);
-    }
+    updated.save(function(err){
+      if(err){ return handleError(res, err); }
+      return res.json(200, user);
+    });
   });
 };
 
