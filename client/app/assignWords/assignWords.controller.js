@@ -1,13 +1,19 @@
 'use strict';
 
 angular.module('WordRiverApp')
-  .controller('AssignWordsCtrl', function ($rootScope, $scope, $http, socket) {
+  .controller('AssignWordsCtrl', function ($rootScope, $scope, $http, socket, Auth) {
     $scope.currentWords = [];
     $scope.allWords = [];
     $scope.checkedWords=[];
     $scope.checkedStudents=[];
     $scope.wordField = "";
+    $scope.currentUser = Auth.getCurrentUser();
 
+    $scope.printCurrentUser = function(){
+      console.log($scope.currentUser);
+    };
+
+    $scope.printCurrentUser();
     //beforeEach(module('wordRiverTeamFtlApp'));
     //beforeEach(module('socketMock'));
 
