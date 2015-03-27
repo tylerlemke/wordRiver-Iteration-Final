@@ -4,7 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
-
+var _ = require('lodash');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -98,32 +98,63 @@ exports.updatePack = function(req, res, next) {
   });
 };
 
-exports.updateCategories = function(req, res, next) {
-  var userId = req.user._id;
+//exports.updateCategories = function(req, res, next) {
+//  var userId = req.user._id;
+//
+//  //var updates = req.body.user;
+//  if(req.body._id){delete req.body._id}
+//  User.findById(userId, function (err, user) {
+//   // user.contextPacks = request.user.contextPacks;
+//    if(err){ return handleError(res, err) }
+//    if(!user){ return res.send(404) }
+//
+//    var updated = _.merge(user, req.body, function(a, b) {
+//        if(_.isArray(a)) {
+//          //return arrayUnique(a.concat(b));
+//          return b;
+//        } else {
+//          // returning undefined lets _.merge use its default merging methods, rather than this callback.
+//          return undefined;
+//        }
+//      });
+//      //user = updates;
+//    updated.save(function(err){
+//      if(err){ return handleError(res, err); }
+//      return res.json(200, user);
+//    });
+//  });
+//};
 
-  //var updates = req.body.user;
-  if(req.body._id){delete req.body._id}
-  User.findById(userId, function (err, user) {
-   // user.contextPacks = request.user.contextPacks;
+exports.updateCategories = function(req, res) {
+  // deletes _id in req body to not screw things up...
+  if(req.body._id){ delete req.body._id }
+
+  // Uses _id provided in request (url) to find pack in database
+  User.findById(req.params.id, function(err, users) {
+    // Handle Errors
     if(err){ return handleError(res, err) }
-    if(!user){ return res.send(404) }
+    if(!users){ return res.send(404) }
 
-    var updated = _.merge(user, req.body, function(a, b) {
-        if(_.isArray(a)) {
-          //return arrayUnique(a.concat(b));
-          return b;
-        } else {
-          // returning undefined lets _.merge use its default merging methods, rather than this callback.
-          return undefined;
-        }
-      });
-      //user = updates;
+    // Merging request body and pack from DB. Special callback for arrays!
+    var updated = _.merge(users, req.body, function(a, b) {
+      if(_.isArray(a)) {
+        //return arrayUnique(a.concat(b));
+        return b;
+      } else {
+        // returning undefined lets _.merge use its default merging methods, rather than this callback.
+        return undefined;
+      }
+    });
+
+    // Saves to database
     updated.save(function(err){
       if(err){ return handleError(res, err); }
-      return res.json(200, user);
+      return res.json(200, users);
     });
   });
 };
+
+
 
 exports.updateBucket = function(req, res, next) {
   var userId = req.user._id;

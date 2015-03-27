@@ -7,6 +7,7 @@ angular.module('WordRiverApp')
     $scope.searchField = "";
     $scope.categoryArray = [];
     $scope.currentUser = Auth.getCurrentUser();
+    $scope.selectedCategories = [];
 
     $scope.getCategories = function() {
         $scope.categoryArray = $scope.currentUser.contextPacks;
@@ -35,24 +36,28 @@ angular.module('WordRiverApp')
       $scope.categoryField="";
       $scope.getCategories();
     };
-  //
-  //  $scope.addWord = function() {
-  //    if ($scope.tileField.length >= 1) {
-  //      $scope.currentPack.tiles.push($scope.tileField);
-  //
-  //      $http.patch('/api/packs/' + $scope.currentPack._id,
-  //        {tiles: $scope.currentPack.tiles}
-  //      ).success(function(){
-  //          console.log("Patch completed!");
-  //          console.log($scope.contextPacks);
-  //        });
-  //
-  //      //$http.post('/api/packs', {packName: $scope.currentPack.packName, tiles: $scope.currentPack.tiles});
-  //      //$http.delete('/api/packs/' + $scope.currentPack._id);
-  //      $scope.tileField = "";
-  //
-  //    }
-  //  };
+
+    $scope.addWord = function() {
+      if ($scope.addField.length >= 1) {
+        $http.post('/api/tiles',
+          {name: $scope.addField, contextTags: $scope.selectedCategories, creatorID: $scope.currentUser._id})
+          }
+        $scope.addField = "";
+      };
+
+    $scope.isChecked = false;
+
+    $scope.allCheckedWords = function(object){
+      object.value = !object.value;
+      if(object.value==!$scope.isChecked){
+        console.log('true');
+        $scope.selectedCategories.push(object.words);
+        console.log(object.words);
+      }
+      else if(object.value == false){
+        console.log("false");
+      }
+    };
   //
   //  $scope.deleteWord = function(pack, index) {
   //    pack.tiles.splice(index, 1);

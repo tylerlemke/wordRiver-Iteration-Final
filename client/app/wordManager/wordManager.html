@@ -22,9 +22,7 @@
                         <input type="submit" value="Submit" class="btn btn-primary">
                     </form>
                 </li>
-                <li class="list-group-item" ng-repeat="category in categoryArray">
-                  <a> {{category}}</a>
-                  <button type="button" class="close" title="Delete Categories" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
+                <li class="list-group-item" type="checkbox" ng-repeat="category in categoryArray"><label><input type="checkbox" value="isChecked" ng-click="allCheckedWords(test)">{{category}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
             </ul>
         </div>
       <div class="col-xs-4">
