@@ -15,6 +15,6 @@ router.put('/:id/updatePack', auth.isAuthenticated(), controller.updatePack);
 router.put('/:id/updateBucket', auth.isAuthenticated(), controller.updateBucket);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
-router.patch('/:id', auth.isAuthenticated(), controller.updateCategories);
+router.patch('/:id/category', auth.isAuthenticated(), controller.updateCategories);
 
 module.exports = router;

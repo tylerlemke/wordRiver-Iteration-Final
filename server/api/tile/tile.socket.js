@@ -4,13 +4,13 @@
 
 'use strict';
 
-var Tile = require('./tile.model');
+var tile = require('./tile.model');
 
 exports.register = function(socket) {
-  Tile.schema.post('save', function (doc) {
+  tile.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  Tile.schema.post('remove', function (doc) {
+  tile.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
@@ -22,3 +22,4 @@ function onSave(socket, doc, cb) {
 function onRemove(socket, doc, cb) {
   socket.emit('tile:remove', doc);
 }
+

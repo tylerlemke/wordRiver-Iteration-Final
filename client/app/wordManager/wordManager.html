@@ -1,19 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<!--<header class="hero-unit" id="banner">-->
-<!--<div class="container">-->
-<!--<h1>Word River!</h1>-->
-<!--<p class="lead">Changing mainstream learning</p>-->
-<!--<img src="assets/images/waterSplash.png" alt="I'm Yeoman">-->
-<!--</div>-->
-<!--</header>-->
 <header class="hero-unit" id="banner">
   <div class="container">
     <h1>Word Manager!</h1>
   </div>
 </header>
 <div class="container-fluid">
-        <div class="col-xs-4" style="margin-left:180px">
+        <div class="col-xs-4" style="margin-left:180px" id="categories">
             <h1 class="page-header">Categories:</h1>
             <ul class="list-group">
                 <li class="list-group-item">
@@ -22,7 +15,7 @@
                         <input type="submit" value="Submit" class="btn btn-primary">
                     </form>
                 </li>
-                <li class="list-group-item" type="checkbox" ng-repeat="category in categoryArray"><label><input type="checkbox" value="isChecked" ng-click="allCheckedWords(test)">{{category}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
+                <li class="list-group-item" type="checkbox" ng-repeat="category in categoryArray"><label><input type="checkbox" id="myCheck" value={{category}} ng-click="allCheckedWords(test)">{{category}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
             </ul>
         </div>
       <div class="col-xs-4">
@@ -41,6 +34,7 @@
               <input type="submit" value="Search" class="btn btn-primary">
             </form>
           </li>
+            <li class="list-group-item" ng-repeat="tile in userTiles"><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
           <!--TODO Attach to database to display all the words-->
           <li class="list-group-item" ng-repeat="pack in contextPacks">
             <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
@@ -48,4 +42,3 @@
         </ul>
       </div>
   </div>
-<!-- TODO change function names, add tiles that don't have a tag, add tiles with multiple tags (checkboxes), send words page is to send words to students and classes- modification of packs sent to these is managed on a page yet to be created

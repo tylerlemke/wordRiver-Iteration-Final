@@ -1,53 +1,64 @@
+/**
+ * Using Rails-like standard naming convention for endpoints.
+ * GET     /students              ->  index
+ * POST    /students            ->  create
+ * GET     /students/:id          ->  show
+ * PUT     /students/:id          ->  update
+ * DELETE  /students/:id          ->  destroy
+ */
+
 'use strict';
 
 var _ = require('lodash');
-var Tile = require('./tile.model');
+var tile = require('./tile.model');
 
-// Get list of tiles
+// Get list of things
 exports.index = function(req, res) {
-  Tile.find(function (err, tiles) {
+  tile.find(function (err, students) {
     if(err) { return handleError(res, err); }
-    return res.json(200, tiles);
+    return res.json(200, students);
   });
 };
 
-// Get a single tile
+
+// Get a single student
 exports.show = function(req, res) {
-  Tile.findById(req.params.id, function (err, tile) {
+  tile.findById(req.params.id, function (err, student) {
     if(err) { return handleError(res, err); }
-    if(!tile) { return res.send(404); }
-    return res.json(tile);
+    if(!student) { return res.send(404); }
+    return res.json(student);
   });
 };
 
-// Creates a new tile in the DB.
+
+// Creates a new student in the DB.
 exports.create = function(req, res) {
-  Tile.create(req.body, function(err, tile) {
+  tile.create(req.body, function(err, student) {
     if(err) { return handleError(res, err); }
-    return res.json(201, tile);
+    return res.json(201, student);
   });
 };
 
-// Updates an existing tile in the DB.
+// Updates an existing thing in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
-  Tile.findById(req.params.id, function (err, tile) {
+  tile.findById(req.params.id, function (err, student) {
     if (err) { return handleError(res, err); }
-    if(!tile) { return res.send(404); }
-    var updated = _.merge(tile, req.body);
+    if(!student) { return res.send(404); }
+    var updated = _.merge(student, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.json(200, tile);
+      return res.json(200, student);
     });
   });
 };
 
-// Deletes a tile from the DB.
+// Deletes a thing from the DB.
 exports.destroy = function(req, res) {
-  Tile.findById(req.params.id, function (err, tile) {
+  tile.findById(req.params.id, function (err, student) {
     if(err) { return handleError(res, err); }
-    if(!tile) { return res.send(404); }
-    tile.remove(function(err) {
+    if(!student) { return res.send(404); }
+    student.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
     });

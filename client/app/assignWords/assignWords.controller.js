@@ -6,6 +6,7 @@ angular.module('WordRiverApp')
     $scope.allWords = [];
     $scope.checkedWords=[];
     $scope.checkedStudents=[];
+    $scope.allTiles=[];
     $scope.wordField = "";
     $scope.currentUser = Auth.getCurrentUser();
 
@@ -18,7 +19,13 @@ angular.module('WordRiverApp')
     //beforeEach(module('socketMock'));
 
     $scope.getWords = function(){
-      $http.get('/api/AddingWordsDatabases').success(function(AllWordsDatabases) {
+      $http.get('/api/tile').success(function(allTiles) {
+        $scope.allTiles = allTiles;
+        for(var i= 0; i < allTiles.length; i++){
+          if($scope.currentUser._id == allTiles.creatorID){
+            $scope.userTiles.push(allTiles[i]);
+          }
+        }
         $scope.currentWords = AllWordsDatabases;
         $scope.allWords = $scope.currentWords;
       });
