@@ -41,10 +41,11 @@ angular.module('WordRiverApp')
     };
 
     $scope.getWords = function(){
+      $scope.userTiles = [];
       $http.get('/api/tile').success(function(allTiles) {
         $scope.allTiles = allTiles;
         for(var i= 0; i < $scope.allTiles.length; i++){
-          if($scope.currentUser._id == $scope.allTiles.creatorID){
+          if($scope.currentUser._id == $scope.allTiles[i].creatorID){
             $scope.userTiles.push($scope.allTiles[i]);
           }
         }
@@ -54,7 +55,9 @@ angular.module('WordRiverApp')
 
     $scope.addWord = function() {
       if ($scope.addField.length >= 1) {
-        $scope.addCheckedCategories();
+        $scope.allCheckedWords();
+        console.log($scope.selectedCategories.length);
+        console.log($scope.selectedCategories[0]);
         $http.post('/api/tile', {
           name: $scope.addField,
           contextTags: $scope.selectedCategories,
@@ -67,30 +70,18 @@ angular.module('WordRiverApp')
       }
     };
 
-    //$scope.isChecked = false;
-    //
-    //$scope.allCheckedWords = function(object){
-    //  object.value = !object.value;
-    //  if(object.value==!$scope.isChecked){
-    //    console.log('true');
-    //    $scope.selectedCategories.push(object.words);
-    //    console.log(object.words);
-    //  }
-    //  else if(object.value == false){
-    //    console.log("false");
-    //  }
-    //};
-
-    $scope.addCheckedCategories = function(){
-      var div = document.getElementById('categories');
-      var checks = div.getElementsByTagName('myCheck');
-
-      for (var i=0, len=checks.length; i<len; i++) {
-        if (checks[i].type === 'checkbox' && checks[i].checked()) {
-          $scope.selectedCategories.push(checks[i].value);
-          }
-        }
-      };
+    $scope.allCheckedWords = function(object){
+      object.value = !object.value;
+      $scope.isChecked = false;
+      if(object.value==!$scope.isChecked){
+        console.log('true');
+        $scope.selectedCategories.push(object.words);
+        console.log(object.words);
+      }
+      else if(object.value == false){
+        console.log("false");
+      }
+    };
 
     $scope.unCheckAllCheckboxes = function(field){
       for (var i = 0; i < field.length; i++){

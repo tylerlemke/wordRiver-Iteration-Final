@@ -282,10 +282,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8c8b6533965921e512",
     "name": "sint",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Saint Kitts and Nevis",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Saint Kitts and Nevis"
     }
   ],
     "active": false

@@ -30,7 +30,7 @@ angular.module('WordRiverApp')
         $scope.allWords = $scope.currentWords;
       });
     };
-
+//fix seed
     $scope.getWords();
 
     $scope.addWords = function(){
