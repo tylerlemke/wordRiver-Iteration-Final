@@ -5,10 +5,10 @@ angular.module('WordRiverApp')
     //add group, delete group,
     $scope.studentList = []; //List of user references to students
     $scope.students = []; //List of actual student objects
-    $scope.groups = [];
     $scope.currentUser = Auth.getCurrentUser();
     $scope.groupField = "";
     $scope.studentField = "";
+    $scope.localGroupArray = [];
 
 ///////////////////////////////////
     $scope.getStudentList = function(){
@@ -26,7 +26,7 @@ angular.module('WordRiverApp')
       //  $scope.user = user;
       //  $scope.groups = $scope.currentUser.groups;
       //})
-      $scope.groups = $scope.currentUser.groupList;
+      $scope.localGroupArray = $scope.currentUser.groupList;
     };
     $scope.getGroups();
 ////////////////////////////////////
@@ -40,29 +40,47 @@ angular.module('WordRiverApp')
     $scope.getStudents();
 ////////////////////////////////////
 
-    $scope.addGroup = function(){
-      if($scope.groupField.length >= 1) {
-        $http.post('/api/user', {groups: $scope.groupField}).success(function () {
-          $scope.getUserInfo();
-          $scope.groups.push({groups: $scope.groupField});
-        });
-        $scope.groupField = "";
+    $scope.addGroup = function () {
+      if ($scope.groupField.length >= 1) {
+        $scope.localGroupArray.push($scope.groupField);
+        $http.patch('/api/users/' + $scope.currentUser._id + '/group',
+          {groupList: $scope.localGroupArray}
+        ).success(function(){
+            console.log('success?');
+          });
       }
+      $scope.groupField="";
+      $scope.getGroups();
     };
 
-    $scope.addStudent = function(){
-      if($scope.studentField.length >= 1) {
-        $http.post('/api/user', {groups: $scope.studentField}).success(function () {
-          $scope.getUserInfo();
-          $scope.groups.push({groups: $scope.groupField});
-        });
-        $scope.groupField = "";
-      }
-    };
 
-    $scope.removeGroup = function(index){
-      $http.delete('/api/user/' + $scope.currentUser.group[index]).success(function(){
-        $scope.getUserInfo();
-      });
-    };
+
+
+
+
+    //$scope.addGroup = function(){
+    //  if($scope.groupField.length >= 1) {
+    //    $http.post('/api/user', {groups: $scope.groupField}).success(function () {
+    //      $scope.getUserInfo();
+    //      $scope.groups.push({groups: $scope.groupField});
+    //    });
+    //    $scope.groupField = "";
+    //  }
+    //};
+    //
+    //$scope.addStudent = function(){
+    //  if($scope.studentField.length >= 1) {
+    //    $http.post('/api/user', {groups: $scope.studentField}).success(function () {
+    //      $scope.getUserInfo();
+    //      $scope.groups.push({groups: $scope.groupField});
+    //    });
+    //    $scope.groupField = "";
+    //  }
+    //};
+    //
+    //$scope.removeGroup = function(index){
+    //  $http.delete('/api/user/' + $scope.currentUser.group[index]).success(function(){
+    //    $scope.getUserInfo();
+    //  });
+    //};
   });

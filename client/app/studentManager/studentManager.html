@@ -17,7 +17,7 @@
       </form>
     </li>
     <!--adapt for groups-->
-    <li class="list-group-item" ng-repeat="group in groups">
+    <li class="list-group-item" ng-repeat="group in localGroupArray">
       {{group}}
       <button type="button" class="close" title="Delete Groups" data-toggle="tooltip" ng-click="deleteGroup($index)">&times;</button>
   </ul>
