@@ -20,7 +20,6 @@ angular.module('WordRiverApp')
 
     $scope.getStudentList();
 //////////////////////////////////
-
     $scope.getGroups = function(){
       //$http.get('/api/user').success(function(user) {
       //  $scope.user = user;
@@ -54,8 +53,41 @@ angular.module('WordRiverApp')
     };
 
 
+   $scope.removeGroup = function () {
+
+     //
+     //if ($scope.groupField.length >= 1) {
+     //  $scope.localGroupArray.push($scope.groupField);
+     //
 
 
+      $http.patch('/api/users/' + $scope.currentUser._id + '/group',
+         {groupList: $scope.localGroupArray}
+      ).success(function(){
+           console.log('success?');
+          });
+
+    $scope.groupField="";
+     $scope.getGroups();
+   };
+
+    //returns -1 if student is not in list. should never actually return -1.
+    $scope.findStudentInList = function(student){
+      var index = -1;
+      for(var i = 0; i < $scope.studentList.length; i++){
+        if($scope.studentList[i].studentID == student){
+          index = i;
+        }
+      }
+      return index;
+    };
+
+    $scope.assignStudentToGroup = function(student, group){
+    var studentIndex = $scope.findStudentInList(student);
+    if($scope.studentList[studentIndex].groupList.indexOf(group) == -1){
+      $scope.studentList[studentIndex].groupList.push(group);
+    }
+  };
 
 
     //$scope.addGroup = function(){

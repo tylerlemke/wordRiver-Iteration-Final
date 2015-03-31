@@ -28,12 +28,22 @@ User.find({}).remove(function() {
         "Saint Kitts and Nevis"
       ],
       "groupList": [
-        "Kentucky",
-        "Ohio",
-        "Arkansas",
-        "Indiana",
-        "Nebraska"
-      ],
+        {"groupName": "Kentucky",
+        "contextPacks": ["American Samoa", "Israel", "Saint Kitts and Nevis"]
+        },
+        {"groupName": "Ohio",
+          "contextPacks": ["Belarus"]
+        },
+        {"groupName": "Arkansas",
+          "contextPacks": []
+        },
+        {"groupName": "Indiana",
+          "contextPacks": []
+        },
+        {"groupName": "Nebraska",
+          "contextPacks": ["French Polynesia"]
+        }],
+
       "tileBucket": [],
       "studentList": [
         {
@@ -42,12 +52,12 @@ User.find({}).remove(function() {
           "contextTags": ["Saint Kitts and Nevis", "Belarus", "Israel", "American Samoa"]
         }, {
           "studentID": "5511ab564ac02dbaf337270d",
-          "groupList": ["Kentucky", "Ohio"],
+          "groupList": ["Kentucky"],
           "contextTags": ["American Samoa", "Israel", "Saint Kitts and Nevis"]
         }, {
           "studentID": "5511ab5617fda1233df3f6dd",
-          "groupList": ["Kentucky"],
-          "contextTags": ["American Samoa", "Belarus", "Nigeria", "French Polynesia"]
+          "groupList": ["Kentucky", "Ohio", "Nebraska"],
+          "contextTags": ["Saint Kitts and Nevis", "American Samoa", "Belarus", "Israel", "French Polynesia"]
         }
       ]
     },
@@ -70,12 +80,21 @@ User.find({}).remove(function() {
         "Dominican Republic"
       ],
       "groupList": [
-        "Pennsylvania",
-        "Louisiana",
-        "West Virginia",
-        "Minnesota",
-        "Delaware"
-      ],
+        {"groupName": "Pennsylvania",
+          "contextPacks": []
+        },
+        {"groupName": "Louisiana",
+          "contextPacks": []
+        },
+        {"groupName": "West Virginia",
+          "contextPacks": []
+        },
+        {"groupName": "Minnesota",
+          "contextPacks": []
+        },
+        {"groupName": "Delaware",
+          "contextPacks": []
+        }],
       "tileBucket": [],
       "studentList": []
     }
