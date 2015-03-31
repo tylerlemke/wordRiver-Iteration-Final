@@ -7,7 +7,7 @@
 
 var User = require('../api/user/user.model');
 var Student = require('../api/student/student.model');
-var Tile = require('../api/tile/tile.model')
+var Tile = require('../api/tile/tile.model');
 
 User.find({}).remove(function() {
   User.create({
@@ -172,10 +172,10 @@ Tile.find({}).remove(function() {
 
     "_id": "5511ae8c805b0d983f66e2cd",
     "name": "nostrud",
+      "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Chad",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Chad"
     }
   ],
     "active": false
@@ -183,10 +183,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8cec56277a4af216a5",
     "name": "duis",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Belarus",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Belarus"
     }
   ],
     "active": false
@@ -194,10 +194,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8c1fb25384d865e514",
     "name": "et",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Israel",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Israel"
     }
   ],
     "active": false
@@ -205,10 +205,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8cf6f121e4c3108cd6",
     "name": "elit",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Nigeria",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Nigeria"
     }
   ],
     "active": false
@@ -216,10 +216,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8cb5ac0ff225f5fde2",
     "name": "non",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Nigeria",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Nigeria"
     }
   ],
     "active": false
@@ -227,10 +227,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8c72c6bb3a7f9cd910",
     "name": "reprehenderit",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "American Samoa",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "American Samoa"
     }
   ],
     "active": false
@@ -238,10 +238,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8c081ccbd0d072d7b4",
     "name": "anim",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "American Samoa",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "American Samoa"
     }
   ],
     "active": false
@@ -249,10 +249,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8cfb1b2d41b9f92888",
     "name": "esse",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Nigeria",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Nigeria"
     }
   ],
     "active": false
@@ -260,10 +260,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8c127053ad5bf17926",
     "name": "proident",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Israel",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "Israel"
     }
   ],
     "active": false
@@ -271,10 +271,10 @@ Tile.find({}).remove(function() {
   {
     "_id": "5511ae8ce28633ca8ad95f7f",
     "name": "commodo",
+    "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "American Samoa",
-      "creatorID": "5511a83da168f8b5f3144f02"
+      "tagName": "American Samoa"
     }
   ],
     "active": false

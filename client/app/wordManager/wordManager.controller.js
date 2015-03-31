@@ -16,6 +16,19 @@ angular.module('WordRiverApp')
         $scope.categoryArray = $scope.currentUser.contextPacks;
       };
 
+    $scope.checkCheckbox = function(category){
+      var counter;
+        for (var i = 0; i < $scope.selectedCategories.length; i++) {
+          if ($scope.selectedCategories[i] == category) {
+            $scope.selectedCategories.splice(i, 1);
+            counter = 1;
+          }
+        }
+      if (counter != 1){
+        $scope.selectedCategories.push(category);
+      }
+    };
+
     $scope.getCategories();
 
 
@@ -33,7 +46,6 @@ angular.module('WordRiverApp')
         $http.patch('/api/users/' + $scope.currentUser._id + '/category',
           {contextPacks: $scope.categoryArray}
         ).success(function(){
-            console.log('success?');
           });
       }
       $scope.categoryField="";
@@ -55,9 +67,6 @@ angular.module('WordRiverApp')
 
     $scope.addWord = function() {
       if ($scope.addField.length >= 1) {
-        $scope.allCheckedWords();
-        console.log($scope.selectedCategories.length);
-        console.log($scope.selectedCategories[0]);
         $http.post('/api/tile', {
           name: $scope.addField,
           contextTags: $scope.selectedCategories,
@@ -65,27 +74,6 @@ angular.module('WordRiverApp')
         });
         $scope.addField = "";
         $scope.getWords();
-        $scope.selectedCategories = [];
-        //$scope.unCheckAllCheckboxes();
-      }
-    };
-
-    $scope.allCheckedWords = function(object){
-      object.value = !object.value;
-      $scope.isChecked = false;
-      if(object.value==!$scope.isChecked){
-        console.log('true');
-        $scope.selectedCategories.push(object.words);
-        console.log(object.words);
-      }
-      else if(object.value == false){
-        console.log("false");
-      }
-    };
-
-    $scope.unCheckAllCheckboxes = function(field){
-      for (var i = 0; i < field.length; i++){
-        field[i].checked = false;
       }
     };
 
