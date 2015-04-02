@@ -41,7 +41,8 @@ angular.module('WordRiverApp')
 
     $scope.addGroup = function () {
       if ($scope.groupField.length >= 1) {
-        $scope.localGroupArray.push($scope.groupField);
+        var newGroup = {groupName: $scope.groupField, contextPacks: []}
+        $scope.localGroupArray.push(newGroup);
         $http.patch('/api/users/' + $scope.currentUser._id + '/group',
           {groupList: $scope.localGroupArray}
         ).success(function(){
