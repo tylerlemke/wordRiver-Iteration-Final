@@ -15,14 +15,8 @@
                         <input type="submit" value="Submit" class="btn btn-primary">
                     </form>
                 </li>
-                <!--<script>-->
-                  <!--var counter = 0;-->
-                  <!--for(var i =0; i < $scope.categoryArray.length; i++){-->
-                    <!---->
-                    <!---->
-                  <!--}-->
-                <!--</script>-->
-                <li class="list-group-item" ng-repeat="category in categoryArray"><label><input type="checkbox" value="value" ng-click="checkCheckbox(category)">{{category}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
+                <li class="list-group-item" ng-repeat="category in categoryArray"><label><input type="checkbox" value="value" ng-click="checkCheckbox(category)">
+                  <a href="" ng-click="displayCatInfo(category)">{{category}}</a></label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
             </ul>
         </div>
       <div class="col-xs-4">

@@ -10,7 +10,7 @@ angular.module('WordRiverApp')
     $scope.selectedCategories = [];
     $scope.allTiles = [];
     $scope.userTiles = [];
-    $scope.myCheck =
+    $scope.matchTiles = [];
 
     $scope.getCategories = function() {
         $scope.categoryArray = $scope.currentUser.contextPacks;
@@ -77,6 +77,23 @@ angular.module('WordRiverApp')
       }
     };
 
+    //cat is short for category
+    $scope.displayCatInfo = function (category) {
+        $scope.matchTiles = [];
+        for (var j = 0; j < $scope.userTiles.length; j++) {
+          for (var z = 0; z < $scope.userTiles[j].contextTags.length; z++) {
+            if ($scope.userTiles[j].contextTags[z].tagName == category) {
+              $scope.matchTiles.push($scope.userTiles[j].name);
+            }
+          }
+        }
+
+        if($scope.matchTiles.length > 0) {
+          alert("The tiles in the category " + category + " are:\n"+ $scope.matchTiles.join('\n'));
+        } else {
+          alert("There are no tiles in this category");
+        }
+    };
   //
   //  $scope.deleteWord = function(pack, index) {
   //    pack.tiles.splice(index, 1);

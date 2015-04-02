@@ -207,7 +207,7 @@ Tile.find({}).remove(function() {
     "name": "duis",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
-    {
+      {
       "tagName": "Belarus"
     }
   ],
