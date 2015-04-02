@@ -9,6 +9,8 @@ angular.module('WordRiverApp')
     $scope.groupField = "";
     $scope.studentField = "";
     $scope.localGroupArray = [];
+    $scope.selectedGroups = [];
+    $scope.selectedStudents = [];
 
 ///////////////////////////////////
     $scope.getStudentList = function(){
@@ -46,7 +48,6 @@ angular.module('WordRiverApp')
         $http.patch('/api/users/' + $scope.currentUser._id + '/group',
           {groupList: $scope.localGroupArray}
         ).success(function(){
-            console.log('success?');
           });
       }
       $scope.groupField="";
@@ -65,7 +66,6 @@ angular.module('WordRiverApp')
       $http.patch('/api/users/' + $scope.currentUser._id + '/group',
          {groupList: $scope.localGroupArray}
       ).success(function(){
-           console.log('success?');
           });
 
     $scope.groupField="";
@@ -83,12 +83,92 @@ angular.module('WordRiverApp')
       return index;
     };
 
+    $scope.findGroupInList = function(groupName){
+      var index = -1;
+      for(var i = 0; i < $scope.localGroupArray.length; i++){
+        if($scope.localGroupArray[i].groupName == groupName){
+          index = i;
+        }
+      }
+      return index;
+    };
+
+    //Takes in a student's ID and a groups name
     $scope.assignStudentToGroup = function(student, group){
     var studentIndex = $scope.findStudentInList(student);
     if($scope.studentList[studentIndex].groupList.indexOf(group) == -1){
       $scope.studentList[studentIndex].groupList.push(group);
+      $scope.addGroupsContextPacksToStudent(student);
     }
   };
+
+    $scope.addGroupsContextPacksToStudent = function(student){
+      var fullStudent = $scope.studentList[$scope.findStudentInList(student)];
+      for(var i = 0; i < $scope.selectedGroups.length; i++) {
+        var groupIndex = $scope.findGroupInList($scope.selectedGroups[i]);
+        $scope.addContextPacksToStudent($scope.localGroupArray[groupIndex].contextPacks, fullStudent)
+      }
+    }
+
+    $scope.addContextPacksToStudent = function(contextArray, student){
+      for(var i = 0; i < contextArray.length; i++){
+        if(student.contextTags.indexOf(contextArray[i]) == -1) {
+          student.contextTags.push(contextArray[i]);
+        }
+      }
+    }
+
+
+    //$scope.addPackToStudent = function(contextTag){
+    //  var studentIndex = $scope.findStudentInList(student);
+    //  for(var i = 0; i < )
+    //  if($scope.studentList[studentIndex].groupList.indexOf(group) == -1){
+    //    $scope.studentList[studentIndex].groupList.push(group);
+    //  }
+    //}
+
+    $scope.addStudentsToGroups = function(){
+      console.log("Start");
+      console.log("Context Tags: " + $scope.currentUser.studentList[1].contextTags + " __ " + "Groups: " + $scope.currentUser.studentList[1].groupList)
+        //iterate over all of the students and all of the groups
+      //call assignStudentToGroup on each pair
+      for(var i = 0; i < $scope.selectedStudents.length; i++){
+        for(var j = 0; j < $scope.selectedGroups.length; j++){
+            $scope.assignStudentToGroup($scope.selectedStudents[i], $scope.selectedGroups[j]);
+                  }
+      }
+      console.log("Finished");
+      console.log("Context Tags: " + $scope.currentUser.studentList[1].contextTags + " __ " + "Groups: " + $scope.currentUser.studentList[1].groupList)
+    }
+
+    //Takes in a group name
+    $scope.allCheckedGroups = function(category){
+      var counter;
+      for (var i = 0; i < $scope.selectedGroups.length; i++) {
+        if ($scope.selectedGroups[i] == category) {
+          $scope.selectedGroups.splice(i, 1);
+          counter = 1;
+        }
+      }
+      if (counter != 1){
+        $scope.selectedGroups.push(category);
+      }
+    };
+
+     //Takes in a student ID
+    $scope.allCheckedStudents = function(category){
+      var counter;
+      for (var i = 0; i < $scope.selectedStudents.length; i++) {
+        if ($scope.selectedStudents[i] == category) {
+          $scope.selectedStudents.splice(i, 1);
+          counter = 1;
+        }
+      }
+      if (counter != 1){
+        $scope.selectedStudents.push(category);
+      }
+    };
+
 
 
     //$scope.addGroup = function(){
