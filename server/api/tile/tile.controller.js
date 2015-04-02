@@ -21,7 +21,7 @@ exports.index = function(req, res) {
 };
 
 
-// Get a single student
+// Get a single tile
 exports.show = function(req, res) {
   tile.findById(req.params.id, function (err, student) {
     if(err) { return handleError(res, err); }
@@ -31,7 +31,7 @@ exports.show = function(req, res) {
 };
 
 
-// Creates a new student in the DB.
+// Creates a new tile in the DB.
 exports.create = function(req, res) {
   tile.create(req.body, function(err, student) {
     if(err) { return handleError(res, err); }
@@ -39,7 +39,7 @@ exports.create = function(req, res) {
   });
 };
 
-// Updates an existing thing in the DB.
+// Updates an existing tile in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   tile.findById(req.params.id, function (err, student) {
@@ -53,7 +53,7 @@ exports.update = function(req, res) {
   });
 };
 
-// Deletes a thing from the DB.
+// Deletes a tile from the DB.
 exports.destroy = function(req, res) {
   tile.findById(req.params.id, function (err, student) {
     if(err) { return handleError(res, err); }
