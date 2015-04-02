@@ -174,13 +174,16 @@ Student.find({}).remove(function() {
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Nigeria",
+        "tagName": "Israel",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
         "tagName": "French Polynesia",
         "creatorID": "5511a83da168f8b5f3144f02"
-      }
+      },
+        {"tagName": "Saint Kitts and Nevis",
+          "creatorID": "5511a83da168f8b5f3144f02"
+        }
     ]
     }
   )
