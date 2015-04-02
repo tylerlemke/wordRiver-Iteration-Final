@@ -48,7 +48,6 @@ angular.module('WordRiverApp')
         $http.patch('/api/users/' + $scope.currentUser._id + '/group',
           {groupList: $scope.localGroupArray}
         ).success(function(){
-            console.log('success?');
           });
       }
       $scope.groupField="";
@@ -67,7 +66,6 @@ angular.module('WordRiverApp')
       $http.patch('/api/users/' + $scope.currentUser._id + '/group',
          {groupList: $scope.localGroupArray}
       ).success(function(){
-           console.log('success?');
           });
 
     $scope.groupField="";
@@ -87,8 +85,8 @@ angular.module('WordRiverApp')
 
     $scope.findGroupInList = function(groupName){
       var index = -1;
-      for(var i = 0; i < $scope.groupList.length; i++){
-        if($scope.groupList[i].groupName == groupName){
+      for(var i = 0; i < $scope.localGroupArray.length; i++){
+        if($scope.localGroupArray[i].groupName == groupName){
           index = i;
         }
       }
@@ -98,20 +96,17 @@ angular.module('WordRiverApp')
     //Takes in a student's ID and a groups name
     $scope.assignStudentToGroup = function(student, group){
     var studentIndex = $scope.findStudentInList(student);
-      console.log(studentIndex + ", " + $scope.studentList[studentIndex]);
     if($scope.studentList[studentIndex].groupList.indexOf(group) == -1){
-      console.log("Inside If of assignStudentToGroup")
       $scope.studentList[studentIndex].groupList.push(group);
       $scope.addGroupsContextPacksToStudent(student);
     }
-      console.log("After If of assignStudentToGroup")
   };
 
     $scope.addGroupsContextPacksToStudent = function(student){
       var fullStudent = $scope.studentList[$scope.findStudentInList(student)];
       for(var i = 0; i < $scope.selectedGroups.length; i++) {
         var groupIndex = $scope.findGroupInList($scope.selectedGroups[i]);
-        $scope.addContextPacksToStudent(groupList[groupIndex].contextPacks, fullStudent)
+        $scope.addContextPacksToStudent($scope.localGroupArray[groupIndex].contextPacks, fullStudent)
       }
     }
 
@@ -119,7 +114,6 @@ angular.module('WordRiverApp')
       for(var i = 0; i < contextArray.length; i++){
         if(student.contextTags.indexOf(contextArray[i]) == -1) {
           student.contextTags.push(contextArray[i]);
-          console.log("Added " + contextArray[i] + " to " + student.firstName)
         }
       }
     }
@@ -134,15 +128,17 @@ angular.module('WordRiverApp')
     //}
 
     $scope.addStudentsToGroups = function(){
+      console.log("Start");
+      console.log("Context Tags: " + $scope.currentUser.studentList[1].contextTags + " __ " + "Groups: " + $scope.currentUser.studentList[1].groupList)
         //iterate over all of the students and all of the groups
       //call assignStudentToGroup on each pair
       for(var i = 0; i < $scope.selectedStudents.length; i++){
         for(var j = 0; j < $scope.selectedGroups.length; j++){
-          console.log("Called addStudentsToGroups");
-          console.log($scope.selectedStudents);
             $scope.assignStudentToGroup($scope.selectedStudents[i], $scope.selectedGroups[j]);
                   }
       }
+      console.log("Finished");
+      console.log("Context Tags: " + $scope.currentUser.studentList[1].contextTags + " __ " + "Groups: " + $scope.currentUser.studentList[1].groupList)
     }
 
     //Takes in a group name
