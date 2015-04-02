@@ -16,7 +16,7 @@
         <input type="submit" value="Submit" class="btn btn-primary">
       </form>
     </li>
-    <li class="list-group-item" type="checkbox" ng-repeat="group in localGroupArray"><label><input type="checkbox" id="myCheck" value="value" ng-click="allCheckedGroups(group)">{{group.groupName}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
+    <li class="list-group-item" type="checkbox" ng-repeat="group in localGroupArray"><label><input type="checkbox" id="myCheck" value="value" ng-click="allCheckedGroups(group.groupName)">{{group.groupName}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
     <!--adapt for groups-->
 
     <!--<li class="list-group-item" ng-repeat="group in localGroupArray">-->
@@ -55,8 +55,16 @@
       </form>
     </li>
     <!--TODO Attach to database to display all the words-->
-    <li class="list-group-item" ng-repeat="student in students">
-      <a href="" ng-click="packInfo(pack)">{{student.lastName}}, {{student.firstName}}</a>
-      <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
+    <li class="list-group-item" type="checkbox" ng-repeat="student in students"><label><input type="checkbox" id="myCheck" value="value" ng-click="allCheckedStudents(student._id)">{{student.lastName}}, {{student.firstName}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>
   </ul>
+  <input type="submit" value="Add Selected Students to Selected Groups" class="btn btn-primary" ng-click="addStudentsToGroups()">
 </div>
+
+<!--<form ng-submit="addGroup()">-->
+  <!--<input ng-model="groupField" type="text" size="15" placeholder="Add a group!">-->
+  <!--<input type="submit" value="Submit" class="btn btn-primary">-->
+<!--</form>-->
+<!--</li>-->
+<!--<li class="list-group-item" type="checkbox" ng-repeat="group in localGroupArray"><label><input type="checkbox" id="myCheck" value="value" ng-click="allCheckedGroups(group)">{{group.groupName}}</label><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeData($index)"></span></li>-->
+<!--&lt;!&ndash;adapt for groups&ndash;&gt;-->
+
