@@ -47,14 +47,20 @@ User.find({}).remove(function() {
       "tileBucket": [],
       "studentList": [
         {
+          "firstName": "Cardenas",
+          "lastName": "Coffey",
           "studentID": "5511ab56117e23f0412fd08f",
           "groupList": ["Kentucky", "Ohio"],
           "contextTags": ["Saint Kitts and Nevis", "Belarus", "Israel", "American Samoa"]
         }, {
+          "firstName": "Aisha",
+          "lastName": "Wheeler",
           "studentID": "5511ab564ac02dbaf337270d",
           "groupList": ["Kentucky"],
           "contextTags": ["American Samoa", "Israel", "Saint Kitts and Nevis"]
         }, {
+          "firstName": "Weiss",
+          "lastName": "Tanner",
           "studentID": "5511ab5617fda1233df3f6dd",
           "groupList": ["Kentucky", "Ohio", "Nebraska"],
           "contextTags": ["Saint Kitts and Nevis", "American Samoa", "Belarus", "Israel", "French Polynesia"]
