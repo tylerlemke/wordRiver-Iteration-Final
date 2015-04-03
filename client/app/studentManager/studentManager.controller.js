@@ -11,7 +11,7 @@ angular.module('WordRiverApp')
     $scope.localGroupArray = [];
     $scope.selectedGroups = [];
     $scope.selectedStudents = [];
-    $scope.studentsInGroup = [];
+    $scope.studentsInGroup = []; //Student references
     $scope.selectedGroupName = "";
 
 ///////////////////////////////////
@@ -58,13 +58,6 @@ angular.module('WordRiverApp')
 
 
    $scope.removeGroup = function () {
-
-     //
-     //if ($scope.groupField.length >= 1) {
-     //  $scope.localGroupArray.push($scope.groupField);
-     //
-
-
       $http.patch('/api/users/' + $scope.currentUser._id + '/group',
          {groupList: $scope.localGroupArray}
       ).success(function(){
@@ -85,6 +78,17 @@ angular.module('WordRiverApp')
       return index;
     };
 
+    //returns -1 if student is not in list. should never actually return -1.
+    $scope.findStudentAccount = function(studentID) {
+      var index = -1;
+      for(var i = 0; i < $scope.students.length; i++){
+        if($scope.students[i]._id == studentID){
+          index = i;
+        }
+      }
+      return index;
+    }
+
     $scope.findGroupInList = function(groupName){
       var index = -1;
       for(var i = 0; i < $scope.localGroupArray.length; i++){
@@ -100,6 +104,9 @@ angular.module('WordRiverApp')
     var studentIndex = $scope.findStudentInList(student);
     if($scope.studentList[studentIndex].groupList.indexOf(group) == -1){
       $scope.studentList[studentIndex].groupList.push(group);
+      if(group == $scope.selectedGroupName){
+        $scope.studentsInGroup.push($scope.studentList[studentIndex]);
+      }
       $scope.addGroupsContextPacksToStudent(student);
     }
   };
@@ -114,33 +121,38 @@ angular.module('WordRiverApp')
 
     $scope.addContextPacksToStudent = function(contextArray, student){
       for(var i = 0; i < contextArray.length; i++){
+
+        //user side
         if(student.contextTags.indexOf(contextArray[i]) == -1) {
           student.contextTags.push(contextArray[i]);
+        }
+
+        //student side
+        var studentIndex = $scope.findStudentAccount(student.studentID);
+        var notAdded = true;
+        for(var j = 0; j < $scope.students[studentIndex].contextTags.length; j++){
+          if(($scope.students[studentIndex].contextTags[j].creatorID == $scope.currentUser._id) && ($scope.students[studentIndex].contextTags[j].tagName == contextArray[i])){
+            notAdded = false;
+          }
+        }
+        if(notAdded){
+          $scope.students[studentIndex].contextTags.push({tagName: contextArray[i], creatorID: scope.currentUser._id});
+          //$scope.addTilesToStudent($scope.students[studentIndex], contextArray[i]);
         }
       }
     }
 
 
-    //$scope.addPackToStudent = function(contextTag){
-    //  var studentIndex = $scope.findStudentInList(student);
-    //  for(var i = 0; i < )
-    //  if($scope.studentList[studentIndex].groupList.indexOf(group) == -1){
-    //    $scope.studentList[studentIndex].groupList.push(group);
-    //  }
-    //}
 
     $scope.addStudentsToGroups = function(){
-      console.log("Start");
-      console.log("Context Tags: " + $scope.currentUser.studentList[1].contextTags + " __ " + "Groups: " + $scope.currentUser.studentList[1].groupList)
         //iterate over all of the students and all of the groups
       //call assignStudentToGroup on each pair
       for(var i = 0; i < $scope.selectedStudents.length; i++){
         for(var j = 0; j < $scope.selectedGroups.length; j++){
             $scope.assignStudentToGroup($scope.selectedStudents[i], $scope.selectedGroups[j]);
-                  }
+        }
       }
-      console.log("Finished");
-      console.log("Context Tags: " + $scope.currentUser.studentList[1].contextTags + " __ " + "Groups: " + $scope.currentUser.studentList[1].groupList)
+
     }
 
     //Takes in a group name
@@ -174,37 +186,12 @@ angular.module('WordRiverApp')
 
     $scope.displayGroupInfo = function(group){
       $scope.selectedGroupName = group.groupName;
+      $scope.studentsInGroup = [];
       for(var i = 0; i < $scope.studentList.length; i++){
-        if(studentList[i].groupList.indexOf(group.groupName) != -1){
-
+        if($scope.studentList[i].groupList.indexOf(group.groupName) != -1){
+          $scope.studentsInGroup.push($scope.studentList[i]);
         }
       }
 
     }
-
-    //$scope.addGroup = function(){
-    //  if($scope.groupField.length >= 1) {
-    //    $http.post('/api/user', {groups: $scope.groupField}).success(function () {
-    //      $scope.getUserInfo();
-    //      $scope.groups.push({groups: $scope.groupField});
-    //    });
-    //    $scope.groupField = "";
-    //  }
-    //};
-    //
-    //$scope.addStudent = function(){
-    //  if($scope.studentField.length >= 1) {
-    //    $http.post('/api/user', {groups: $scope.studentField}).success(function () {
-    //      $scope.getUserInfo();
-    //      $scope.groups.push({groups: $scope.groupField});
-    //    });
-    //    $scope.groupField = "";
-    //  }
-    //};
-    //
-    //$scope.removeGroup = function(index){
-    //  $http.delete('/api/user/' + $scope.currentUser.group[index]).success(function(){
-    //    $scope.getUserInfo();
-    //  });
-    //};
   });
