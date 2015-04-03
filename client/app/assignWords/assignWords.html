@@ -19,7 +19,8 @@
   <div class="col-xs-4" >
     <h1 class="page-header">Groups:</h1>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="group in groupArray"><label><input type="checkbox" value="value" ng-click="checkGroups(group)"></label>{{group.groupName}}
+      <li class="list-group-item" ng-repeat="group in groupArray">
+        <input type="checkbox" value="value" ng-click="checkGroups(group)"><a href="" ng-click="displayGroupInfo(group.groupName)">{{group.groupName}}</a>
     </ul>
   </div>
   <div class="col-xs-4" >

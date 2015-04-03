@@ -98,6 +98,14 @@ angular.module('WordRiverApp')
       });
     };
 
+    $scope.displayGroupInfo = function (group){
+      for(var i =0; i<$scope.groupArray.length; i++){
+        if($scope.groupArray[i].groupName == group){
+          alert("The group " + group + " has the categories:\n" + $scope.groupArray[i].contextPacks.join('\n'));
+        }
+      }
+    };
+
     $scope.assignWords = function () {
       if ($scope.selectedCategories.length > 0) {
         for (var i = 0; i < $scope.checkedStudents.length; i++) {
@@ -110,16 +118,19 @@ angular.module('WordRiverApp')
           $http.patch('/api/students/' + $scope.checkedStudents[i]._id,
             {contextPacks: $scope.studentCategoryArray});
         }
-        //for(var w = 0; $scope.selectedGroups.length; w++){
-        //  $scope.groupCategoryArray = [];
-        //  $scope.groupCategoryArray = $scope.currentUser.groupList[w].contextPacks;
-        //  $scope.checkCategoryDups($scope.groupCategoryArray, $scope.selectedCategories);
-        //  for (var j = 0; j < $scope.selectedCategories.length; j++) {
-        //    $scope.groupCategoryArray.push($scope.selectedCategories[j]);
-        //  }
-        //  $http.patch('/api/user/' + $scope.currentUser._id + '/group',
-        //    {groupList: $scope.studentCategoryArray});
-        //}
+        for (var k=0; k <$scope.selectedGroups.length; k++){
+          for (var l = 0; l<$scope.groupArray.length; l++){
+            $scope.checkCategoryDups($scope.groupArray[l].contextPacks,$scope.selectedCategories);
+            if($scope.selectedGroups[k].groupName == $scope.groupArray[l].groupName){
+              for(var m=0; m<$scope.selectedCategories.length; m++){
+                $scope.groupArray[l].contextPacks.push($scope.selectedCategories[m]);
+              }
+            }
+          }
+          $http.patch('/api/users/'+$scope.currentUser._id+'/group',{
+            groupList:$scope.groupArray
+          });
+        }
       }
     };
 

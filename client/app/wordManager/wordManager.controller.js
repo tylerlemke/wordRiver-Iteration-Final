@@ -31,11 +31,6 @@ angular.module('WordRiverApp')
 
     $scope.getCategories();
 
-
-    $scope.deletePack = function(index) {
-      $http.delete('/api/packs/' + $scope.contextPacks[index]._id)
-    };
-
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('pack');
     });
@@ -94,16 +89,17 @@ angular.module('WordRiverApp')
           alert("There are no tiles in this category");
         }
     };
-  //
-  //  $scope.deleteWord = function(pack, index) {
-  //    pack.tiles.splice(index, 1);
-  //    $http.patch('/api/packs/' + pack._id,
-  //      {tiles: pack.tiles}
-  //    ).success(function() {
-  //        console.log("Patch completed!");
-  //        console.log($scope.contextPacks);
-  //      });
-  //    //$http.post('/api/packs', {packName: pack.packName, tiles: pack.tiles});
-  //    //$http.delete('/api/packs/' + pack._id);
-  //  };
+
+    $scope.removeCategory = function(index) {
+      $scope.categoryArray.splice(index, 1);
+      $http.patch('/api/users/'+$scope.currentUser._id+'/category',{
+        contextPacks : $scope.categoryArray
+      });
+    };
+
+    $scope.removeWord = function(index) {
+      $scope.wordToRemove = $scope.userTiles[index];
+      $http.delete('/api/tile/'+ $scope.wordToRemove._id);
+      $scope.getWords();
+    };
   });
