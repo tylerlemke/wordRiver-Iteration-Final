@@ -11,6 +11,8 @@ angular.module('WordRiverApp')
     $scope.localGroupArray = [];
     $scope.selectedGroups = [];
     $scope.selectedStudents = [];
+    $scope.studentsInGroup = [];
+    $scope.selectedGroupName = "";
 
 ///////////////////////////////////
     $scope.getStudentList = function(){
@@ -170,6 +172,15 @@ angular.module('WordRiverApp')
     };
 
 
+    $scope.displayGroupInfo = function(group){
+      $scope.selectedGroupName = group.groupName;
+      for(var i = 0; i < $scope.studentList.length; i++){
+        if(studentList[i].groupList.indexOf(group.groupName) != -1){
+
+        }
+      }
+
+    }
 
     //$scope.addGroup = function(){
     //  if($scope.groupField.length >= 1) {
