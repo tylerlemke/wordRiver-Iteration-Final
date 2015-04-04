@@ -26,7 +26,8 @@
   <div class="col-xs-4" >
     <h1 class="page-header">Students:</h1>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="student in selectedStudents"><label><input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"></label>{{student.firstName}} {{student.lastName}}
+      <li class="list-group-item" ng-repeat="student in selectedStudents">
+        <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
     </ul>
   </div>
   <input type="submit" value="Assign Words" class="btn btn-primary">

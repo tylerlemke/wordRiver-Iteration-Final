@@ -62,6 +62,7 @@ angular.module('WordRiverApp')
 
     $scope.addWord = function() {
       if ($scope.addField.length >= 1) {
+        console.log($scope.selectedCategories.length);
         $http.post('/api/tile', {
           name: $scope.addField,
           contextTags: $scope.selectedCategories,
@@ -72,9 +73,18 @@ angular.module('WordRiverApp')
       }
     };
 
+
     //cat is short for category
     $scope.displayCatInfo = function (category) {
-        $scope.matchTiles = [];
+      $scope.userTiles = [];
+      $http.get('/api/tile').success(function(allTiles) {
+        $scope.allCatTiles = allTiles;
+        for(var i= 0; i < $scope.allCatTiles.length; i++){
+          if($scope.currentUser._id == $scope.allCatTiles[i].creatorID){
+            $scope.userTiles.push($scope.allCatTiles[i]);
+          }
+        }
+      });
         for (var j = 0; j < $scope.userTiles.length; j++) {
           for (var z = 0; z < $scope.userTiles[j].contextTags.length; z++) {
             if ($scope.userTiles[j].contextTags[z].tagName == category) {
@@ -82,13 +92,21 @@ angular.module('WordRiverApp')
             }
           }
         }
-
-        if($scope.matchTiles.length > 0) {
-          alert("The tiles in the category " + category + " are:\n"+ $scope.matchTiles.join('\n'));
+        if ($scope.matchTiles.length > 0) {
+          alert("The tiles in the category " + category + " are:\n" + $scope.matchTiles.join('\n'));
         } else {
           alert("There are no tiles in this category");
         }
-    };
+      };
+
+      $scope.displayWordInfo = function (word) {
+        for(var i =0; i<$scope.allTiles.length; i++){
+          console.log(word);
+          if($scope.allTiles[i].name == word.name){
+            alert("This tile was created by " + $scope.allTiles[i].creatorID);
+          }
+        }
+      };
 
     $scope.removeCategory = function(index) {
       $scope.categoryArray.splice(index, 1);

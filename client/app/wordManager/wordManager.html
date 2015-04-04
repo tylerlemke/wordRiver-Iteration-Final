@@ -35,11 +35,7 @@
               <input type="submit" value="Search" class="btn btn-primary">
             </form>
           </li>
-            <li class="list-group-item" ng-repeat="tile in userTiles">{{tile.name}}<span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeWord($index)"></span></li>
-          <!--TODO Attach to database to display all the words-->
-          <li class="list-group-item" ng-repeat="pack in contextPacks">
-            <a href="" ng-click="packInfo(pack)">{{pack.packName}}</a>
-            <button type="button" class="close" title="Delete Context Pack" data-toggle="tooltip" ng-click="deletePack($index)">&times;</button>
+            <li class="list-group-item" ng-repeat="tile in userTiles"><a href="" ng-click="displayWordInfo(tile)">{{tile.name}}</a><span class="glyphicon glyphicon-trash floatRight close" style="color: #000000" ng-click="removeWord($index)"></span></li>
         </ul>
       </div>
   </div>
