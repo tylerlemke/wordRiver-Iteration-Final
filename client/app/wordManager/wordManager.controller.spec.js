@@ -19,7 +19,7 @@ describe('Controller: WordManagerCtrl', function () {
       .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
 
     scope = $rootScope.$new();
-    OverviewCtrl = $controller('OverviewCtrl', {
+    OverviewCtrl = $controller('WordManagerCtrl', {
       $scope: scope
     });
     scope.currentUser.contextPacks = ["france", "spain", "germany", "united kingdom"];

@@ -16,10 +16,10 @@ angular.module('WordRiverApp')
 
 ///////////////////////////////////
     $scope.getStudentList = function(){
-      //$http.get('/api/student').success(function(student) {
-      //  $scope.students = student;
-      //});
-     $scope.studentList = $scope.currentUser.studentList;
+     // $http.get('/api/student').success(function(student) {
+     //   $scope.students = student;
+     // });
+     //$scope.studentList = $scope.currentUser.studentList;
     };
 
     $scope.getStudentList();
@@ -34,11 +34,11 @@ angular.module('WordRiverApp')
     $scope.getGroups();
 ////////////////////////////////////
     $scope.getStudents = function(){
-      for(var i = 0; i < $scope.studentList.length; i++) {
-        $http.get("/api/students/" + $scope.studentList[i].studentID).success(function(student) {
-          $scope.students.push(student);
-        })
-      };
+      //for(var i = 0; i < $scope.studentList.length; i++) {
+      //  $http.get("/api/students/" + $scope.studentList[i].studentID).success(function(student) {
+      //    $scope.students.push(student);
+      //  })
+      //};
     };
     $scope.getStudents();
 ////////////////////////////////////
