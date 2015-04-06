@@ -33,17 +33,9 @@
   <div>
     <!--adapt for students-->
     <h1 class="page-header">Students in {{selectedGroupName}}:</h1>
-    <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in studentsInGroup track by $index">
-      <li>{{student.lastName}}. {{student.firstName}}<button type="button" class="close" ng-click="deleteTile(currentPack, $index)">&times;</button></li>
+      <li class="list-group-item" ng-repeat="student in studentsInGroup"><label>{{student.lastName}}, {{student.firstName}}</label></li>
     </ul>
-    <div ng-hide="showTileAdder">
-      <a href="#" ng-click="toggleShowAdder()">Add a student!</a>
-    </div>
     <div>
-      <form ng-submit="addStudent()" >
-        <input ng-model="studentField" type="text" size="20" placeholder="add a student!">
-        <input type="submit" value="Add" class="btn btn-primary" ng-click="toggleShowAdder()">
-      </form>
     </div>
   </div>
 </div>
@@ -53,8 +45,6 @@
   <ul class="list-group">
     <li class="list-group-item">
       <form ng-submit="addTag()">
-        <input ng-model="textField" type="text" size="15" placeholder="Search for a student">
-        <input type="submit" value="Search" class="btn btn-primary">
       </form>
     </li>
     <!--TODO Attach to database to display all the words-->

@@ -13,9 +13,51 @@ describe('Controller: StudentManagerCtrl', function () {
     StudentManagerCtrl = $controller('StudentManagerCtrl', {
       $scope: scope
     });
+    scope.getStudentList();
+    scope.getGroups();
+    scope.getStudents();
   }));
 
-  it('should ...', function () {
+  it('should test findStudentInList', function () {
+    for(var i = 0; i < $scope.studentList.length; i++){
+      expect(scope.findStudentInList(scope.studentList[i])).toEqual(i);
+    }
+  });
+
+  it('should test findStudentAccount', function () {
     expect(1).toEqual(1);
   });
+
+  it('should test findGroupInList', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test assignStudentToGroup', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test addGroupsContextPacksToStudent', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test addContextPacksToStudent', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test addStudentsToGroups', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test allCheckedGroups', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test allCheckedStudents', function () {
+    expect(1).toEqual(1);
+  });
+
+  it('should test displayGroupInfo', function () {
+    expect(1).toEqual(1);
+  });
+
 });
