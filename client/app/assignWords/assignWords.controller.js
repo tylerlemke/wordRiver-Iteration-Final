@@ -149,6 +149,7 @@ angular.module('WordRiverApp')
             {contextTags: $scope.studentCategoryArray});
         }
         //Go through each selected group
+        console.log($scope.selectedGroups.length);
         for (var k=0; k <$scope.selectedGroups.length; k++){
           //Check for duplicate categories to the ones we want to push
           for (var l = 0; l<$scope.groupArray.length; l++){

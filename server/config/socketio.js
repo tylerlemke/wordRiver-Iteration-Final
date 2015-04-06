@@ -19,7 +19,7 @@ function onConnect(socket) {
 
   // Insert sockets below
   require('../api/tile/tile.socket').register(socket);
-  require('../api/pack/pack.socket').register(socket);
+  require('../api/student/student.socket').register(socket);
 }
 
 module.exports = function (socketio) {

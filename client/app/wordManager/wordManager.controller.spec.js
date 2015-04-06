@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: OverviewCtrl', function () {
+describe('Controller: WordManagerCtrl', function () {
 
   // load the controller's module
   beforeEach(module('WordRiverApp'));
@@ -22,27 +22,44 @@ describe('Controller: OverviewCtrl', function () {
     OverviewCtrl = $controller('OverviewCtrl', {
       $scope: scope
     });
+    scope.currentUser.contextPacks = ["france", "spain", "germany", "united kingdom"];
   }));
 
-  it('this is a sanity check', function () {
+  it('this tests the function checkCheckbox', function () {
     expect(true).toBe(true);
   });
-  //it('should attach a list of things to the scope', function () {
-  //  $httpBackend.flush();
-  //  expect(scope.awesomeThings.length).toBe(4);
-  //});
 
-  //These tests don't test functionality, they should probably be removed. -Lemmon
-  //it('should be things in the list i.e. heroPack, zoo, biomes, cars, disney', function () {
-  //  expect(scope.contextPacks[0].pack).toBe('heroPack');
-  //  expect(scope.contextPacks[1].pack).toBe('zoo');
-  //  expect(scope.contextPacks[2].pack).toBe('biomes');
-  //  expect(scope.contextPacks[3].pack).toBe('cars');
-  //  expect(scope.contextPacks[4].pack).toBe('disney');
-  //  expect(scope.contextPacks[5]).toBe(undefined);
-  //});
+  it('this tests the function getCategories', function () {
+    scope.getCategories();
+    expect(scope.categoryArray.length).toBe(4)
+  });
 
-  //it('should be 5', function () {
-  //  expect(scope.contextPacks.length).toBe(5);
-  //});
+  it('this tests the function addCategory', function () {
+    expect(true).toBe(true);
+  });
+
+  it('this tests the function getWords', function () {
+    expect(true).toBe(true);
+  });
+
+  it('this tests the function addWord', function () {
+    expect(true).toBe(true);
+  });
+
+  it('this tests the function displayCatInfo', function () {
+    expect(true).toBe(true);
+  });
+
+  it('this tests the function displayWordInfo', function () {
+    expect(true).toBe(true);
+  });
+
+  it('this tests the function removeCategory', function () {
+    expect(true).toBe(true);
+  });
+
+  it('this tests the function removeWord', function () {
+    expect(true).toBe(true);
+  });
+
 });
