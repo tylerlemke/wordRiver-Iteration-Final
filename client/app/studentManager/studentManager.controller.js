@@ -16,12 +16,16 @@ angular.module('WordRiverApp')
 
 ///////////////////////////////////
     $scope.getStudentList = function(){
-     $scope.studentList = $scope.currentUser.studentList;
+      $scope.studentList = $scope.currentUser.studentList;
     };
 
     $scope.getStudentList();
 //////////////////////////////////
     $scope.getGroups = function(){
+      //$http.get('/api/user').success(function(user) {
+      //  $scope.user = user;
+      //  $scope.groups = $scope.currentUser.groups;
+      //})
       $scope.localGroupArray = $scope.currentUser.groupList;
     };
     $scope.getGroups();
@@ -129,16 +133,9 @@ angular.module('WordRiverApp')
           }
         }
         if(notAdded){
-          $scope.students[studentIndex].contextTags.push({tagName: contextArray[i], creatorID: $scope.currentUser._id});
-          //$scope.addTilesToStudent($scope.students[studentIpushndex], contextArray[i]);
+          $scope.students[studentIndex].contextTags.push({tagName: contextArray[i], creatorID: scope.currentUser._id});
+          //$scope.addTilesToStudent($scope.students[studentIndex], contextArray[i]);
         }
-
-        //$scope.updateDatabaseStudent(contextArray, student)
-        //Find the student through their ID
-        //for each context pack in the contextArray, check to see if the student already has it
-        //If they don't, add it to their contextTags
-
-
       }
     }
 
@@ -152,6 +149,7 @@ angular.module('WordRiverApp')
             $scope.assignStudentToGroup($scope.selectedStudents[i], $scope.selectedGroups[j]);
         }
       }
+
     }
 
     //Takes in a group name
@@ -193,25 +191,4 @@ angular.module('WordRiverApp')
       }
 
     }
-
-    //$scope.updateDatabaseStudent = function(contextArray, student) {
-    //  var dataStudent =;
-    //  var notAdded = true;
-    //  for (var i = 0; i < contextArray.length; i++) {
-    //    for (var j = 0; j < dataStudent.contextTags.length; j++) {
-    //      if ((dataStudent.contextTags[j].creatorID == $scope.currentUser._id) && (dataStudent.contextTags[j].tagName == contextArray[i])) {
-    //        notAdded = false;
-    //      }
-    //    }
-    //    if (notAdded) {
-    //     dataStudent.contextTags.push({tagName: contextArray[i], creatorID: $scope.currentUser._id});
-    //    }
-    //
-    //    //$http.patch('/api/students/' + $scope.checkedStudents[i]._id,
-    //    //  {contextTags: $scope.studentCategoryArray});
-    //  }
-    //}
-
-
-
   });

@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 describe('Controller: AssignWordsCtrl', function () {
 
@@ -12,7 +12,7 @@ describe('Controller: AssignWordsCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    SendWordsCtrl = $controller('SendWordsCtrl', {
+    AssignWordsCtrl = $controller('AssignWordsCtrl', {
       $scope: scope
     });
   }));
