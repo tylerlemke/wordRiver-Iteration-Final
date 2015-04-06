@@ -19,7 +19,7 @@ describe('Controller: StudentManagerCtrl', function () {
   }));
 
   it('should test findStudentInList', function () {
-    for(var i = 0; i < $scope.studentList.length; i++){
+    for(var i = 0; i < scope.studentList.length; i++){
       expect(scope.findStudentInList(scope.studentList[i])).toEqual(i);
     }
   });

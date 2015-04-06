@@ -1,5 +1,5 @@
 {
-  "name": "word-river-merge",
+  "name": "WordRiverApp",
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {
