@@ -22,20 +22,20 @@ angular.module('WordRiverApp')
     $scope.getStudentList();
 //////////////////////////////////
     $scope.getGroups = function(){
-      //$http.get('/api/user').success(function(user) {
-      //  $scope.user = user;
-      //  $scope.groups = $scope.currentUser.groups;
-      //})
+      $http.get('/api/user').success(function(user) {
+        $scope.user = user;
+        $scope.groups = $scope.currentUser.groups;
+      });
       $scope.localGroupArray = $scope.currentUser.groupList;
     };
     $scope.getGroups();
 ////////////////////////////////////
     $scope.getStudents = function(){
-      //for(var i = 0; i < $scope.studentList.length; i++) {
-      //  $http.get("/api/students/" + $scope.studentList[i].studentID).success(function(student) {
-      //    $scope.students.push(student);
-      //  })
-      //}
+      for(var i = 0; i < $scope.studentList.length; i++) {
+        $http.get("/api/students/" + $scope.studentList[i].studentID).success(function(student) {
+          $scope.students.push(student);
+        })
+      }
     };
     $scope.getStudents();
 ////////////////////////////////////
