@@ -4,6 +4,7 @@ angular.module('WordRiverApp')
   .controller('WordManagerCtrl', function ($scope, $http, socket, Auth) {
     $scope.categoryField = "";
     $scope.addField = "";
+    $scope.addType = "";
     $scope.searchField = "";
     $scope.categoryArray = [];
     $scope.currentUser = Auth.getCurrentUser();
@@ -11,6 +12,16 @@ angular.module('WordRiverApp')
     $scope.allTiles = [];
     $scope.userTiles = [];
     $scope.matchTiles = [];
+    $scope.toSort = "tile";
+    $scope.order = true;
+
+    $scope.confirmDelete = function(index) {
+      this.index = index;
+      if (confirm("Are you sure you want to delete " + $scope.categoryArray[index] + "?") == true) {
+        $scope.removeCategory(index);
+      }
+    };
+
 
     $scope.getCategories = function() {
         $scope.categoryArray = $scope.currentUser.contextPacks;
@@ -63,12 +74,13 @@ angular.module('WordRiverApp')
     $scope.getWords();
 
     $scope.addWord = function() {
-      if ($scope.addField.length >= 1) {
+      if ($scope.addField.length >= 1 && $scope.addType.length >= 1) {
         console.log($scope.selectedCategories.length);
         $http.post('/api/tile', {
           name: $scope.addField,
           contextTags: $scope.selectedCategories,
-          creatorID: $scope.currentUser._id
+          creatorID: $scope.currentUser._id,
+          wordType: $scope.addType
         });
         $scope.addField = "";
         $scope.getWords();

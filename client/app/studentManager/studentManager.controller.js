@@ -191,4 +191,25 @@ angular.module('WordRiverApp')
       }
 
     }
+
+    $scope.orderBy = function (property) {
+      var sortOrder = 1;
+      if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+      }
+      return function (a,b) {
+        //var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        var result = 0;
+        if (a[property] < b[property]) {
+          result = -1;
+        } else if (a[property] > b[property]) {
+          result=1;
+        } else {
+          result = 0;
+        }
+        console.log("Things Should show up");
+        return result * sortOrder;
+      }
+    };
   });

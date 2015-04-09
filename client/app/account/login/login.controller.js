@@ -2,7 +2,7 @@
 
 angular.module('WordRiverApp')
   .controller('LoginCtrl', function ($scope, Auth, $location) {
-    $scope.user = {};
+    $scope.user = {email: "rosemariemaxwell@plexia.com", password: "culpa"};
     $scope.errors = {};
 
     $scope.login = function(form) {
