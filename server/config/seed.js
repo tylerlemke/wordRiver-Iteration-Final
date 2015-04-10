@@ -19,29 +19,29 @@ User.find({}).remove(function() {
       },
       "password": "culpa",
       "contextPacks": [
-        "American Samoa",
-        "Israel",
-        "Chad",
-        "French Polynesia",
-        "Belarus",
-        "Nigeria",
-        "Saint Kitts and Nevis"
+        "Dolch 1",
+        "Animals",
+        "Post Office",
+        "Lunch",
+        "Superheros",
+        "School",
+        "Gym Class"
       ],
       "groupList": [
-        {"groupName": "Kentucky",
-        "contextPacks": ["American Samoa", "Israel", "Saint Kitts and Nevis"]
+        {"groupName": "Group A",
+        "contextPacks": ["Dolch 1", "Animals", "Gym Class"]
         },
-        {"groupName": "Ohio",
-          "contextPacks": ["Belarus"]
+        {"groupName": "Group B",
+          "contextPacks": ["Superheros"]
         },
-        {"groupName": "Arkansas",
+        {"groupName": "Group C",
           "contextPacks": []
         },
-        {"groupName": "Indiana",
+        {"groupName": "Group D",
           "contextPacks": []
         },
-        {"groupName": "Nebraska",
-          "contextPacks": ["French Polynesia"]
+        {"groupName": "Group E",
+          "contextPacks": ["Lunch"]
         }],
 
       "tileBucket": [],
@@ -50,20 +50,20 @@ User.find({}).remove(function() {
           "firstName": "Cardenas",
           "lastName": "Coffey",
           "studentID": "5511ab56117e23f0412fd08f",
-          "groupList": ["Kentucky", "Ohio"],
-          "contextTags": ["Saint Kitts and Nevis", "Belarus", "Israel", "American Samoa"]
+          "groupList": ["Group A", "Group B"],
+          "contextTags": ["Gym Class", "Superheros", "Animals", "Dolch 1"]
         }, {
           "firstName": "Aisha",
           "lastName": "Wheeler",
           "studentID": "5511ab564ac02dbaf337270d",
-          "groupList": ["Kentucky"],
-          "contextTags": ["American Samoa", "Israel", "Saint Kitts and Nevis"]
+          "groupList": ["Group A"],
+          "contextTags": ["Dolch 1", "Animals", "Gym Class"]
         }, {
           "firstName": "Weiss",
           "lastName": "Tanner",
           "studentID": "5511ab5617fda1233df3f6dd",
-          "groupList": ["Kentucky", "Ohio", "Nebraska"],
-          "contextTags": ["Saint Kitts and Nevis", "American Samoa", "Belarus", "Israel", "French Polynesia"]
+          "groupList": ["Group A", "Group B", "Group E"],
+          "contextTags": ["Gym Class", "Dolch 1", "Superheros", "Animals", "Lunch"]
         }
       ]
     },
@@ -120,19 +120,19 @@ Student.find({}).remove(function() {
       "tileBucket": [],
       "contextTags": [
       {
-        "tagName": "Saint Kitts and Nevis",
+        "tagName": "Gym Class",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Belarus",
+        "tagName": "Superheros",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Israel",
+        "tagName": "Animals",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "American Samoa",
+        "tagName": "Dolch 1",
         "creatorID": "5511a83da168f8b5f3144f02"
       }
     ]
@@ -148,15 +148,15 @@ Student.find({}).remove(function() {
       "tileBucket": [],
       "contextTags": [
       {
-        "tagName": "American Samoa",
+        "tagName": "Dolch 1",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Israel",
+        "tagName": "Animals",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Saint Kitts and Nevis",
+        "tagName": "Gym Class",
         "creatorID": "5511a83da168f8b5f3144f02"
       }
     ]
@@ -172,22 +172,22 @@ Student.find({}).remove(function() {
       "tileBucket": [],
       "contextTags": [
       {
-        "tagName": "American Samoa",
+        "tagName": "Dolch 1",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Belarus",
+        "tagName": "Superheros",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "Israel",
+        "tagName": "Animals",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
       {
-        "tagName": "French Polynesia",
+        "tagName": "Lunch",
         "creatorID": "5511a83da168f8b5f3144f02"
       },
-        {"tagName": "Saint Kitts and Nevis",
+        {"tagName": "Gym Class",
           "creatorID": "5511a83da168f8b5f3144f02"
         }
     ]
@@ -199,124 +199,135 @@ Tile.find({}).remove(function() {
   Tile.create({
 
     "_id": "5511ae8c805b0d983f66e2cd",
-    "name": "nostrud",
+    "name": "Mail",
       "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Chad"
+      "tagName": "Post Office"
     }
   ],
-    "active": false
+    "active": false,
+      "wordType": "Noun"
   },
   {
     "_id": "5511ae8cec56277a4af216a5",
-    "name": "duis",
+    "name": "Batman",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
       {
-      "tagName": "Belarus"
+      "tagName": "Superheros"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8c1fb25384d865e514",
-    "name": "et",
+    "name": "Dog",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Israel"
+      "tagName": "Animals"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8cf6f121e4c3108cd6",
-    "name": "elit",
+    "name": "Book",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Nigeria"
+      "tagName": "School"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8cb5ac0ff225f5fde2",
-    "name": "non",
+    "name": "Pencil",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Nigeria"
+      "tagName": "School"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8c72c6bb3a7f9cd910",
-    "name": "reprehenderit",
+    "name": "Jump",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "American Samoa"
+      "tagName": "Dolch 1"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Verb"
   },
   {
     "_id": "5511ae8c081ccbd0d072d7b4",
-    "name": "anim",
+    "name": "Run",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "American Samoa"
+      "tagName": "Dolch 1"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Verb"
   },
   {
     "_id": "5511ae8cfb1b2d41b9f92888",
-    "name": "esse",
+    "name": "Desk",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Nigeria"
+      "tagName": "School"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8c127053ad5bf17926",
-    "name": "proident",
+    "name": "Cat",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Israel"
+      "tagName": "Animals"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8ce28633ca8ad95f7f",
-    "name": "commodo",
+    "name": "House",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "American Samoa"
+      "tagName": "Dolch 1"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
   },
   {
     "_id": "5511ae8c8b6533965921e512",
-    "name": "sint",
+    "name": "Ball",
     "creatorID": "5511a83da168f8b5f3144f02",
     "contextTags": [
     {
-      "tagName": "Saint Kitts and Nevis"
+      "tagName": "Gym Class"
     }
   ],
-    "active": false
+    "active": false,
+    "wordType": "Noun"
 
   })
 });
