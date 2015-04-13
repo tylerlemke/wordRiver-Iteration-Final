@@ -3,7 +3,7 @@
 describe('Controller: HomeCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('wordRiverMergeApp'));
+  beforeEach(module('WordRiverApp'));
 
   var HomeCtrl, scope;
 
