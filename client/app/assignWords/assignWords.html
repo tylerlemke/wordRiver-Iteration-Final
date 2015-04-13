@@ -10,20 +10,23 @@
   <br/>
   <form ng-submit="assignWords()">
     <div class="col-xs-4" ng-show="groupView">
-      <button class="btn btn-primary" title="Show Students" ng-click="showStudentView(true)">Show Students</button>
+      <button class="btn btn-primary" title="Show Students" ng-click="showGroupView(false)">Show Students</button>
       <h1 class="page-header">Groups:</h1>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="group in groupArray">
           <input type="checkbox" value="value" ng-click="checkGroups(group)"><a href="" ng-click="displayGroupInfo(group.groupName)">{{group.groupName}}</a>
       </ul>
     </div>
-    <div class="col-xs-4" ng-show="studentView">
+    <div class="col-xs-4" ng-hide="groupView">
       <button class="btn btn-primary" title="Show Groups" ng-click="showGroupView(true)">Show Groups</button>
       <h1 class="page-header">Students:</h1>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="student in selectedStudents">
           <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
       </ul>
+    </div>
+    <div class="col-xs-4">
+      <h1>Middle Column</h1>
     </div>
     <div class="col-xs-3" >
       <input type="button" value="Show Categories" class="btn btn-primary">

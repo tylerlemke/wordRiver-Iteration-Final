@@ -15,7 +15,10 @@ angular.module('WordRiverApp')
     $scope.userTiles = [];
     $scope.studentCategories = [];
     $scope.groupView = true;
-    $scope.studentView = false;
+
+    $scope.showGroupView = function(bool){
+      $scope.groupView = bool;
+    };
 
     $scope.getAll = function () {
       $scope.categoryArray = [];
