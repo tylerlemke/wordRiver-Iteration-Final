@@ -9,13 +9,13 @@
 <div class="container">
 <br/>
   <form ng-submit="assignWords()">
-  <div class="col-xs-3" >
-    <h1 class="page-header">Categories:</h1>
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="category in categoryArray">
-        <input type="checkbox" value="value" ng-click="checkCategories(category)"><a href="" ng-click="displayCatInfo(category)">{{category}}</a>
-    </ul>
-  </div>
+    <div class="col-xs-4" >
+      <h1 class="page-header">Students:</h1>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="student in selectedStudents">
+          <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
+      </ul>
+    </div>
   <div class="col-xs-4" >
     <h1 class="page-header">Groups:</h1>
     <ul class="list-group">
@@ -23,13 +23,13 @@
         <input type="checkbox" value="value" ng-click="checkGroups(group)"><a href="" ng-click="displayGroupInfo(group.groupName)">{{group.groupName}}</a>
     </ul>
   </div>
-  <div class="col-xs-4" >
-    <h1 class="page-header">Students:</h1>
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="student in selectedStudents">
-        <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
-    </ul>
-  </div>
+    <div class="col-xs-3" >
+      <h1 class="page-header">Categories:</h1>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="category in categoryArray">
+          <input type="checkbox" value="value" ng-click="checkCategories(category)"><a href="" ng-click="displayCatInfo(category)">{{category}}</a>
+      </ul>
+    </div>
   <input type="submit" value="Assign Words" class="btn btn-primary">
   </form>
 <!--<td> <div class="col-lg-12" ng-repeat="class in classList"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li></div></td>
