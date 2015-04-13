@@ -22,6 +22,13 @@ angular.module('WordRiverApp')
       }
     };
 
+    $scope.disassociateTile = function(pack, index) {
+      console.log(pack);
+      $http.put('/api/users/' + $scope.userId + "/deleteTile", {word: pack.tiles[index].wordName, packId: pack._id});
+      pack.tiles.splice(index, 1);
+      //$http.post('/api/packs', {packName: pack.packName, tiles: pack.tiles});
+      //$http.delete('/api/packs/' + pack._id);
+    };
 
     $scope.getCategories = function() {
         $scope.categoryArray = $scope.currentUser.contextPacks;
@@ -144,3 +151,68 @@ angular.module('WordRiverApp')
       $scope.getWords();
     };
   });
+
+
+//exports.deleteTile = function(req, res, next) {
+//  var userId = req.user._id;
+//
+//  var word = req.body.word;
+//  var packId = req.body.packId;
+//  User.findById(userId, function (err, user) {
+//    for(var i = 0; i < user.tileBucket.length; i++){
+//      console.log(word == user.tileBucket[i].wordName);
+//      if(word == user.tileBucket[i].wordName){
+//        console.log(word);
+//        for(var j = 0; j < user.tileBucket[i].tileTags.length; j++){
+//          if(user.tileBucket[i].tileTags[j] == packId){
+//            console.log(j);
+//            user.tileBucket[i].tileTags.splice(j, 1);
+//          }
+//        }
+//      }
+//    }
+//    user.save(function(err) {
+//      if (err) return validationError(res, err);
+//      res.send(200);
+//    });
+//  });
+//};
+
+//exports.updatePack = function(req, res, next) {
+//  var userId = req.user._id;
+//
+//  var tagName = req.body.tagName;
+//  var packType = req.body.packType;
+//
+//  User.findById(userId, function (err, user) {
+//    user.tileTags.push({"tagName": tagName, "tagType": packType});
+//    user.save(function(err) {
+//      if (err) return validationError(res, err);
+//      res.send(200);
+//    });
+//  });
+//};
+
+//exports.updateTile = function(req, res, next) {
+//  var userId = req.user._id;
+//
+//  var word = req.body.word;
+//  var packId = req.body.packId;
+//
+//  User.findById(userId, function (err, user) {
+//    var found = false;
+//    for(var i = 0; i < user.tileBucket.length; i++){
+//      if(user.tileBucket[i].wordName == word){
+//        found = true;
+//        user.tileBucket[i].tileTags.push(packId);
+//      }
+//    }
+//    if(!found){
+//      user.tileBucket.push({wordName: word, tileTags: [packId]});
+//    }
+//    user.save(function(err) {
+//      if (err) return validationError(res, err);
+//      res.send(200);
+//    });
+//  });
+//};
