@@ -20,9 +20,9 @@
     <div class="col-xs-4" ng-hide="groupView">
       <button class="btn btn-primary" title="Show Groups" ng-click="showGroupView(true)">Show Groups</button>
       <h1 class="page-header">Students:</h1>
+      <button class="btn btn-primary" ng-show="AZ" ng-click="toSort = 'lastName'; order = !order; AZ=!AZ">Z-A</button>
+      <button class="btn btn-primary" ng-show="!AZ" ng-click="toSort = 'lastName'; order = !order ;AZ=!AZ">A-Z</button>
       <ul class="list-group scroll">
-        <button class="btn btn-primary" ng-show="AZ" ng-click="toSort = 'lastName'; order = !order; AZ=!AZ">Z-A</button>
-        <button class="btn btn-primary" ng-show="!AZ" ng-click="toSort = 'lastName'; order = !order ;AZ=!AZ">A-Z</button>
         <li class="list-group-item " ng-repeat="student in selectedStudents | orderBy:toSort:!order">
           <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
       </ul>
