@@ -14,7 +14,7 @@ angular.module('WordRiverApp')
     $scope.matchTiles = [];
     $scope.toSort = "tile";
     $scope.order = true;
-    $scope.currentCategory = "";
+    $scope.currentCategory = null;
     //$scope.selectedCategories = [];
 
     $scope.confirmDelete = function(index) {
@@ -127,13 +127,22 @@ angular.module('WordRiverApp')
       });
     };
 
+
+
+    //THIS IS THE FUNCTION WE ARE WORKING ON - 4/14/15
     $scope.removeFromCategory = function (tile) {
+      console.log('1 of 3');
       for(var i = 0; i < $scope.matchTiles.length; i++){
+        console.log('2 of 3');
+        //console.log($scope.matchTiles.length);
         if(tile._id == $scope.matchTiles[i]._id){
+          console.log('3 of 3');
           $scope.matchTiles.splice(i, 1);
         }
       }
-    }
+    };
+
+
 
       $scope.displayWordInfo = function (word) {
         $scope.contextTagsTemp = [];
