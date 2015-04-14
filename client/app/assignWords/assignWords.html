@@ -2,40 +2,47 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>Assign Words!</h1>
+    <h1>Assign Content to People</h1>
   </div>
 </header>
 
 <div class="container">
-<br/>
+  <br/>
   <form ng-submit="assignWords()">
-  <div class="col-xs-3" >
-    <h1 class="page-header">Categories:</h1>
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="category in categoryArray">
-        <input type="checkbox" value="value" ng-click="checkCategories(category)"><a href="" ng-click="displayCatInfo(category)">{{category}}</a>
-    </ul>
-  </div>
-  <div class="col-xs-4" >
-    <h1 class="page-header">Groups:</h1>
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="group in groupArray">
-        <input type="checkbox" value="value" ng-click="checkGroups(group)"><a href="" ng-click="displayGroupInfo(group.groupName)">{{group.groupName}}</a>
-    </ul>
-  </div>
-  <div class="col-xs-4" >
-    <h1 class="page-header">Students:</h1>
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="student in selectedStudents">
-        <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
-    </ul>
-  </div>
-  <input type="submit" value="Assign Words" class="btn btn-primary">
+    <div class="col-xs-4" ng-show="groupView">
+      <button class="btn btn-primary" title="Show Students" ng-click="showGroupView(false)">Show Students</button>
+      <h1 class="page-header">Groups:</h1>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="group in groupArray">
+          <input type="checkbox" value="value" ng-click="checkGroups(group)"><a href="" ng-click="displayGroupInfo(group.groupName)">{{group.groupName}}</a>
+      </ul>
+    </div>
+    <div class="col-xs-4" ng-hide="groupView">
+      <button class="btn btn-primary" title="Show Groups" ng-click="showGroupView(true)">Show Groups</button>
+      <h1 class="page-header">Students:</h1>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="student in selectedStudents">
+          <input type="checkbox" value="studentChecked"  ng-click="checkStudents(student)"><a href="" ng-click="displayStudentInfo(student)">{{student.firstName}} {{student.lastName}}</a>
+      </ul>
+    </div>
+    <div class="col-xs-4">
+      <h1>Middle Column</h1>
+    </div>
+    <div class="col-xs-3" >
+      <input type="button" value="Show Categories" class="btn btn-primary">
+      <input type="button" value="Show words" class="btn btn-primary">
+      <h1 class="page-header">Categories:</h1>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="category in categoryArray">
+          <input type="checkbox" value="value" ng-click="checkCategories(category)"><a href="" ng-click="displayCatInfo(category)">{{category}}</a>
+      </ul>
+    </div>
+    <input type="submit" value="Assign Words" class="btn btn-primary">
   </form>
-<!--<td> <div class="col-lg-12" ng-repeat="class in classList"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li></div></td>
-        <td> <div class="col-lg-12" ng-repeat="class in classList | filter: filterText" ng-show="true"><div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'" ng-show="true"><label><input type="checkbox" value="studentChecked"  ng-click="allCheckedStudents(person)"><a class="btn btn-default" ng-click="makeCurrentStudent(person)" href="/profile"> {{person.student}}</a></label></div></div>
-        </td>
-     -->
+  <!--<td> <div class="col-lg-12" ng-repeat="class in classList"><label><input type="checkbox" name="checkbox" value="value"></label> <li class="btn btn-default" ng-click="changeFilter(class)">{{class}}</li></div></td>
+          <td> <div class="col-lg-12" ng-repeat="class in classList | filter: filterText" ng-show="true"><div class="col-lg-12" ng-repeat="person in studentList | filter: class |orderBy: 'student'" ng-show="true"><label><input type="checkbox" value="studentChecked"  ng-click="allCheckedStudents(person)"><a class="btn btn-default" ng-click="makeCurrentStudent(person)" href="/profile"> {{person.student}}</a></label></div></div>
+          </td>
+       -->
 </div>
 
 
