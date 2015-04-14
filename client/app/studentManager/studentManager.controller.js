@@ -84,7 +84,7 @@ angular.module('WordRiverApp')
         }
       }
       return index;
-    }
+    };
 
     $scope.findGroupInList = function(groupName){
       var index = -1;
@@ -114,7 +114,7 @@ angular.module('WordRiverApp')
         var groupIndex = $scope.findGroupInList($scope.selectedGroups[i]);
         $scope.addContextPacksToStudent($scope.localGroupArray[groupIndex].contextPacks, fullStudent)
       }
-    }
+    };
 
     $scope.addContextPacksToStudent = function(contextArray, student){
       for(var i = 0; i < contextArray.length; i++){
@@ -137,7 +137,7 @@ angular.module('WordRiverApp')
           //$scope.addTilesToStudent($scope.students[studentIndex], contextArray[i]);
         }
       }
-    }
+    };
 
 
 
@@ -149,8 +149,7 @@ angular.module('WordRiverApp')
             $scope.assignStudentToGroup($scope.selectedStudents[i], $scope.selectedGroups[j]);
         }
       }
-
-    }
+    };
 
     //Takes in a group name
     $scope.allCheckedGroups = function(category){
@@ -189,8 +188,7 @@ angular.module('WordRiverApp')
           $scope.studentsInGroup.push($scope.studentList[i]);
         }
       }
-
-    }
+    };
 
     $scope.orderBy = function (property) {
       var sortOrder = 1;
@@ -212,4 +210,20 @@ angular.module('WordRiverApp')
         return result * sortOrder;
       }
     };
+    //////////////////////////////////////////////////////////////////////////
+
+    $scope.removeStudentFromGroup = function (studentName, groupName) {
+      for(var i = 0; i < $scope.studentList.length; i++){
+        if (studentName == $scope.studentList[i]){
+          for(var j = 0; j < $scope.currentUser.studentList[i].groupList.length; j++){
+            if(groupName == $scope.currentUser.studentList[i].groupList[j]){
+              $scope.currentUser.studentList[i].groupList.splice(j, 1);
+              break;
+            }
+          }
+          break;
+        }
+      }
+    };
+
   });
