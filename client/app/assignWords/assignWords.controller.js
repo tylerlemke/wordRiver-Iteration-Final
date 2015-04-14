@@ -18,7 +18,12 @@ angular.module('WordRiverApp')
     $scope.matchStudent = [];
     $scope.groupView = true;
     $scope.categoryView = true;
+
     $scope.showMiddle = false;
+    $scope.wordView = false;
+    $scope.studentView = false;
+    $scope.showGroup = false;
+    $scope.showCategory = false;
 
     $scope.showGroupView = function(bool){
       $scope.groupView = bool;
@@ -26,6 +31,34 @@ angular.module('WordRiverApp')
 
     $scope.showCategoryView = function(bool){
       $scope.categoryView = bool;
+    };
+
+    $scope.switchMiddle = function(section){
+      if(section == "category"){
+        $scope.showCategory = true;
+        $scope.wordView = false;
+        $scope.studentView = false;
+        $scope.showGroup = false;
+        $scope.showMiddle = true;
+      } else if (section == "word"){
+        $scope.showCategory = false;
+        $scope.wordView = true;
+        $scope.studentView = false;
+        $scope.showGroup = false;
+        $scope.showMiddle = true;
+      } else if (section == "student"){
+        $scope.showCategory = false;
+        $scope.wordView = false;
+        $scope.studentView = true;
+        $scope.showGroup = false;
+        $scope.showMiddle = true;
+      } else if (section == "group"){
+        $scope.showCategory = false;
+        $scope.wordView = false;
+        $scope.studentView = false;
+        $scope.showGroup = true;
+        $scope.showMiddle = true;
+      }
     };
 
     $scope.getAll = function () {
@@ -99,7 +132,7 @@ angular.module('WordRiverApp')
 
     //cat is short for category
     $scope.displayCatInfo = function (category) {
-      $scope.showMiddle = true;
+      $scope.switchMiddle("category");
       $scope.userTiles = [];
       $scope.matchStudent = [];
       $scope.matchGroup = [];
@@ -152,9 +185,13 @@ angular.module('WordRiverApp')
           for(var j=0; j<$scope.selectedStudents[i].contextTags.length; j++){
             $scope.studentCategories.push($scope.selectedStudents[i].contextTags[j].tagName);
           }
-          alert("The student " + student.firstName + " " + student.lastName + " has the categories:\n" + $scope.studentCategories.join('\n'));
         }
       }
+    };
+
+    $scope.displayTileInfo = function (word){
+      $scope.tileSelected = word;
+      $scope.switchMiddle("word");
     };
 
     $scope.assignWords = function () {
