@@ -1,28 +1,28 @@
 'use strict';
 
-angular.module('wordRiverAppApp')
+angular.module('WordRiverApp')
   .controller('StudentProfileCtrl', function ($rootScope, $scope, $http, socket) {
-    $scope.currentStudent = $rootScope.currentStudent;
-    console.log($scope.currentStudent);
+    //$scope.currentStudent = $rootScope.currentStudent;
+    //console.log($scope.currentStudent);
 
-    $http.get('/api/things').success(function(awesomeThings) {
+    $http.get('/api/students').success(function(awesomeThings) {
       $scope.students = awesomeThings;
-      socket.syncUpdates('thing', $scope.students);
+      socket.syncUpdates('student', $scope.students);
     });
 
     $scope.addThing = function() {
       if($scope.newThing === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
+      $http.post('/api/student', { name: $scope.newThing });
       $scope.newThing = '';
     };
 
     $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+      $http.delete('/api/student/' + thing._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('student');
     });
   });
