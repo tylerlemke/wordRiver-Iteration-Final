@@ -4,6 +4,7 @@ describe('Controller: StudentProfileCtrl', function () {
 
   // load the controller's module
   beforeEach(module('wordRiverAppApp'));
+  beforeEach(module('socketMock'));
 
   var StudentProfileCtrl, scope;
 
