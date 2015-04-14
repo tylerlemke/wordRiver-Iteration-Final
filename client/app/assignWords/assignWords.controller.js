@@ -14,8 +14,11 @@ angular.module('WordRiverApp')
     $scope.matchTiles = [];
     $scope.userTiles = [];
     $scope.studentCategories = [];
+    $scope.matchGroup = [];
+    $scope.matchStudent = [];
     $scope.groupView = true;
     $scope.categoryView = true;
+    $scope.showMiddle = false;
 
     $scope.showGroupView = function(bool){
       $scope.groupView = bool;
@@ -96,6 +99,7 @@ angular.module('WordRiverApp')
 
     //cat is short for category
     $scope.displayCatInfo = function (category) {
+      $scope.showMiddle = true;
       $scope.userTiles = [];
       $scope.categorySelected = category;
       $http.get('/api/tile').success(function (allTiles) {
@@ -115,7 +119,19 @@ angular.module('WordRiverApp')
         }
       });
       for (var i=0; i<$scope.groupArray.length; i++){
-
+        for (var j=0; j<$scope.groupArray[i].contextPacks.length; j++){
+          if($scope.groupArray[i].contextPacks[j] == category){
+            $scope.matchGroup.push($scope.groupArray[i].groupName);
+          }
+        }
+      }
+      for(var k=0; k<$scope.selectedStudents.length; k++){
+        for(var l=0; l<$scope.selectedStudents[k].contextTags.length; l++){
+          console.log($scope.selectedStudents[k].contextTags.length);
+          if($scope.selectedStudents[k].contextTags[l] = category){
+            $scope.matchStudent.push($scope.selectedStudents[k]);
+          }
+        }
       }
     };
 
