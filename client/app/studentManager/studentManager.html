@@ -35,7 +35,7 @@
     <!--adapt for students-->
     <h1 class="page-header">Students in {{selectedGroupName}}:</h1>
       <li class="list-group-item" ng-repeat="student in studentsInGroup"><label>{{student.lastName}}, {{student.firstName}}</label>
-        <span class="glyphicon glyphicon-minus-sign floatRight close" style="color: #B00040" ng-click="removeStudentFromGroup('filler')"></span>
+        <span class="glyphicon glyphicon-minus-sign floatRight close unassignIconColor" style="color: red" ng-click="removeStudentFromGroup(student)"></span>
       </li>
     </ul>
     <div>

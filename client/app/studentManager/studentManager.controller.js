@@ -42,7 +42,7 @@ angular.module('WordRiverApp')
 
     $scope.addGroup = function () {
       if ($scope.groupField.length >= 1) {
-        var newGroup = {groupName: $scope.groupField, contextPacks: []}
+        var newGroup = {groupName: $scope.groupField, contextPacks: []};
         $scope.localGroupArray.push(newGroup);
         $http.patch('/api/users/' + $scope.currentUser._id + '/group',
           {groupList: $scope.localGroupArray}
@@ -212,11 +212,12 @@ angular.module('WordRiverApp')
     };
     //////////////////////////////////////////////////////////////////////////
 
-    $scope.removeStudentFromGroup = function (studentName, groupName) {
+    //making remove for students from groups.
+    $scope.removeStudentFromGroup = function (student) {
       for(var i = 0; i < $scope.studentList.length; i++){
-        if (studentName == $scope.studentList[i]){
+        if (student == $scope.currentUser.studentList[i]){
           for(var j = 0; j < $scope.currentUser.studentList[i].groupList.length; j++){
-            if(groupName == $scope.currentUser.studentList[i].groupList[j]){
+            if($scope.selectedGroupName == $scope.currentUser.studentList[i].groupList[j]){
               $scope.currentUser.studentList[i].groupList.splice(j, 1);
               break;
             }
