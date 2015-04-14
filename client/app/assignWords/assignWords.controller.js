@@ -14,8 +14,11 @@ angular.module('WordRiverApp')
     $scope.matchTiles = [];
     $scope.userTiles = [];
     $scope.studentCategories = [];
+    $scope.matchGroup = [];
+    $scope.matchStudent = [];
     $scope.groupView = true;
     $scope.categoryView = true;
+    $scope.showMiddle = false;
 
     $scope.showGroupView = function(bool){
       $scope.groupView = bool;
@@ -43,9 +46,14 @@ angular.module('WordRiverApp')
           }
         }
       });
-      for(var i = 0; i < 30; i++){
-        $scope.categoryArray.push(i)
-      }
+      $http.get('/api/tile').success(function(allTiles){
+        $scope.allTiles = allTiles;
+        for (var i = 0; i<$scope.allTiles.length; i++){
+          if($scope.allTiles[i].creatorID == $scope.currentUser._id){
+            $scope.userTiles.push($scope.allTiles[i]);
+          }
+        }
+      })
     };
     $scope.getAll();
 
@@ -91,7 +99,9 @@ angular.module('WordRiverApp')
 
     //cat is short for category
     $scope.displayCatInfo = function (category) {
+      $scope.showMiddle = true;
       $scope.userTiles = [];
+      $scope.categorySelected = category;
       $http.get('/api/tile').success(function (allTiles) {
         $scope.allTiles = allTiles;
         for (var i = 0; i < $scope.allTiles.length; i++) {
@@ -107,13 +117,22 @@ angular.module('WordRiverApp')
             }
           }
         }
-
-      if($scope.matchTiles.length > 0) {
-        alert("The tiles in the category " + category + " are:\n" + $scope.matchTiles.join('\n'));
-      } else {
-        alert("There are no tiles in this category");
-      }
       });
+      for (var i=0; i<$scope.groupArray.length; i++){
+        for (var j=0; j<$scope.groupArray[i].contextPacks.length; j++){
+          if($scope.groupArray[i].contextPacks[j] == category){
+            $scope.matchGroup.push($scope.groupArray[i].groupName);
+          }
+        }
+      }
+      for(var k=0; k<$scope.selectedStudents.length; k++){
+        for(var l=0; l<$scope.selectedStudents[k].contextTags.length; l++){
+          console.log($scope.selectedStudents[k].contextTags.length);
+          if($scope.selectedStudents[k].contextTags[l] = category){
+            $scope.matchStudent.push($scope.selectedStudents[k]);
+          }
+        }
+      }
     };
 
     $scope.displayGroupInfo = function (group){
