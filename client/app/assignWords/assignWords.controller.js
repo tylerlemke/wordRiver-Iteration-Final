@@ -2,36 +2,60 @@
 
 angular.module('WordRiverApp')
   .controller('AssignWordsCtrl', function ($rootScope, $scope, $http, socket, Auth) {
+
+    ////////////////////////////////////////////////////////////////////////////
+    //This is the section for getting all the things
+
     $scope.currentUser = Auth.getCurrentUser();
-    $scope.categoryArray = [];
-    $scope.groupArray = [];
-    $scope.selectedCategories = [];
-    $scope.selectedGroups = [];
-    $scope.selectedStudents = [];
-    $scope.studentArray = [];
-    $scope.allStudents = [];
-    $scope.checkedStudents = [];
-    $scope.matchTiles = [];
-    $scope.userTiles = [];
-    $scope.studentCategories = [];
-    $scope.matchGroup = [];
-    $scope.matchStudent = [];
+
+    $scope.getAll = function () {
+      $scope.userTiles = [];
+      $scope.categoryArray = [];
+      $scope.groupArray = [];
+      $scope.selectedStudents = [];
+      $scope.studentArray = [];
+      $scope.categoryArray = $scope.currentUser.contextPacks;
+      $scope.groupArray = $scope.currentUser.groupList;
+      $scope.studentArray = $scope.currentUser.studentList;
+      $http.get('/api/students').success(function (allStudents) {
+        $scope.allStudents = allStudents;
+        for (var i = 0; i < $scope.allStudents.length; i++) {
+          for (var j = 0; j < $scope.studentArray.length; j++) {
+            if ($scope.allStudents[i]._id == $scope.studentArray[j].studentID) {
+              $scope.selectedStudents.push($scope.allStudents[i]);
+            }
+          }
+        }
+      });
+      $http.get('/api/tile').success(function(allTiles){
+        $scope.allTiles = allTiles;
+        for (var i = 0; i<$scope.allTiles.length; i++){
+          if($scope.allTiles[i].creatorID == $scope.currentUser._id){
+            $scope.userTiles.push($scope.allTiles[i]);
+          }
+        }
+      })
+    };
+    $scope.getAll();
+
+    ////////////////////////////////////////////////////////////////////////////
+    //This is the section for switching views
+
     $scope.groupView = true;
     $scope.categoryView = true;
+
+    $scope.showGroupView = function(bool){
+      $scope.groupView = bool;
+    };
+    $scope.showCategoryView = function(bool){
+      $scope.categoryView = bool;
+    };
 
     $scope.showMiddle = false;
     $scope.wordView = false;
     $scope.studentView = false;
     $scope.showGroup = false;
     $scope.showCategory = false;
-
-    $scope.showGroupView = function(bool){
-      $scope.groupView = bool;
-    };
-
-    $scope.showCategoryView = function(bool){
-      $scope.categoryView = bool;
-    };
 
     $scope.switchMiddle = function(section){
       if(section == "category"){
@@ -61,35 +85,8 @@ angular.module('WordRiverApp')
       }
     };
 
-    $scope.getAll = function () {
-      $scope.categoryArray = [];
-      $scope.groupArray = [];
-      $scope.selectedStudents = [];
-      $scope.studentArray = [];
-      $scope.categoryArray = $scope.currentUser.contextPacks;
-      $scope.groupArray = $scope.currentUser.groupList;
-      $scope.studentArray = $scope.currentUser.studentList;
-      $http.get('/api/students').success(function (allStudents) {
-        $scope.allStudents = allStudents;
-        for (var i = 0; i < $scope.allStudents.length; i++) {
-          for (var j = 0; j < $scope.studentArray.length; j++) {
-            if ($scope.allStudents[i]._id == $scope.studentArray[j].studentID) {
-              $scope.selectedStudents.push($scope.allStudents[i]);
-            }
-          }
-        }
-      });
-      $http.get('/api/tile').success(function(allTiles){
-        $scope.allTiles = allTiles;
-        for (var i = 0; i<$scope.allTiles.length; i++){
-          if($scope.allTiles[i].creatorID == $scope.currentUser._id){
-            $scope.userTiles.push($scope.allTiles[i]);
-          }
-        }
-      })
-    };
-    $scope.getAll();
-
+    ////////////////////////////////////////////////////////////////////////////
+    //This is the section for checking boxes
 
     $scope.checkCategories = function (category) {
       var counter;
@@ -129,6 +126,9 @@ angular.module('WordRiverApp')
         $scope.checkedStudents.push(student);
       }
     };
+
+    ////////////////////////////////////////////////////////////////////////////
+    //This is the section for switching information in the middle
 
     //cat is short for category
     $scope.displayCatInfo = function (category) {
@@ -173,7 +173,6 @@ angular.module('WordRiverApp')
     $scope.displayGroupInfo = function (group){
       for(var i =0; i<$scope.groupArray.length; i++){
         if($scope.groupArray[i].groupName == group){
-          alert("The group " + group + " has the categories:\n" + $scope.groupArray[i].contextPacks.join('\n'));
         }
       }
     };
@@ -193,6 +192,9 @@ angular.module('WordRiverApp')
       $scope.tileSelected = word;
       $scope.switchMiddle("word");
     };
+
+    ////////////////////////////////////////////////////////////////////////////
+    //This is the section for the assign function and its helpers
 
     $scope.assignWords = function () {
       $scope.individualStudentCategories = [];
@@ -249,5 +251,4 @@ angular.module('WordRiverApp')
         }
       }
     };
-
   });
