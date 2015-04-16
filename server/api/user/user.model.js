@@ -14,7 +14,11 @@ var UserSchema = new Schema({
   hashedPassword: String,
   provider: String,
   salt: String,
-  contextPacks: [], //List of tags that can be applied to tiles
+  contextPacks: [],
+//  contextPacks: [{
+//      contextPackName: String,
+//      wordType: Boolean
+//  }],
   groupList: [{
     groupName: String,
     contextPacks: []

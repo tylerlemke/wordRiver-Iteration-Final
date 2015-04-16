@@ -882,8 +882,6 @@ Tile.find({}).remove(function() {
       "active": false,
       "wordType": "Adjective"
     },
-
-
     {
     "_id": "552d5c8011d58a4ad979d9b0",
       "name": "Conductor",
