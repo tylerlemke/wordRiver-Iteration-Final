@@ -16,6 +16,8 @@ angular.module('WordRiverApp')
     $scope.order = true;
     $scope.currentCategory = null;
     $scope.currentTile = null;
+    $scope.wordToEdit = null;
+    $scope.showValue = true;
     //$scope.selectedCategories = [];
 
     $scope.confirmDelete = function(index) {
@@ -172,9 +174,16 @@ angular.module('WordRiverApp')
       $http.delete('/api/tile/'+ $scope.wordToRemove._id);
       $scope.getWords();
     };
-  });
 
 
+    $scope.editWord = function(index){
+        $scope.editWordIndex = index;
+        $scope.showValue = false;
+        $scope.wordToEdit = $scope.userTiles[index];
+
+    };
+
+    });
 //exports.deleteTile = function(req, res, next) {
 //  var userId = req.user._id;
 //

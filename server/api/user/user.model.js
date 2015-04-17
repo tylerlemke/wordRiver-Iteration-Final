@@ -16,7 +16,7 @@ var UserSchema = new Schema({
   salt: String,
   contextPacks: [],
 //  contextPacks: [{
-//      contextPackName: String,
+//      packName: String,
 //      wordType: Boolean
 //  }],
   groupList: [{
